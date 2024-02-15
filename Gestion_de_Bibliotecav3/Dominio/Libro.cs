@@ -10,7 +10,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
         private int iID;
         private string iISBN;
         private string iNombre;
-        private DateTime iFechaPublicacion;
+        private string iFechaPublicacion;
         public Editorial iEditorial;
         public virtual ICollection<Autor> Autores { get; set; } = new List<Autor>();
         public virtual ICollection<Categoria> Categorias { get; set; } = new List<Categoria>();
@@ -23,7 +23,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
 
         public Libro() { }
 
-        public Libro(string pISBN, string pNombre, DateTime pFechaPublicacion)
+        public Libro(string pISBN, string pNombre, string pFechaPublicacion)
         {
             iISBN = pISBN;
             iNombre = pNombre;
@@ -48,7 +48,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
             set { this.iNombre = value; }
         }
 
-        public DateTime FechaPublicacion
+        public string FechaPublicacion
         {
             get { return this.iFechaPublicacion; }
             set { this.iFechaPublicacion = value; }
