@@ -11,7 +11,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
 {
     internal class ControladorPrestamos
     {
-        ServicioPrestamos servicioPrestamos = new ServicioPrestamos();
+        ServicioPrestamo servicioPrestamos = new ServicioPrestamo();
         ServicioEjemplar servicioEjemplar = new ServicioEjemplar();
         ServicioUsuario servicioUsuario = new ServicioUsuario();
 
@@ -34,6 +34,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
         {
+            // EL prestamo se deberia armar en el servicio
             Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
             servicioPrestamos.Agregar(prestamo);
         }
@@ -48,9 +49,9 @@ namespace Gestion_de_Bibliotecav3.Controladores
             servicioPrestamos.Eliminar(prestamo);
         }
 
-        public void RegistrarDevolucionPrestamo(Prestamo prestamo)
+        public void RegistrarDevolucionPrestamo(Prestamo prestamo, Estado estado)
         {
-            servicioPrestamos.RegistrarDevolucionPrestamo(prestamo);
+            servicioPrestamos.RegistrarDevolucionPrestamo(prestamo, estado);
         }
 
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla

@@ -4,6 +4,13 @@ using System.Text;
 
 namespace Gestion_de_Bibliotecav3.Dominio
 {
+    public enum Estado
+    { 
+        Bueno,
+        Regular,
+        Arruinado
+    }
+
     public class Ejemplar
     {
         private int iID;
@@ -11,6 +18,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
         private DateTime iFechaAlta;
         private DateTime? iFechaBaja;
         private Boolean iDisponibilidad;
+        private Estado iEstado;
         private Libro iLibro;
         public virtual ICollection<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
 
@@ -25,6 +33,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
             iFechaBaja = null;
             iLibro = pLibro;
             iDisponibilidad = true;
+            iEstado = Estado.Bueno;
         }
 
         public int ID
@@ -63,6 +72,10 @@ namespace Gestion_de_Bibliotecav3.Dominio
             set { this.iDisponibilidad = value; }
         }
 
-
+        public Estado Estado
+        {
+            get { return this.iEstado; }
+            set { this.iEstado = value; }
+        }
     }
 }

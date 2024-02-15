@@ -11,11 +11,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Gestion_de_Bibliotecav3.Servicios
 {
-    internal class ServicioPrestamos
+    internal class ServicioPrestamo
     {
         private RepositorioPrestamos repositorioPrestamos;
         private RepositorioUsuarios repositorioUsuarios;
         private ServicioUsuario servicioUsuario;
+        private ServicioEjemplar servicioEjemplar;
 
         public Prestamo findById(int id)
         {
@@ -113,25 +114,42 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return (fechaHoy.AddDays(VariablesGlobales.duracionPrestamoBase + servicioUsuario.ObtenerDiasExtra(dni)));
         }
 
-        public void RegistrarDevolucionPrestamo(Prestamo prestamo)
+        public void RegistrarDevolucionPrestamo(Prestamo prestamo, Estado estado)
         {
             prestamo.FechaDevolucion = DateTime.Now;
+            prestamo.Ejemplar.Disponibilidad = true;
             DateTime fechaHoy = DateTime.Now.Date;
+            DateTime fechaEntregaBase = prestamo.FechaEntrega.AddDays(VariablesGlobales.duracionPrestamoBase).Date;
 
+            /* Verificacion si se paso la fecha de vencimiento */
             if (fechaHoy > prestamo.FechaVencimiento.Date)
             {
                 prestamo.Usuario.Score -= (fechaHoy.Date - prestamo.FechaVencimiento.Date).Days * VariablesGlobales.puntosPorDiaDeMora;
             }
-            
-            if (fechaHoy.Date > prestamo.FechaEntrega.AddDays(VariablesGlobales.duracionPrestamoBase).Date)
+            /* Verificacion si el usuario ocupo dias extras por su puntaje: se tiene en cuenta que pudo haberlo devuelto pasada la fecha de vencimiento */
+            if (fechaHoy.Date > fechaEntregaBase)
             {
-                for (DateTime i = prestamo.FechaEntrega.AddDays(VariablesGlobales.duracionPrestamoBase).Date; i > fechaHoy.Date || i > prestamo.FechaVencimiento.Date; i.AddDays(1))
+                for (DateTime i = fechaEntregaBase; i > fechaHoy.Date || i > prestamo.FechaVencimiento.Date; i.AddDays(1))
                 {
                     prestamo.Usuario.Score -= VariablesGlobales.puntosParaDiaExtra;
                 }
             }
-            
-            // Evaluar estado
+
+            /* Verificacion del estado y si se cumplen las dos condiciones para premiar por una correcta devolucion */
+            if (estado > prestamo.Ejemplar.Estado)
+            {
+                prestamo.Usuario.Score -= VariablesGlobales.puntosPorMalEstado;
+                prestamo.Ejemplar.Estado = estado;
+            }
+            else if (fechaHoy.Date < prestamo.FechaVencimiento.Date)
+            {
+                prestamo.Usuario.Score += VariablesGlobales.puntosPorCorrectaDevolucion;
+            }
+
+            /* Actualizacion del score, el prestamo y el ejemplar */
+            servicioUsuario.Actualizar(prestamo.Usuario);
+            servicioEjemplar.Actualizar(prestamo.Ejemplar);
+            this.Actualizar(prestamo);
         }
     }
 }

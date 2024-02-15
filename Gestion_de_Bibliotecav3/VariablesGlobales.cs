@@ -11,5 +11,7 @@ namespace Gestion_de_Bibliotecav3
         public static int duracionPrestamoBase { get; set; }
         public static int puntosPorDiaDeMora { get; set; }
         public static int puntosParaDiaExtra {  get; set; }
+        public static int puntosPorMalEstado { get; set; }
+        public static int puntosPorCorrectaDevolucion { get; set; }
     }
 }
