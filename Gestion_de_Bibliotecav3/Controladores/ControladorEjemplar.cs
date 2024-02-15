@@ -51,18 +51,13 @@ namespace Gestion_de_Bibliotecav3.Controladores
             bool canConvert = long.TryParse(isbnONombre, out number1);
             if (canConvert)
             {
-                listaEjemplares = servicioEjemplar.buscarPorISBN(isbnONombre);
+                listaEjemplares = servicioEjemplar.BuscarEjemplarPorISBN(isbnONombre);
             }
             else
             {
-                // obtener = servicioEjemplar. buscar por nombre con el string isbnONombre
+                listaEjemplares = servicioEjemplar.BuscarEjemplarPorNombre(isbnONombre);
             }
             return listaEjemplares;
-        }
-
-        public void BuscarLibrosPorIsbnONombre()
-        {
-            //servicioEjemplar. buscar libros
         }
 
         public void ModificarEjemplar(string codigo, string fechaBaja, string disponibilidad)// necesito un nuevo constructor de ejemplar para poder cargarle una fecha de baja
@@ -76,11 +71,6 @@ namespace Gestion_de_Bibliotecav3.Controladores
             //servicioEjemplar.buscarEjemplar por codigo
             Ejemplar ejemplar = new Ejemplar();
             servicioEjemplar.Eliminar(ejemplar);
-        }
-
-        public List<Editorial> BuscarEditoriales(string nombre)
-        {
-            return servicioEjemplar.BuscarEditoriales(nombre);
         }
     }
 }
