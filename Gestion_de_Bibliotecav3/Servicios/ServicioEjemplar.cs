@@ -56,9 +56,14 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
-        public List<Ejemplar> buscarPorISBN(string isbn)
+        public Ejemplar BuscarEjemplarPorISBN(string isbn)
         {
-            return repositorioEjemplar.buscarPorISBN(isbn);
+            return repositorioEjemplar.BuscarEjemplarPorISBN(isbn);
+        }
+
+        public List<Ejemplar> BuscarEjemplarPorNombre(string nombre)
+        {
+            return repositorioEjemplar.BuscarEjemplaresPorNombre(nombre);
         }
 
         public List<Categoria> BuscarCategorias(string nombre) //Capaz deberiamos de dejar este metodo en el servicio Categoria
