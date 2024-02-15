@@ -11,6 +11,8 @@ namespace Gestion_de_Bibliotecav3
         static void Main()
         {
             VariablesGlobales.duracionPrestamoBase = 5;
+            VariablesGlobales.puntosParaDiaExtra = 5;
+            VariablesGlobales.puntosPorDiaDeMora = 2;
             //ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
 

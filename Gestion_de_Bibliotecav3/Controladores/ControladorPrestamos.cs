@@ -32,9 +32,9 @@ namespace Gestion_de_Bibliotecav3.Controladores
             return prestamos;
         }
 
-        public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario)
+        public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
         {
-            Prestamo prestamo = new Prestamo(usuario, ejemplar);
+            Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
             servicioPrestamos.Agregar(prestamo);
         }
 
@@ -48,9 +48,9 @@ namespace Gestion_de_Bibliotecav3.Controladores
             servicioPrestamos.Eliminar(prestamo);
         }
 
-        public void RegistrarDevolucion()
+        public void RegistrarDevolucionPrestamo(Prestamo prestamo)
         {
-
+            servicioPrestamos.RegistrarDevolucionPrestamo(prestamo);
         }
 
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla
@@ -58,7 +58,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
             return servicioPrestamos.ejemplaresUsuario(usuario);
         }
 
-        public string AsignarVencimiento(int dni)
+        public DateTime AsignarVencimiento(int dni)
         {
             return servicioPrestamos.AsignarVencimiento(dni);
         }

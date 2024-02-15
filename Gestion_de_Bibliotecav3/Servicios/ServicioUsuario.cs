@@ -85,7 +85,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         public int ObtenerDiasExtra(int dni)
         {
             Usuario usuario = repositorioUsuarios.obtenerPorDni(dni);
-            return (int)Math.Floor((double)(usuario.Score / VariablesGlobales.duracionPrestamoBase));
+            return (int)Math.Floor((double)(usuario.Score / VariablesGlobales.puntosParaDiaExtra));
         }
     }
 }

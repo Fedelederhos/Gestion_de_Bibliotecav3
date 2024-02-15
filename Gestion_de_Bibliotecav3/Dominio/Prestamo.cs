@@ -19,10 +19,10 @@ namespace Gestion_de_Bibliotecav3.Dominio
 
         public Prestamo() { }
 
-        public Prestamo(Usuario pUsuario, Ejemplar pEjemplar)
+        public Prestamo(Usuario pUsuario, Ejemplar pEjemplar, DateTime pFechaVencimiento)
         {
             iFechaEntrega = DateTime.Now;
-            // iFechaVencimiento = metodo calcular en base a score usuario;
+            iFechaVencimiento = pFechaVencimiento;
             iFechaDevolucion = null;
             iEjemplar = pEjemplar;
             iUsuario = pUsuario;

@@ -1,6 +1,7 @@
 ﻿using Gestion_de_Bibliotecav3.DAL;
 using Gestion_de_Bibliotecav3.DAL.EntityFramework;
 using Gestion_de_Bibliotecav3.Dominio;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -106,10 +107,31 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
-        public string AsignarVencimiento(int dni)
+        public DateTime AsignarVencimiento(int dni)
         { 
             DateTime fechaHoy = DateTime.Today;
-            return (fechaHoy.AddDays(VariablesGlobales.duracionPrestamoBase + servicioUsuario.ObtenerDiasExtra(dni))).ToString("dd/mm/yyyy");
+            return (fechaHoy.AddDays(VariablesGlobales.duracionPrestamoBase + servicioUsuario.ObtenerDiasExtra(dni)));
+        }
+
+        public void RegistrarDevolucionPrestamo(Prestamo prestamo)
+        {
+            prestamo.FechaDevolucion = DateTime.Now;
+            DateTime fechaHoy = DateTime.Now.Date;
+
+            if (fechaHoy > prestamo.FechaVencimiento.Date)
+            {
+                prestamo.Usuario.Score -= (fechaHoy.Date - prestamo.FechaVencimiento.Date).Days * VariablesGlobales.puntosPorDiaDeMora;
+            }
+            
+            if (fechaHoy.Date > prestamo.FechaEntrega.AddDays(VariablesGlobales.duracionPrestamoBase).Date)
+            {
+                for (DateTime i = prestamo.FechaEntrega.AddDays(VariablesGlobales.duracionPrestamoBase).Date; i > fechaHoy.Date || i > prestamo.FechaVencimiento.Date; i.AddDays(1))
+                {
+                    prestamo.Usuario.Score -= VariablesGlobales.puntosParaDiaExtra;
+                }
+            }
+            
+            // Evaluar estado
         }
     }
 }
