@@ -12,20 +12,20 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
         }
 
-        public List<Ejemplar> BuscarEjemplarPorISBN(string isbn)
+        public Ejemplar BuscarEjemplarPorISBN(string isbn)
         {
             List<Ejemplar> ejemplares = (List<Ejemplar>)GetAll();
-            List<Ejemplar> ejemplaresEncontrados = new List<Ejemplar>();
+            Ejemplar ejemplarEncotnrado = new Ejemplar();
 
             foreach (Ejemplar ejemplar in ejemplares)
             {
                 if (ejemplar.Libro.ISBN == isbn)
                 {
-                    ejemplaresEncontrados.Add(ejemplar);
+                    ejemplarEncotnrado = ejemplar;
                 }
             }
 
-            return ejemplaresEncontrados;
+            return ejemplarEncotnrado;
         }
 
         public List<Ejemplar> BuscarEjemplaresPorNombre(string nombre)

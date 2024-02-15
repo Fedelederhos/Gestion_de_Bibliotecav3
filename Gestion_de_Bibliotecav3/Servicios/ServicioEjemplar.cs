@@ -56,7 +56,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
-        public List<Ejemplar> BuscarEjemplarPorISBN(string isbn)
+        public Ejemplar BuscarEjemplarPorISBN(string isbn)
         {
             return repositorioEjemplar.BuscarEjemplarPorISBN(isbn);
         }

@@ -11,27 +11,23 @@ namespace Gestion_de_Bibliotecav3.Controladores
     internal class ControladorEjemplar
     {
         ServicioEjemplar servicioEjemplar;
-        //Búsqueda de Libro en API por ISBN o por nombre
-        public Libro ObtenerLibroAPI(string isbnONombre)
-        {
-            Libro obtener = new Libro();
-            long number1 = 0;
-            bool canConvert = long.TryParse(isbnONombre, out number1);
-            if (canConvert)
-            {
-                //obtener = servicioEjemplar. buscar por isbn con el string isbnONombre
-            }
-            else
-            {
-                // obtener = servicioEjemplar. buscar por nombre con el string isbnONombre
-            }
-            return obtener;
-        }
 
-        public void CrearEjemplar(Libro libro, string codigo)
+        public void CrearEjemplar(Ejemplar ejemplar)
         {
-            Ejemplar ejemplar = new Ejemplar(int.Parse(codigo), libro);
-            servicioEjemplar.Agregar(ejemplar);
+            try
+            {
+                servicioEjemplar.Agregar(ejemplar);
+                //La pantalla deberia mostrar que se agregó con exito.
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+            }
+
         }
 
         public List<Categoria> BuscarCategorias(string categoria)
@@ -39,38 +35,54 @@ namespace Gestion_de_Bibliotecav3.Controladores
             return servicioEjemplar.BuscarCategorias(categoria);
         }
 
-        /*public List<Ejemplar> BuscarEjemplaresPorCodigo()
-        {
-            
-        }*/
-
         public List<Ejemplar> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
         {
-            List<Ejemplar> listaEjemplares = null;
+            List<Ejemplar> listaEjemplares = new List<Ejemplar>();
             long number1 = 0;
             bool canConvert = long.TryParse(isbnONombre, out number1);
             if (canConvert)
             {
-                listaEjemplares = servicioEjemplar.BuscarEjemplarPorISBN(isbnONombre);
+                listaEjemplares.Add(servicioEjemplar.BuscarEjemplarPorISBN(isbnONombre));
             }
             else
             {
-                listaEjemplares = servicioEjemplar.BuscarEjemplarPorNombre(isbnONombre);
+                listaEjemplares.AddRange(servicioEjemplar.BuscarEjemplarPorNombre(isbnONombre));
             }
             return listaEjemplares;
         }
 
-        public void ModificarEjemplar(string codigo, string fechaBaja, string disponibilidad)// necesito un nuevo constructor de ejemplar para poder cargarle una fecha de baja
+        public void ModificarEjemplar(Ejemplar ejemplar)// necesito un nuevo constructor de ejemplar para poder cargarle una fecha de baja
         {
-            Ejemplar ejemplar = new Ejemplar();
-            servicioEjemplar.Actualizar(ejemplar);
+            try
+            {
+                servicioEjemplar.Actualizar(ejemplar);
+                // Mensaje de exito
+            }
+            catch (SystemException s)
+            {
+                // Algun parametro esta mal (id o no existe)
+            }
+            catch (Exception e)
+            {
+                // Se debe mostrar este error "e.Message.ToString()"
+            }
         }
 
-        public void EliminarEjemplar(string codigo)
+        public void EliminarEjemplar(Ejemplar ejemplar)
         {
-            //servicioEjemplar.buscarEjemplar por codigo
-            Ejemplar ejemplar = new Ejemplar();
-            servicioEjemplar.Eliminar(ejemplar);
+            try
+            {
+                servicioEjemplar.Eliminar(ejemplar);
+                // Mensaje de exito
+            }
+            catch (SystemException s)
+            {
+                // Algun parametro esta mal (id o no existe)
+            }
+            catch (Exception e)
+            {
+                // Se debe mostrar este error "e.Message.ToString()"
+            }
         }
     }
 }
