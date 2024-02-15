@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Gestion_de_Bibliotecav3.Servicios
 {
@@ -13,6 +14,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
     {
         private RepositorioPrestamos repositorioPrestamos;
         private RepositorioUsuarios repositorioUsuarios;
+        private ServicioUsuario servicioUsuario;
 
         public Prestamo findById(int id)
         {
@@ -102,6 +104,12 @@ namespace Gestion_de_Bibliotecav3.Servicios
                 return ejemplares;
             }
             throw new SystemException();
+        }
+
+        public string AsignarVencimiento(int dni)
+        { 
+            DateTime fechaHoy = DateTime.Today;
+            return (fechaHoy.AddDays(VariablesGlobales.duracionPrestamoBase + servicioUsuario.ObtenerDiasExtra(dni))).ToString("dd/mm/yyyy");
         }
     }
 }

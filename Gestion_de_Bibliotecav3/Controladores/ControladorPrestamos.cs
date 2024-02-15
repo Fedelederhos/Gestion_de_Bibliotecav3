@@ -43,7 +43,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
             return servicioPrestamos.ProximosAVencerse();
         }
 
-        public void EliminarPrestatmo(Prestamo prestamo)
+        public void EliminarPrestamo(Prestamo prestamo)
         {
             servicioPrestamos.Eliminar(prestamo);
         }
@@ -56,6 +56,11 @@ namespace Gestion_de_Bibliotecav3.Controladores
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla
         {
             return servicioPrestamos.ejemplaresUsuario(usuario);
+        }
+
+        public string AsignarVencimiento(int dni)
+        {
+            return servicioPrestamos.AsignarVencimiento(dni);
         }
     }
 }

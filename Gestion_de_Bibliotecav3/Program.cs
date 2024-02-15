@@ -10,6 +10,7 @@ namespace Gestion_de_Bibliotecav3
         [STAThread]
         static void Main()
         {
+            VariablesGlobales.duracionPrestamoBase = 5;
             //ApplicationConfiguration.Initialize();
             //Application.Run(new Form1());
 
