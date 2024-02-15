@@ -31,7 +31,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            string codigo = obtenerSeleccionado(sender, e);
+            
             //método eliminar a partir de un código
         }
 
@@ -40,26 +40,5 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             //busqueda de ejemplares por código
         }
 
-        private string obtenerSeleccionado(object sender, EventArgs e)
-        {
-            string cell = null;
-            // Verificar si hay al menos una fila seleccionada
-            if (gridEjemplar.SelectedRows.Count > 0)
-            {
-                // Obtener la primera fila seleccionada (puedes ajustarlo según tus necesidades)
-                DataGridViewRow selectedRow = gridEjemplar.SelectedRows[0];
-
-                // Obtener el valor de una celda específica (por ejemplo, la primera celda en este caso)
-                object cellValue = selectedRow.Cells["codigo"].Value;
-
-                // Verificar si la celda tiene un valor antes de usarlo
-                if (cellValue == null)
-                {
-                    MessageBox.Show("La celda seleccionada está vacía.");
-                }
-                cell = cellValue.ToString();
-            }
-            return cell;
-        }
     }
 }

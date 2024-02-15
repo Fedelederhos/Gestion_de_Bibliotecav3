@@ -108,7 +108,6 @@
             textBusqueda.Name = "textBusqueda";
             textBusqueda.Size = new Size(83, 23);
             textBusqueda.TabIndex = 6;
-            textBusqueda.TextChanged += textBusqueda_TextChanged;
             // 
             // buttonBuscar
             // 
@@ -252,7 +251,6 @@
             Controls.Add(panelTabla);
             Name = "GestionEjemplarForm";
             Text = "Gestión de Ejemplares";
-            Load += GestionEjemplarForm_Load;
             panelTabla.ResumeLayout(false);
             panelTabla.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gridEjemplar).EndInit();
