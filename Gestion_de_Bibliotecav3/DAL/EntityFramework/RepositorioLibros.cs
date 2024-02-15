@@ -90,7 +90,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             //Si no existe lo creo
             if (!ExisteIsbn(isbn))
             {
-                DateTime fechaPublicacion = new DateTime(doc.FirstPublishYear, 1, 1);
+                string fechaPublicacion = (doc.FirstPublishYear).ToString();
                 Libro libro = new Libro(isbn, doc.Title, fechaPublicacion);
                 Agregar(libro);
                 return libro;
