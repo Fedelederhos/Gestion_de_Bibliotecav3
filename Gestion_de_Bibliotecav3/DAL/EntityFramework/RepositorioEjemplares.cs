@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 {
@@ -48,5 +49,19 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             return null;
         }
 
+        public Ejemplar BuscarPorCodigo(int codigo)
+        {
+            List<Ejemplar> ejemplares = (List<Ejemplar>)GetAll();
+            Ejemplar buscado = new Ejemplar();
+
+            foreach (Ejemplar ejemplar in ejemplares)
+            {
+                if (ejemplar.Codigo == codigo)
+                {
+                    return buscado = ejemplar;
+                }
+            }
+            return buscado;
+        }
     }
 }
