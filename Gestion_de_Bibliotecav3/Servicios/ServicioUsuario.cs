@@ -15,20 +15,12 @@ namespace Gestion_de_Bibliotecav3.Servicios
 
         public Usuario Get(int id)
         {
-            if (id != null)
-            {
                 return repositorioUsuarios.Get(id);
-            }
-            throw new SystemException();
         }
 
         public Usuario obtenerPorDni(int dni)
         {
-            if (dni != null)
-            {
                 return repositorioUsuarios.obtenerPorDni(dni);
-            }
-            throw new SystemException();
         }
 
         public List<Usuario> GetAll()
@@ -86,6 +78,11 @@ namespace Gestion_de_Bibliotecav3.Servicios
         {
             Usuario usuario = repositorioUsuarios.obtenerPorDni(dni);
             return (int)Math.Floor((double)(usuario.Score / VariablesGlobales.puntosParaDiaExtra));
+        }
+
+        public List<Usuario> obtenerPorNombre(string nombre)
+        {
+            return repositorioUsuarios.obtenerPorNombre(nombre);
         }
     }
 }
