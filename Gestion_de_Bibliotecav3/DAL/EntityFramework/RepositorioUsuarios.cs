@@ -55,7 +55,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
             foreach (Usuario usuario in usuarios)
             {
-                if (usuario.Nombre.Contains(nombre))
+                if (usuario.Nombre.Contains(nombre) && !usuario.Baja)
                 {
                     usuarioBuscado.Add(usuario);
                 }

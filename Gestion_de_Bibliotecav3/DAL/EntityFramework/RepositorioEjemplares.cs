@@ -20,7 +20,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
             foreach (Ejemplar ejemplar in ejemplares)
             {
-                if (ejemplar.Libro.ISBN == isbn)
+                if (ejemplar.Libro.ISBN == isbn && ejemplar.FechaBaja != null)
                 {
                     ejemplarEncotnrado = ejemplar;
                 }
@@ -36,7 +36,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
             foreach (Ejemplar ejemplar in ejemplares)
             {
-                if (ejemplar.Libro.Nombre.Contains(nombre))
+                if (ejemplar.Libro.Nombre.Contains(nombre) && ejemplar.FechaBaja != null)
                 {
                     buscados.Add(ejemplar);
                 }
@@ -56,7 +56,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
             foreach (Ejemplar ejemplar in ejemplares)
             {
-                if (ejemplar.Codigo == codigo)
+                if (ejemplar.Codigo == codigo && ejemplar.FechaBaja != null)
                 {
                     return buscado = ejemplar;
                 }
