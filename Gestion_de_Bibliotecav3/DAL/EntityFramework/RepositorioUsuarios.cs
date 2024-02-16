@@ -1,6 +1,7 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
@@ -47,5 +48,20 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             Eliminar(usuario.ID, usuario);
         }
 
+        public List<Usuario> obtenerPorNombre(string nombre)
+        {
+            List<Usuario> usuarios = (List<Usuario>)GetAll();
+            List<Usuario> usuarioBuscado = new List<Usuario>();
+
+            foreach (Usuario usuario in usuarios)
+            {
+                if (usuario.Nombre.Contains(nombre))
+                {
+                    usuarioBuscado.Add(usuario);
+                }
+            }
+
+            return usuarioBuscado;
+        }
     }
 }
