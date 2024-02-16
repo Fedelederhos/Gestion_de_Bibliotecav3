@@ -14,7 +14,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
     public class Ejemplar
     {
         private int iID;
-        private int iCodigo;
+        private string iCodigo;
         private DateTime iFechaAlta;
         private DateTime? iFechaBaja;
         private Boolean iDisponibilidad;
@@ -26,7 +26,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
 
         public Ejemplar() { }
 
-        public Ejemplar(int pCodigo, Libro pLibro)
+        public Ejemplar(string pCodigo, Libro pLibro)
         {
             iCodigo = pCodigo;
             iFechaAlta = DateTime.Now;
@@ -48,7 +48,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
             set { this.iLibro = value; }
         }
 
-        public int Codigo
+        public string Codigo
         {
             get { return this.iCodigo; }
             set { this.iCodigo = value; }

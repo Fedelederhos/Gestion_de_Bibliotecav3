@@ -15,21 +15,14 @@ namespace Gestion_de_Bibliotecav3.Controladores
         ServicioEjemplar servicioEjemplar = new ServicioEjemplar();
         ServicioUsuario servicioUsuario = new ServicioUsuario();
 
-        public List<Prestamo> BuscarPrestamos(string codigoONombre)
-        {
-            List<Prestamo> prestamos = new List<Prestamo>();
-            int number1 = 0;
-            bool canConvert = int.TryParse(codigoONombre, out number1);
-            if (canConvert)
-            {
-                prestamos = servicioPrestamos.BuscarPorCodigoEjemplar(int.Parse(codigoONombre));
-            }
-            else
-            {
-                prestamos = servicioPrestamos.BuscarPorNombreEjemplar(codigoONombre);
-            }
+        public Prestamo BuscarPrestamoPorID(int id)
+        { 
+            return servicioPrestamos.BuscarPrestamoPorID(id);
+        }
 
-            return prestamos;
+        public List<Prestamo> BuscarPrestamosPorCodigoODNI(string codigoODNI)
+        {
+            return servicioPrestamos.BuscarPrestamosPorCodigoODNI(codigoODNI);
         }
 
         public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
