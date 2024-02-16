@@ -29,7 +29,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             return prestamosIntervalo;
         }
 
-        public List<Prestamo> buscarPorCodigoEjemplar(int codigo)
+        public List<Prestamo> BuscarPrestamoPorCodigoEjemplar(string codigo)
         {
             List<Prestamo> prestamos = (List<Prestamo>)GetAll();
             List<Prestamo> prestamosCodigo = new List<Prestamo>();
@@ -43,6 +43,23 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             }
 
             return prestamosCodigo;
+
+        }
+
+        public List<Prestamo> BuscarPrestamoPorDNI(int codigo)
+        {
+            List<Prestamo> prestamos = (List<Prestamo>)GetAll();
+            List<Prestamo> prestamosDNI = new List<Prestamo>();
+
+            foreach (Prestamo prestamo in prestamos)
+            {
+                if (prestamo.Usuario.DNI == codigo)
+                {
+                    prestamosDNI.Add(prestamo);
+                }
+            }
+
+            return prestamosDNI;
 
         }
 

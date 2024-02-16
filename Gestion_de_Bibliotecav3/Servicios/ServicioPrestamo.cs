@@ -18,7 +18,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         private ServicioUsuario servicioUsuario;
         private ServicioEjemplar servicioEjemplar;
 
-        public Prestamo findById(int id)
+        public Prestamo BuscarPrestamoPorID(int id)
         {
             return repositorioPrestamos.Get(id);
         }
@@ -66,13 +66,39 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return repositorioPrestamos.buscarPorFechas(fechaHoy, fechaEnUnaSemana);
         }
 
-        public List<Prestamo> BuscarPorCodigoEjemplar(int codigo)
+        public List<Prestamo> BuscarPrestamoPorCodigoEjemplar(string codigo)
         {
             if (codigo != null)
             {
-                return repositorioPrestamos.buscarPorCodigoEjemplar(codigo);
+                return repositorioPrestamos.BuscarPrestamoPorCodigoEjemplar(codigo);
             }
             throw new SystemException();
+        }
+
+        public List<Prestamo> BuscarPrestamoPorDNI(int DNI)
+        {
+            if (DNI != null)
+            {
+                return repositorioPrestamos.BuscarPrestamoPorDNI(DNI);
+            }
+            throw new SystemException();
+        }
+
+        public List<Prestamo> BuscarPrestamosPorCodigoODNI(string codigoODNI)
+        {
+            List<Prestamo> prestamos = new List<Prestamo>();
+            int number1 = 0;
+            bool canConvert = int.TryParse(codigoODNI, out number1);
+            if (canConvert)
+            {
+                prestamos = this.BuscarPrestamoPorDNI(int.Parse(codigoODNI));
+            }
+            else
+            {
+                prestamos = this.BuscarPrestamoPorCodigoEjemplar(codigoODNI);
+            }
+
+            return prestamos;
         }
 
         public List<Prestamo> BuscarPorNombreEjemplar(string nombre)
