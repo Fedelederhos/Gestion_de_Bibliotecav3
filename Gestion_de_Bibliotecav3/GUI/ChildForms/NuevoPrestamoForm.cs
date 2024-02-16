@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,12 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class NuevoPrestamoForm : Form
     {
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+        ControladorUsuario controladorUsuario = new ControladorUsuario();
+        ControladorPrestamos controladorPrestamos = new ControladorPrestamos();
+        Ejemplar ejemplar;
+        string codigoEjemplar;
+        Usuario usuario;
         public NuevoPrestamoForm()
         {
             InitializeComponent();
@@ -52,41 +60,37 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            //metodo de buscar
-            //metodo de cargar resultado en la tabka
+            List<Ejemplar> list = new List<Ejemplar>();
+            list = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(textBox1.Text);
+            cargarTabla(list);
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            string codigo = obtenerSeleccionado(sender, e);
-            string dni = textBoxDNI.Text;
-            // guardar nuevo prestamo
+            controladorPrestamos.NuevoPrestamo(ejemplar, usuario);
         }
 
         private void buttonBuscarUsuario_Click(object sender, EventArgs e)
         {
-            //mostrar que el dni es válido
+            string dni = textBoxDNI.Text;
+            usuario = controladorUsuario.obtenerUsuario(dni);
+
         }
-        private string obtenerSeleccionado(object sender, EventArgs e)
+
+        private void gridEjemplares_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string cell = null;
-            // Verificar si hay al menos una fila seleccionada
-            if (gridEjemplares.SelectedRows.Count > 0)
+            if (e.RowIndex >= 0)
             {
-                // Obtener la primera fila seleccionada (puedes ajustarlo según tus necesidades)
-                DataGridViewRow selectedRow = gridEjemplares.SelectedRows[0];
-
-                // Obtener el valor de una celda específica (por ejemplo, la primera celda en este caso)
-                object cellValue = selectedRow.Cells["codigo"].Value;
-
-                // Verificar si la celda tiene un valor antes de usarlo
-                if (cellValue == null)
-                {
-                    MessageBox.Show("La celda seleccionada está vacía.");
-                }
-                cell = cellValue.ToString();
+                // Obtener la fila clickeada
+                DataGridViewRow filaSeleccionada = gridEjemplares.Rows[e.RowIndex];
+                string isbn = filaSeleccionada.Cells[1].Value.ToString();
+                //cambiar por buscar ejemplar por id
+                ejemplar = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(isbn)[0];
             }
-            return cell;
+        }
+        private void cargarTabla(List<Ejemplar> lista)
+        {
+            gridEjemplares.DataSource = lista;
         }
     }
 }

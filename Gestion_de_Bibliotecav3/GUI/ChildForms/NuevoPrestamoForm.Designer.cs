@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuevoPrestamoForm));
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelBanner = new Panel();
             labelTitulo = new Label();
             panel1 = new Panel();
@@ -39,11 +39,11 @@
             buttonCancelar = new Button();
             buttonAceptar = new Button();
             panelCampos = new Panel();
-            label2 = new Label();
             button1 = new Button();
             textBoxDNI = new TextBox();
             label1 = new Label();
             gridEjemplares = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             codigo = new DataGridViewTextBoxColumn();
@@ -131,7 +131,6 @@
             // panelCampos
             // 
             panelCampos.BackColor = Color.FromArgb(46, 61, 66);
-            panelCampos.Controls.Add(label2);
             panelCampos.Controls.Add(button1);
             panelCampos.Controls.Add(textBoxDNI);
             panelCampos.Controls.Add(label1);
@@ -146,22 +145,10 @@
             panelCampos.TabIndex = 2;
             panelCampos.MouseDown += panelCampos_MouseDown;
             // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Bottom;
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.ForeColor = Color.Snow;
-            label2.Location = new Point(100, 279);
-            label2.Name = "label2";
-            label2.Size = new Size(152, 17);
-            label2.TabIndex = 17;
-            label2.Text = "Fecha de Vencimiento:";
-            // 
             // button1
             // 
             button1.Anchor = AnchorStyles.Bottom;
-            button1.Location = new Point(523, 188);
+            button1.Location = new Point(544, 187);
             button1.Name = "button1";
             button1.Size = new Size(66, 26);
             button1.TabIndex = 16;
@@ -171,7 +158,7 @@
             // textBoxDNI
             // 
             textBoxDNI.Anchor = AnchorStyles.Bottom;
-            textBoxDNI.Location = new Point(284, 190);
+            textBoxDNI.Location = new Point(303, 190);
             textBoxDNI.Name = "textBoxDNI";
             textBoxDNI.Size = new Size(216, 23);
             textBoxDNI.TabIndex = 15;
@@ -182,11 +169,11 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = Color.Snow;
-            label1.Location = new Point(100, 192);
+            label1.Location = new Point(72, 196);
             label1.Name = "label1";
-            label1.Size = new Size(151, 17);
+            label1.Size = new Size(187, 17);
             label1.TabIndex = 14;
-            label1.Text = "Ingresar DNI o nombre";
+            label1.Text = "Ingresar ID o DNI de usuario";
             // 
             // gridEjemplares
             // 
@@ -197,42 +184,49 @@
             gridEjemplares.BorderStyle = BorderStyle.None;
             gridEjemplares.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             gridEjemplares.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(30, 45, 57);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            gridEjemplares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 45, 57);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            gridEjemplares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplares.ColumnHeadersHeight = 25;
             gridEjemplares.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplares.Columns.AddRange(new DataGridViewColumn[] { isbn, nombre, codigo, editorial });
+            gridEjemplares.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, codigo, editorial });
             gridEjemplares.EnableHeadersVisualStyles = false;
             gridEjemplares.GridColor = Color.Gainsboro;
-            gridEjemplares.Location = new Point(103, 72);
+            gridEjemplares.Location = new Point(72, 79);
             gridEjemplares.Name = "gridEjemplares";
             gridEjemplares.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            gridEjemplares.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            gridEjemplares.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridEjemplares.RowHeadersVisible = false;
             gridEjemplares.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            gridEjemplares.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            gridEjemplares.RowsDefaultCellStyle = dataGridViewCellStyle3;
             gridEjemplares.RowTemplate.Height = 24;
             gridEjemplares.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gridEjemplares.Size = new Size(486, 75);
+            gridEjemplares.Size = new Size(538, 75);
             gridEjemplares.TabIndex = 13;
+            gridEjemplares.CellClick += gridEjemplares_CellClick;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Width = 48;
             // 
             // isbn
             // 
@@ -269,7 +263,7 @@
             // buttonBuscar
             // 
             buttonBuscar.Anchor = AnchorStyles.Top;
-            buttonBuscar.Location = new Point(523, 29);
+            buttonBuscar.Location = new Point(544, 32);
             buttonBuscar.Name = "buttonBuscar";
             buttonBuscar.Size = new Size(66, 26);
             buttonBuscar.TabIndex = 12;
@@ -279,7 +273,7 @@
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.Top;
-            textBox1.Location = new Point(284, 32);
+            textBox1.Location = new Point(303, 35);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(216, 23);
             textBox1.TabIndex = 10;
@@ -290,11 +284,11 @@
             labelIngrese.AutoSize = true;
             labelIngrese.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelIngrese.ForeColor = Color.Snow;
-            labelIngrese.Location = new Point(100, 32);
+            labelIngrese.Location = new Point(72, 41);
             labelIngrese.Name = "labelIngrese";
-            labelIngrese.Size = new Size(159, 17);
+            labelIngrese.Size = new Size(210, 17);
             labelIngrese.TabIndex = 5;
-            labelIngrese.Text = "Ingresar ISBN o nombre";
+            labelIngrese.Text = "Ingresar ISBN o nombre de libro";
             // 
             // NuevoPrestamoForm
             // 
@@ -305,7 +299,7 @@
             Controls.Add(panelBotones);
             Controls.Add(panelBanner);
             Name = "NuevoPrestamoForm";
-            Text = "Alta de Libro";
+            Text = "Alta de Préstamo";
             panelBanner.ResumeLayout(false);
             panelBanner.PerformLayout();
             panelBotones.ResumeLayout(false);
@@ -328,13 +322,13 @@
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.DataGridView gridEjemplares;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxDNI;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn editorial;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn isbn;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn codigo;
+        private DataGridViewTextBoxColumn editorial;
     }
 }

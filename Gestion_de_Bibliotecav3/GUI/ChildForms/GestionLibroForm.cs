@@ -7,34 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gestion_de_Bibliotecav3.Controladores;
 
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class GestionLibroForm : Form
     {
+       // ControladorLibro controladorLibro = new ControladorLibro();
         public GestionLibroForm()
         {
             InitializeComponent();
         }
-
-        private void buttonNuevo_Click(object sender, EventArgs e)
-        {
-            //AltaLibroForm altaLibroForm = new AltaLibroForm();
-            //altaLibroForm.ShowDialog();
-        }
-
-        private void buttonEliminar_Click(object sender, EventArgs e)
-        {
-            // row selected tomar id 
-            // popup realmente quiere elimnar
-            // eliminar
-            // eliminar exitoso
-        }
-
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            // id de label
+            string busqueda = textBusqueda.Text;    
+
             // busqueda por id de libros
         }
     }

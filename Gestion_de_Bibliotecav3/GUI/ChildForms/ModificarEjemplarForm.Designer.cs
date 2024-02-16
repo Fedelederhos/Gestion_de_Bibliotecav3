@@ -198,7 +198,7 @@
             Controls.Add(panelBotones);
             Controls.Add(panelBanner);
             Name = "ModificarEjemplarForm";
-            Text = "AltaUsuarioForm";
+            Text = "Modificar ejemplar";
             panelBanner.ResumeLayout(false);
             panelBanner.PerformLayout();
             panelBotones.ResumeLayout(false);

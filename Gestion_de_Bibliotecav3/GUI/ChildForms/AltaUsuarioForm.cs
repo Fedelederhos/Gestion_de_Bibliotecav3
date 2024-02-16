@@ -8,11 +8,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.Dominio;
 
 namespace Gestion_de_Biblioteca.GUI
 {
     public partial class AltaUsuarioForm : Form
     {
+        ControladorUsuario controladorUsuario = new ControladorUsuario();
         public AltaUsuarioForm()
         {
             InitializeComponent();
@@ -58,7 +61,7 @@ namespace Gestion_de_Biblioteca.GUI
             string direccion = textBoxDireccion.Text;
             string telefono = textBoxTelefono.Text;
             string email = textBoxEmail.Text;
-            // método que toma estas cosas y crea un nuevo usuario
+            controladorUsuario.CrearUsuario(dni, nombreCompleto, direccion, telefono, email);
         }
     }
 }

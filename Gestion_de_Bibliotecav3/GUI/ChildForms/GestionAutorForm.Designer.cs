@@ -28,145 +28,149 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelTabla = new System.Windows.Forms.Panel();
-            this.textBusqueda = new System.Windows.Forms.TextBox();
-            this.buttonBuscar = new System.Windows.Forms.Button();
-            this.labelIngrese = new System.Windows.Forms.Label();
-            this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelTabla.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
-            this.SuspendLayout();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            panelTabla = new Panel();
+            textBusqueda = new TextBox();
+            buttonBuscar = new Button();
+            labelIngrese = new Label();
+            autorDataGrid = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            nombre = new DataGridViewTextBoxColumn();
+            panelTabla.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)autorDataGrid).BeginInit();
+            SuspendLayout();
             // 
             // panelTabla
             // 
-            this.panelTabla.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(61)))), ((int)(((byte)(66)))));
-            this.panelTabla.Controls.Add(this.textBusqueda);
-            this.panelTabla.Controls.Add(this.buttonBuscar);
-            this.panelTabla.Controls.Add(this.labelIngrese);
-            this.panelTabla.Controls.Add(this.dataGrid);
-            this.panelTabla.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTabla.Location = new System.Drawing.Point(0, 0);
-            this.panelTabla.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelTabla.Name = "panelTabla";
-            this.panelTabla.Size = new System.Drawing.Size(686, 411);
-            this.panelTabla.TabIndex = 1;
+            panelTabla.BackColor = Color.FromArgb(46, 61, 66);
+            panelTabla.Controls.Add(textBusqueda);
+            panelTabla.Controls.Add(buttonBuscar);
+            panelTabla.Controls.Add(labelIngrese);
+            panelTabla.Controls.Add(autorDataGrid);
+            panelTabla.Dock = DockStyle.Fill;
+            panelTabla.Location = new Point(0, 0);
+            panelTabla.Margin = new Padding(2);
+            panelTabla.Name = "panelTabla";
+            panelTabla.Size = new Size(800, 474);
+            panelTabla.TabIndex = 1;
             // 
             // textBusqueda
             // 
-            this.textBusqueda.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBusqueda.Location = new System.Drawing.Point(235, 37);
-            this.textBusqueda.Margin = new System.Windows.Forms.Padding(1);
-            this.textBusqueda.Name = "textBusqueda";
-            this.textBusqueda.Size = new System.Drawing.Size(252, 20);
-            this.textBusqueda.TabIndex = 6;
+            textBusqueda.BackColor = Color.Gainsboro;
+            textBusqueda.Location = new Point(274, 43);
+            textBusqueda.Margin = new Padding(1);
+            textBusqueda.Name = "textBusqueda";
+            textBusqueda.Size = new Size(293, 23);
+            textBusqueda.TabIndex = 6;
             // 
             // buttonBuscar
             // 
-            this.buttonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonBuscar.Location = new System.Drawing.Point(500, 34);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(76, 23);
-            this.buttonBuscar.TabIndex = 5;
-            this.buttonBuscar.Text = "Buscar";
-            this.buttonBuscar.UseVisualStyleBackColor = true;
-            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            buttonBuscar.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonBuscar.Location = new Point(583, 39);
+            buttonBuscar.Margin = new Padding(2);
+            buttonBuscar.Name = "buttonBuscar";
+            buttonBuscar.Size = new Size(89, 27);
+            buttonBuscar.TabIndex = 5;
+            buttonBuscar.Text = "Buscar";
+            buttonBuscar.UseVisualStyleBackColor = true;
+            buttonBuscar.Click += buttonBuscar_Click;
             // 
             // labelIngrese
             // 
-            this.labelIngrese.AutoSize = true;
-            this.labelIngrese.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelIngrese.ForeColor = System.Drawing.Color.Snow;
-            this.labelIngrese.Location = new System.Drawing.Point(112, 37);
-            this.labelIngrese.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelIngrese.Name = "labelIngrese";
-            this.labelIngrese.Size = new System.Drawing.Size(121, 17);
-            this.labelIngrese.TabIndex = 4;
-            this.labelIngrese.Text = "Ingrese un campo";
+            labelIngrese.AutoSize = true;
+            labelIngrese.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelIngrese.ForeColor = Color.Snow;
+            labelIngrese.Location = new Point(131, 43);
+            labelIngrese.Margin = new Padding(2, 0, 2, 0);
+            labelIngrese.Name = "labelIngrese";
+            labelIngrese.Size = new Size(121, 17);
+            labelIngrese.TabIndex = 4;
+            labelIngrese.Text = "Ingrese un campo";
             // 
-            // dataGrid
+            // autorDataGrid
             // 
-            this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(57)))));
-            this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(45)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGrid.ColumnHeadersHeight = 25;
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombre});
-            this.dataGrid.EnableHeadersVisualStyles = false;
-            this.dataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(45)))), ((int)(((byte)(57)))));
-            this.dataGrid.Location = new System.Drawing.Point(115, 70);
-            this.dataGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGrid.RowHeadersVisible = false;
-            this.dataGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGrid.RowTemplate.Height = 24;
-            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(462, 310);
-            this.dataGrid.TabIndex = 0;
+            autorDataGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            autorDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            autorDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            autorDataGrid.BackgroundColor = Color.FromArgb(37, 52, 57);
+            autorDataGrid.BorderStyle = BorderStyle.None;
+            autorDataGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            autorDataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 45, 57);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 7.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            autorDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            autorDataGrid.ColumnHeadersHeight = 25;
+            autorDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            autorDataGrid.Columns.AddRange(new DataGridViewColumn[] { id, nombre });
+            autorDataGrid.EnableHeadersVisualStyles = false;
+            autorDataGrid.GridColor = Color.FromArgb(30, 45, 57);
+            autorDataGrid.Location = new Point(134, 81);
+            autorDataGrid.Margin = new Padding(2);
+            autorDataGrid.Name = "autorDataGrid";
+            autorDataGrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(37, 52, 57);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            autorDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            autorDataGrid.RowHeadersVisible = false;
+            autorDataGrid.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(37, 52, 57);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            autorDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            autorDataGrid.RowTemplate.Height = 24;
+            autorDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            autorDataGrid.Size = new Size(539, 358);
+            autorDataGrid.TabIndex = 0;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Width = 44;
             // 
             // nombre
             // 
-            this.nombre.HeaderText = "Nombre completo";
-            this.nombre.MinimumWidth = 6;
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 127;
+            nombre.HeaderText = "Nombre completo";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.Width = 127;
             // 
             // GestionAutorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 411);
-            this.Controls.Add(this.panelTabla);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "GestionAutorForm";
-            this.Text = "Gestión de Autores";
-            this.panelTabla.ResumeLayout(false);
-            this.panelTabla.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 474);
+            Controls.Add(panelTabla);
+            Margin = new Padding(2);
+            Name = "GestionAutorForm";
+            Text = "Gestión de Autores";
+            panelTabla.ResumeLayout(false);
+            panelTabla.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)autorDataGrid).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
         private System.Windows.Forms.Panel panelTabla;
-        private System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.DataGridView autorDataGrid;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label labelIngrese;
         private System.Windows.Forms.TextBox textBusqueda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn nombre;
     }
 }

@@ -43,11 +43,12 @@
             boxCodigo = new TextBox();
             label1 = new Label();
             gridEjemplar = new DataGridView();
+            boxISBNoNombre = new TextBox();
+            labelIngrese = new Label();
+            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             fechaVencimiento = new DataGridViewTextBoxColumn();
-            boxISBNoNombre = new TextBox();
-            labelIngrese = new Label();
             panelBanner.SuspendLayout();
             panelBotones.SuspendLayout();
             panelCampos.SuspendLayout();
@@ -199,7 +200,7 @@
             gridEjemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplar.ColumnHeadersHeight = 25;
             gridEjemplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { isbn, nombre, fechaVencimiento });
+            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, fechaVencimiento });
             gridEjemplar.EnableHeadersVisualStyles = false;
             gridEjemplar.GridColor = Color.Gainsboro;
             gridEjemplar.Location = new Point(107, 66);
@@ -228,6 +229,32 @@
             gridEjemplar.TabIndex = 11;
             gridEjemplar.CellClick += gridEjemplar_CellClick;
             // 
+            // boxISBNoNombre
+            // 
+            boxISBNoNombre.Location = new Point(264, 25);
+            boxISBNoNombre.Margin = new Padding(2);
+            boxISBNoNombre.Name = "boxISBNoNombre";
+            boxISBNoNombre.Size = new Size(216, 23);
+            boxISBNoNombre.TabIndex = 10;
+            // 
+            // labelIngrese
+            // 
+            labelIngrese.AutoSize = true;
+            labelIngrese.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            labelIngrese.ForeColor = Color.Snow;
+            labelIngrese.Location = new Point(75, 25);
+            labelIngrese.Margin = new Padding(2, 0, 2, 0);
+            labelIngrese.Name = "labelIngrese";
+            labelIngrese.Size = new Size(159, 17);
+            labelIngrese.TabIndex = 5;
+            labelIngrese.Text = "Ingresar ISBN o nombre";
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Width = 48;
+            // 
             // isbn
             // 
             isbn.HeaderText = "ISBN";
@@ -251,26 +278,6 @@
             fechaVencimiento.Name = "fechaVencimiento";
             fechaVencimiento.ReadOnly = true;
             fechaVencimiento.Width = 230;
-            // 
-            // boxISBNoNombre
-            // 
-            boxISBNoNombre.Location = new Point(264, 25);
-            boxISBNoNombre.Margin = new Padding(2);
-            boxISBNoNombre.Name = "boxISBNoNombre";
-            boxISBNoNombre.Size = new Size(216, 23);
-            boxISBNoNombre.TabIndex = 10;
-            // 
-            // labelIngrese
-            // 
-            labelIngrese.AutoSize = true;
-            labelIngrese.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            labelIngrese.ForeColor = Color.Snow;
-            labelIngrese.Location = new Point(75, 25);
-            labelIngrese.Margin = new Padding(2, 0, 2, 0);
-            labelIngrese.Name = "labelIngrese";
-            labelIngrese.Size = new Size(159, 17);
-            labelIngrese.TabIndex = 5;
-            labelIngrese.Text = "Ingresar ISBN o nombre";
             // 
             // AltaEjemplarForm
             // 
@@ -307,8 +314,9 @@
         private System.Windows.Forms.TextBox boxCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonBuscar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaVencimiento;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn isbn;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn fechaVencimiento;
     }
 }

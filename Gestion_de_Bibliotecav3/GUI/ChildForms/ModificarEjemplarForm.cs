@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gestion_de_Bibliotecav3.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +14,15 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class ModificarEjemplarForm : Form
     {
-        public ModificarEjemplarForm()
+        public Ejemplar ejemplar { get; set; }
+
+        public ModificarEjemplarForm(Ejemplar ejemplar)
         {
             InitializeComponent();
             this.Text = String.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.ejemplar = ejemplar;
         }
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
