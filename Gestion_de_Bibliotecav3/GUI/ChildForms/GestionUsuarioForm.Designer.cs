@@ -46,6 +46,7 @@
             telefono = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
             librosPrestados = new DataGridViewTextBoxColumn();
+            button1 = new Button();
             panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridUsuario).BeginInit();
             SuspendLayout();
@@ -53,6 +54,7 @@
             // panelTabla
             // 
             panelTabla.BackColor = Color.FromArgb(46, 61, 66);
+            panelTabla.Controls.Add(button1);
             panelTabla.Controls.Add(textBusqueda);
             panelTabla.Controls.Add(buttonBuscar);
             panelTabla.Controls.Add(labelIngrese);
@@ -69,10 +71,10 @@
             // textBusqueda
             // 
             textBusqueda.BackColor = Color.Gainsboro;
-            textBusqueda.Location = new Point(384, 40);
+            textBusqueda.Location = new Point(416, 41);
             textBusqueda.Margin = new Padding(1);
             textBusqueda.Name = "textBusqueda";
-            textBusqueda.Size = new Size(278, 23);
+            textBusqueda.Size = new Size(251, 23);
             textBusqueda.TabIndex = 6;
             // 
             // buttonBuscar
@@ -94,9 +96,9 @@
             labelIngrese.Location = new Point(232, 44);
             labelIngrese.Margin = new Padding(2, 0, 2, 0);
             labelIngrese.Name = "labelIngrese";
-            labelIngrese.Size = new Size(127, 17);
+            labelIngrese.Size = new Size(166, 17);
             labelIngrese.TabIndex = 4;
-            labelIngrese.Text = "Ingrese un nombre";
+            labelIngrese.Text = "Ingrese un nombre o DNI";
             // 
             // buttonModificar
             // 
@@ -237,6 +239,19 @@
             librosPrestados.ReadOnly = true;
             librosPrestados.Width = 125;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Left;
+            button1.FlatStyle = FlatStyle.System;
+            button1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(34, 212);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(170, 38);
+            button1.TabIndex = 7;
+            button1.Text = "Eliminar Usuario";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // GestionUsuarioForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -268,5 +283,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn librosPrestados;
         private System.Windows.Forms.TextBox textBusqueda;
+        private Button button1;
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelTabla = new Panel();
             textBox1 = new TextBox();
             label1 = new Label();
@@ -41,6 +41,7 @@
             buttonEliminar = new Button();
             buttonNuevo = new Button();
             gridEjemplar = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             codigo = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
@@ -162,42 +163,48 @@
             gridEjemplar.BorderStyle = BorderStyle.None;
             gridEjemplar.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             gridEjemplar.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(30, 45, 57);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            gridEjemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 45, 57);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 7.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            gridEjemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplar.ColumnHeadersHeight = 25;
             gridEjemplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { isbn, codigo, nombre, fechaAlta, fechaBaja, disponibilidad });
+            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { id, isbn, codigo, nombre, fechaAlta, fechaBaja, disponibilidad });
             gridEjemplar.EnableHeadersVisualStyles = false;
             gridEjemplar.GridColor = Color.FromArgb(30, 45, 57);
             gridEjemplar.Location = new Point(236, 81);
             gridEjemplar.Name = "gridEjemplar";
             gridEjemplar.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(37, 52, 57);
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            gridEjemplar.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(37, 52, 57);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            gridEjemplar.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridEjemplar.RowHeadersVisible = false;
             gridEjemplar.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(37, 52, 57);
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            gridEjemplar.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(37, 52, 57);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            gridEjemplar.RowsDefaultCellStyle = dataGridViewCellStyle3;
             gridEjemplar.RowTemplate.Height = 24;
             gridEjemplar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridEjemplar.Size = new Size(528, 358);
             gridEjemplar.TabIndex = 0;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Width = 44;
             // 
             // isbn
             // 
@@ -268,6 +275,7 @@
         private System.Windows.Forms.Button buttonModificar;
         private TextBox textBox1;
         private Label label1;
+        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn isbn;
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn nombre;

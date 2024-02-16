@@ -9,12 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.Controladores;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class AltaEjemplarForm : Form
     {
         Libro libro;
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+        
         public AltaEjemplarForm()
         {
             InitializeComponent();
@@ -55,13 +58,15 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            string codigo = boxCodigo.Text;
-            // método guardar ejemplar       
+            int codigo = int.Parse(boxCodigo.Text);
+            Ejemplar ejemplar = new Ejemplar(codigo, libro);
+            controladorEjemplar.CrearEjemplar(ejemplar);
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            // búsqueda por ISBN o nombre que obtiene los datos del libro
+            string isbnONombre = boxISBNoNombre.Text;
+            
             // cargarEnTabla
 
         }
@@ -77,6 +82,11 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 string fechaPublicacion = filaSeleccionada.Cells[0].Value.ToString();
                 libro = new Libro(isbn, nombre, fechaPublicacion);
             }
+        }
+
+        private void cargarTabla(List<Libro> lista)
+        {
+            gridEjemplar.DataSource = lista;
         }
     }
 }

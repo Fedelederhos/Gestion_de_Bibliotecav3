@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panelTabla = new Panel();
             textBusqueda = new TextBox();
             buttonBuscar = new Button();
@@ -64,7 +64,7 @@
             // textBusqueda
             // 
             textBusqueda.BackColor = Color.Gainsboro;
-            textBusqueda.Location = new Point(412, 40);
+            textBusqueda.Location = new Point(306, 38);
             textBusqueda.Margin = new Padding(1);
             textBusqueda.Name = "textBusqueda";
             textBusqueda.Size = new Size(250, 23);
@@ -73,7 +73,7 @@
             // buttonBuscar
             // 
             buttonBuscar.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonBuscar.Location = new Point(674, 37);
+            buttonBuscar.Location = new Point(592, 35);
             buttonBuscar.Margin = new Padding(2);
             buttonBuscar.Name = "buttonBuscar";
             buttonBuscar.Size = new Size(89, 24);
@@ -87,7 +87,7 @@
             labelIngrese.AutoSize = true;
             labelIngrese.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
             labelIngrese.ForeColor = Color.Snow;
-            labelIngrese.Location = new Point(233, 40);
+            labelIngrese.Location = new Point(98, 42);
             labelIngrese.Margin = new Padding(2, 0, 2, 0);
             labelIngrese.Name = "labelIngrese";
             labelIngrese.Size = new Size(176, 17);
@@ -103,42 +103,42 @@
             gridLibros.BorderStyle = BorderStyle.None;
             gridLibros.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             gridLibros.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(30, 45, 57);
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 7.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle7.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            gridLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(30, 45, 57);
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            gridLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             gridLibros.ColumnHeadersHeight = 25;
             gridLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             gridLibros.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, autor, fechaPublicacion, editorial, categoria });
             gridLibros.EnableHeadersVisualStyles = false;
             gridLibros.GridColor = Color.FromArgb(30, 45, 57);
-            gridLibros.Location = new Point(236, 81);
+            gridLibros.Location = new Point(98, 80);
             gridLibros.Margin = new Padding(2);
             gridLibros.Name = "gridLibros";
             gridLibros.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(37, 52, 57);
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
-            gridLibros.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(37, 52, 57);
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            gridLibros.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             gridLibros.RowHeadersVisible = false;
             gridLibros.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(37, 52, 57);
-            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle9.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            gridLibros.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(37, 52, 57);
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            gridLibros.RowsDefaultCellStyle = dataGridViewCellStyle6;
             gridLibros.RowTemplate.Height = 24;
             gridLibros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            gridLibros.Size = new Size(527, 358);
+            gridLibros.Size = new Size(583, 358);
             gridLibros.TabIndex = 0;
             // 
             // id
