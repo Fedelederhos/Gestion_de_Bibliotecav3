@@ -49,7 +49,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             return null;
         }
 
-        public Ejemplar BuscarPorCodigo(int codigo)
+        public Ejemplar BuscarPorCodigo(string codigo)
         {
             List<Ejemplar> ejemplares = (List<Ejemplar>)GetAll();
             Ejemplar buscado = new Ejemplar();

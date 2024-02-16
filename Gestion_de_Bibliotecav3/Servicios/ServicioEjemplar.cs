@@ -76,7 +76,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return servicioEditorial.BuscarEditorialesPorCoincidencia(nombre);
         }
 
-        public Ejemplar BuscarPorCodigo(int codigo)
+        public Ejemplar BuscarPorCodigo(string codigo)
         {
             return repositorioEjemplar.BuscarPorCodigo(codigo);
         }
