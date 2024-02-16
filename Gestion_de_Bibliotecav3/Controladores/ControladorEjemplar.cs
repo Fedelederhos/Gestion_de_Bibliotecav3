@@ -38,7 +38,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
             return servicioEjemplar.BuscarCategorias(categoria);
         }
 
-        public Ejemplar BuscarPorCodigo(string codigo)
+        public Ejemplar BuscarPorCodigo(int codigo)
         {
             return servicioEjemplar.BuscarPorCodigo(codigo);
         }
