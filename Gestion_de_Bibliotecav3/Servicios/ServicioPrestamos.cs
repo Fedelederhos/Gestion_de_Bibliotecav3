@@ -74,7 +74,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
-        public List<Prestamo> BuscarPorNombreEjemplar(String nombre)
+        public List<Prestamo> BuscarPorNombreEjemplar(string nombre)
         {
             if (nombre != null)
             {

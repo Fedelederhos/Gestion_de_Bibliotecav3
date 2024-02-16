@@ -160,5 +160,19 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             }
         }
 
+        public List<Libro> BuscarPorNombre(string nombre)
+        {
+            List<Libro> libros = (List<Libro>)GetAll();
+            List<Libro> buscados = new List<Libro>();
+
+            foreach (Libro libro in libros)
+            {
+                if (libro.Nombre.Contains(nombre))
+                {
+                    buscados.Add(libro);
+                }
+            }
+            return buscados;
+        }
     }
 }
