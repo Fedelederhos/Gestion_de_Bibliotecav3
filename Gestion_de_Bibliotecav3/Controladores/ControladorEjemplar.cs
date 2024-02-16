@@ -12,20 +12,23 @@ namespace Gestion_de_Bibliotecav3.Controladores
     {
         ServicioEjemplar servicioEjemplar;
 
-        public void CrearEjemplar(Ejemplar ejemplar)
+        public Ejemplar CrearEjemplar(Ejemplar ejemplar)
         {
             try
             {
                 servicioEjemplar.Agregar(ejemplar);
+                return servicioEjemplar.BuscarEjemplarPorISBN(ejemplar.Libro.ISBN);
                 //La pantalla deberia mostrar que se agregó con exito.
             }
             catch (SystemException s)
             {
                 //La panntalla deberia mostrar que algun parametro esta mal
+                return null;
             }
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                return null;
             }
 
         }
@@ -33,6 +36,11 @@ namespace Gestion_de_Bibliotecav3.Controladores
         public List<Categoria> BuscarCategorias(string categoria)
         {
             return servicioEjemplar.BuscarCategorias(categoria);
+        }
+
+        public Ejemplar BuscarPorCodigo(int codigo)
+        {
+            return servicioEjemplar.BuscarPorCodigo(codigo);
         }
 
         public List<Ejemplar> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
@@ -84,5 +92,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
                 // Se debe mostrar este error "e.Message.ToString()"
             }
         }
+
+        
     }
 }
