@@ -43,8 +43,9 @@
             gridEjemplar = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
-            codigo = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
+            anioPublicacion = new DataGridViewTextBoxColumn();
+            codigo = new DataGridViewTextBoxColumn();
             fechaAlta = new DataGridViewTextBoxColumn();
             fechaBaja = new DataGridViewTextBoxColumn();
             disponibilidad = new DataGridViewTextBoxColumn();
@@ -173,7 +174,7 @@
             gridEjemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplar.ColumnHeadersHeight = 25;
             gridEjemplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { id, isbn, codigo, nombre, fechaAlta, fechaBaja, disponibilidad });
+            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, anioPublicacion, codigo, fechaAlta, fechaBaja, disponibilidad });
             gridEjemplar.EnableHeadersVisualStyles = false;
             gridEjemplar.GridColor = Color.FromArgb(30, 45, 57);
             gridEjemplar.Location = new Point(236, 81);
@@ -199,6 +200,7 @@
             gridEjemplar.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridEjemplar.Size = new Size(528, 358);
             gridEjemplar.TabIndex = 0;
+            gridEjemplar.CellClick += gridEjemplar_CellClick;
             // 
             // id
             // 
@@ -212,6 +214,18 @@
             isbn.Name = "isbn";
             isbn.Width = 59;
             // 
+            // nombre
+            // 
+            nombre.HeaderText = "Nombre";
+            nombre.Name = "nombre";
+            nombre.Width = 73;
+            // 
+            // anioPublicacion
+            // 
+            anioPublicacion.HeaderText = "Año de publicación";
+            anioPublicacion.Name = "anioPublicacion";
+            anioPublicacion.Width = 138;
+            // 
             // codigo
             // 
             codigo.HeaderText = "Código";
@@ -219,12 +233,6 @@
             codigo.Name = "codigo";
             codigo.ReadOnly = true;
             codigo.Width = 70;
-            // 
-            // nombre
-            // 
-            nombre.HeaderText = "Nombre";
-            nombre.Name = "nombre";
-            nombre.Width = 73;
             // 
             // fechaAlta
             // 
@@ -277,8 +285,9 @@
         private Label label1;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn isbn;
-        private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn anioPublicacion;
+        private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn fechaAlta;
         private DataGridViewTextBoxColumn fechaBaja;
         private DataGridViewTextBoxColumn disponibilidad;

@@ -36,6 +36,8 @@
             buttonNuevo = new Button();
             gridPrestamos = new DataGridView();
             id = new DataGridViewTextBoxColumn();
+            codigo = new DataGridViewTextBoxColumn();
+            dni = new DataGridViewTextBoxColumn();
             fechaEntrega = new DataGridViewTextBoxColumn();
             fechaVencimiento = new DataGridViewTextBoxColumn();
             fechaDevolucion = new DataGridViewTextBoxColumn();
@@ -136,7 +138,7 @@
             gridPrestamos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridPrestamos.ColumnHeadersHeight = 25;
             gridPrestamos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridPrestamos.Columns.AddRange(new DataGridViewColumn[] { id, fechaEntrega, fechaVencimiento, fechaDevolucion, notificacion });
+            gridPrestamos.Columns.AddRange(new DataGridViewColumn[] { id, codigo, dni, fechaEntrega, fechaVencimiento, fechaDevolucion, notificacion });
             gridPrestamos.EnableHeadersVisualStyles = false;
             gridPrestamos.GridColor = Color.FromArgb(30, 45, 57);
             gridPrestamos.Location = new Point(237, 81);
@@ -163,6 +165,7 @@
             gridPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridPrestamos.Size = new Size(527, 358);
             gridPrestamos.TabIndex = 0;
+            gridPrestamos.CellClick += gridPrestamos_CellClick;
             // 
             // id
             // 
@@ -171,6 +174,18 @@
             id.Name = "id";
             id.ReadOnly = true;
             id.Width = 44;
+            // 
+            // codigo
+            // 
+            codigo.HeaderText = "Código";
+            codigo.Name = "codigo";
+            codigo.Width = 70;
+            // 
+            // dni
+            // 
+            dni.HeaderText = "DNI";
+            dni.Name = "dni";
+            dni.Width = 52;
             // 
             // fechaEntrega
             // 
@@ -225,10 +240,12 @@
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label labelIngrese;
         private System.Windows.Forms.TextBox textBusqueda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaEntrega;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaVencimiento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDevolucion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn notificacion;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn codigo;
+        private DataGridViewTextBoxColumn dni;
+        private DataGridViewTextBoxColumn fechaEntrega;
+        private DataGridViewTextBoxColumn fechaVencimiento;
+        private DataGridViewTextBoxColumn fechaDevolucion;
+        private DataGridViewTextBoxColumn notificacion;
     }
 }

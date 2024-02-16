@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelTabla = new Panel();
+            button1 = new Button();
             textBusqueda = new TextBox();
             buttonBuscar = new Button();
             labelIngrese = new Label();
@@ -41,12 +42,10 @@
             id = new DataGridViewTextBoxColumn();
             dni = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
-            score = new DataGridViewTextBoxColumn();
             direccion = new DataGridViewTextBoxColumn();
             telefono = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
-            librosPrestados = new DataGridViewTextBoxColumn();
-            button1 = new Button();
+            score = new DataGridViewTextBoxColumn();
             panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridUsuario).BeginInit();
             SuspendLayout();
@@ -67,6 +66,19 @@
             panelTabla.Name = "panelTabla";
             panelTabla.Size = new Size(800, 474);
             panelTabla.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Left;
+            button1.FlatStyle = FlatStyle.System;
+            button1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(34, 212);
+            button1.Margin = new Padding(2);
+            button1.Name = "button1";
+            button1.Size = new Size(170, 38);
+            button1.TabIndex = 7;
+            button1.Text = "Eliminar Usuario";
+            button1.UseVisualStyleBackColor = true;
             // 
             // textBusqueda
             // 
@@ -137,43 +149,44 @@
             gridUsuario.BorderStyle = BorderStyle.None;
             gridUsuario.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             gridUsuario.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(30, 45, 57);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 7.2F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            gridUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 45, 57);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 7.2F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            gridUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridUsuario.ColumnHeadersHeight = 25;
             gridUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridUsuario.Columns.AddRange(new DataGridViewColumn[] { id, dni, nombre, score, direccion, telefono, email, librosPrestados });
+            gridUsuario.Columns.AddRange(new DataGridViewColumn[] { id, dni, nombre, direccion, telefono, email, score });
             gridUsuario.EnableHeadersVisualStyles = false;
             gridUsuario.GridColor = Color.FromArgb(30, 45, 57);
             gridUsuario.Location = new Point(236, 81);
             gridUsuario.Margin = new Padding(2);
             gridUsuario.Name = "gridUsuario";
             gridUsuario.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(37, 52, 57);
-            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            gridUsuario.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(37, 52, 57);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            gridUsuario.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             gridUsuario.RowHeadersVisible = false;
             gridUsuario.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(37, 52, 57);
-            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.MenuHighlight;
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(224, 224, 224);
-            gridUsuario.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(37, 52, 57);
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            gridUsuario.RowsDefaultCellStyle = dataGridViewCellStyle3;
             gridUsuario.RowTemplate.Height = 24;
             gridUsuario.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridUsuario.Size = new Size(527, 358);
             gridUsuario.TabIndex = 0;
+            gridUsuario.CellClick += gridUsuario_CellClick;
             // 
             // id
             // 
@@ -199,14 +212,6 @@
             nombre.ReadOnly = true;
             nombre.Width = 73;
             // 
-            // score
-            // 
-            score.HeaderText = "Score";
-            score.MinimumWidth = 6;
-            score.Name = "score";
-            score.ReadOnly = true;
-            score.Width = 63;
-            // 
             // direccion
             // 
             direccion.HeaderText = "Dirección";
@@ -231,26 +236,13 @@
             email.ReadOnly = true;
             email.Width = 61;
             // 
-            // librosPrestados
+            // score
             // 
-            librosPrestados.HeaderText = "Libros Prestados";
-            librosPrestados.MinimumWidth = 6;
-            librosPrestados.Name = "librosPrestados";
-            librosPrestados.ReadOnly = true;
-            librosPrestados.Width = 125;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Left;
-            button1.FlatStyle = FlatStyle.System;
-            button1.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(34, 212);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(170, 38);
-            button1.TabIndex = 7;
-            button1.Text = "Eliminar Usuario";
-            button1.UseVisualStyleBackColor = true;
+            score.HeaderText = "Score";
+            score.MinimumWidth = 6;
+            score.Name = "score";
+            score.ReadOnly = true;
+            score.Width = 63;
             // 
             // GestionUsuarioForm
             // 
@@ -274,15 +266,14 @@
         private System.Windows.Forms.Button buttonNuevo;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label labelIngrese;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dni;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn score;
-        private System.Windows.Forms.DataGridViewTextBoxColumn direccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn librosPrestados;
         private System.Windows.Forms.TextBox textBusqueda;
         private Button button1;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn dni;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn direccion;
+        private DataGridViewTextBoxColumn telefono;
+        private DataGridViewTextBoxColumn email;
+        private DataGridViewTextBoxColumn score;
     }
 }

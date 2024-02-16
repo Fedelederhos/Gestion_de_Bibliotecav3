@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.Dominio;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -6,6 +8,9 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class GestionUsuarioForm : Form
     {
+        Usuario usuario = new Usuario();
+        ControladorUsuario controladorUsuario = new ControladorUsuario();
+        string dni2;
         public GestionUsuarioForm()
         {
             InitializeComponent();
@@ -19,36 +24,29 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonModificar_Click(object sender, EventArgs e)
         {
-            ModificarUsuarioForm modificarUsuarioForm = new ModificarUsuarioForm();
+            ModificarUsuarioForm modificarUsuarioForm = new ModificarUsuarioForm(usuario);
             modificarUsuarioForm.ShowDialog();
         }
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            string dni = obtenerSeleccionado(sender, e);
-
-            //eliminar usuario
+            controladorUsuario.Eliminar(dni2);
         }
-        private string obtenerSeleccionado(object sender, EventArgs e)
+
+        private void gridUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string cell = null;
-            // Verificar si hay al menos una fila seleccionada
-            if (gridUsuario.SelectedRows.Count > 0)
+            if (e.RowIndex >= 0)
             {
-                // Obtener la primera fila seleccionada (puedes ajustarlo según tus necesidades)
-                DataGridViewRow selectedRow = gridUsuario.SelectedRows[0];
-
-                // Obtener el valor de una celda específica (por ejemplo, la primera celda en este caso)
-                object cellValue = selectedRow.Cells["dni"].Value;
-
-                // Verificar si la celda tiene un valor antes de usarlo
-                if (cellValue == null)
-                {
-                    MessageBox.Show("La celda seleccionada está vacía.");
-                }
-                cell = cellValue.ToString();
+                // Obtener la fila clickeada
+                DataGridViewRow filaSeleccionada = gridUsuario.Rows[e.RowIndex];
+                int dni = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
+                dni2 = filaSeleccionada.Cells[0].Value.ToString();
+                string nombre = filaSeleccionada.Cells[0].Value.ToString();
+                string direccion = filaSeleccionada.Cells[0].Value.ToString();
+                int telefono = int.Parse(filaSeleccionada.Cells[0].Value.ToString());
+                string email = filaSeleccionada.Cells[0].Value.ToString();
+                usuario = new Usuario(dni, nombre, direccion, telefono, email);
             }
-            return cell;
         }
     }
 }
