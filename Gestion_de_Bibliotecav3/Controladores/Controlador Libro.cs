@@ -27,5 +27,10 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
             return listaLibros;
         }
+
+        public List<Libro> BuscarLibroPorNombreOISBN(string nombreOISBN)
+        {
+            return servicioLibro.BuscarLibroPorNombreOISBN(nombreOISBN);
+        }
     }
 }

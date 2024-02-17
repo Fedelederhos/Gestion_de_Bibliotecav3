@@ -21,5 +21,27 @@ namespace Gestion_de_Bibliotecav3.Servicios
         {
             return repositorioLibro.BuscarPorNombre(nombre);
         }
+
+        public List<Libro> BuscarLibroPorNombreOISBN(string nombreOISBN)
+        {
+            List<Libro> libros = new List<Libro>();
+            int number1 = 0;
+            bool canConvert = int.TryParse(nombreOISBN, out number1);
+            if (canConvert)
+            {
+                libros.Add(this.BuscarLibroPorISBN(nombreOISBN));
+            }
+            else
+            {
+                libros = this.BuscarLibroPorNombre(nombreOISBN);
+            }
+
+            if (libros.Count == 0)
+            {
+                // Buscar en la API
+            }
+
+            return libros;
+        }
     }
 }
