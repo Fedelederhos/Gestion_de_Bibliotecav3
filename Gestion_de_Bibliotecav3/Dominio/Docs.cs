@@ -12,5 +12,6 @@ namespace Gestion_de_Bibliotecav3.Dominio
         public int FirstPublishYear { get; set; }
         public List<string> AuthorName { get; set; }
         public List<string> Subject { get; set; }
+        public List <string> Isbn { get; set; }
     }
 }
