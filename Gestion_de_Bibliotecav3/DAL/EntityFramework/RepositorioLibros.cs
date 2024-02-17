@@ -175,9 +175,37 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             return buscados;
         }
 
-        internal List<Libro> Buscar(string isbnONombre)
+        public async Task<Libro> BuscarPorIsbnAPI(string isbn)
         {
-            throw new NotImplementedException();
+            using var httpClient = new HttpClient();
+            var openLibraryApiClient = new OpenLibraryApiClient(httpClient);
+            Libro libro = new Libro();
+
+            HttpResponseMessage response = await openLibraryApiClient.ObtenerLibroAsync_isbn(isbn);
+
+            if (response != null && response.IsSuccessStatusCode)
+            {
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(jsonResponse);
+
+                if (rootObject != null)
+                {
+                    Docs[] docs = rootObject.docs;
+
+                    if (docs != null)
+                    {
+                        foreach (var doc in docs)
+                        {
+                            libro.ISBN = isbn;
+                            libro.Nombre = doc.Title;
+                            libro.FechaPublicacion = doc.FirstPublishYear.ToString();
+                            return libro;
+                        }
+                    }
+                }
+            }
+            return libro;
         }
     }
 }

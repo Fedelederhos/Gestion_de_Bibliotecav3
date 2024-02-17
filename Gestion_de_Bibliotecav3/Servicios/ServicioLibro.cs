@@ -44,7 +44,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return libros;
         }
 
-        public List<Libro> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
+        public async Task<List<Libro>> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
         {
             List<Libro> listaLibros = new List<Libro>();
             long number1 = 0;
@@ -52,16 +52,18 @@ namespace Gestion_de_Bibliotecav3.Servicios
             if (canConvert)
             {
                 listaLibros.Add(this.BuscarLibroPorISBN(isbnONombre));
+                if (listaLibros.Count == 0)
+                {
+                    Libro libro = await repositorioLibro.BuscarPorIsbnAPI(isbnONombre);
+                    listaLibros.Add(libro);
+                }
             }
             else
             {
                 listaLibros.AddRange(this.BuscarLibroPorNombre(isbnONombre));
             }
 
-            if (listaLibros.Count == 0)
-            {
-                listaLibros.AddRange(repositorioLibro.Buscar(isbnONombre));
-            }
+            
 
             return listaLibros;
         }
