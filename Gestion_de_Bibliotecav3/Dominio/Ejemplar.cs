@@ -20,6 +20,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
         private Boolean iDisponibilidad;
         private Estado iEstado;
         private Libro iLibro;
+
         public virtual ICollection<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
 
         public int LibroID { get; set; }

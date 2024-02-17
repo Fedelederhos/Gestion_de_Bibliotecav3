@@ -66,11 +66,11 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
         }
 
-        public void RegistrarDevolucionPrestamo(Prestamo prestamo, Estado estado)
+        public void RegistrarDevolucionPrestamo(string codigo, Estado estado)
         {
             try
             {
-                servicioPrestamo.RegistrarDevolucionPrestamo(prestamo, estado);
+                servicioPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
                 //La pantalla de exito
             }
             catch (SystemException s)
