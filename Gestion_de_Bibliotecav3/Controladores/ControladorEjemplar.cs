@@ -43,6 +43,11 @@ namespace Gestion_de_Bibliotecav3.Controladores
             return servicioEjemplar.BuscarPorCodigo(codigo);
         }
 
+        public Ejemplar BuscarEjemplarPorID(int id)
+        {
+            return servicioEjemplar.Get(id);
+        }
+
         public List<Ejemplar> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
         {
             List<Ejemplar> listaEjemplares = new List<Ejemplar>();
