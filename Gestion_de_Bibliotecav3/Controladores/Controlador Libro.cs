@@ -14,18 +14,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public List<Libro> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
         {
-            List<Libro> listaLibros = new List<Libro>();
-            long number1 = 0;
-            bool canConvert = long.TryParse(isbnONombre, out number1);
-            if (canConvert)
-            {
-                listaLibros.Add(servicioLibro.BuscarLibroPorISBN(isbnONombre));
-            }
-            else
-            {
-                listaLibros.AddRange(servicioLibro.BuscarLibroPorNombre(isbnONombre));
-            }
-            return listaLibros;
+            return servicioLibro.BuscarEjemplaresPorIsbnONombre(isbnONombre);
         }
 
         public List<Libro> BuscarLibroPorNombreOISBN(string nombreOISBN)

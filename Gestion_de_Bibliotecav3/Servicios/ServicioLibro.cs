@@ -43,5 +43,27 @@ namespace Gestion_de_Bibliotecav3.Servicios
 
             return libros;
         }
+
+        public List<Libro> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
+        {
+            List<Libro> listaLibros = new List<Libro>();
+            long number1 = 0;
+            bool canConvert = long.TryParse(isbnONombre, out number1);
+            if (canConvert)
+            {
+                listaLibros.Add(this.BuscarLibroPorISBN(isbnONombre));
+            }
+            else
+            {
+                listaLibros.AddRange(this.BuscarLibroPorNombre(isbnONombre));
+            }
+
+            if (listaLibros.Count == 0)
+            {
+                listaLibros.AddRange(repositorioLibro.Buscar(isbnONombre));
+            }
+
+            return listaLibros;
+        }
     }
 }

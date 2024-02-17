@@ -174,5 +174,10 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             }
             return buscados;
         }
+
+        internal List<Libro> Buscar(string isbnONombre)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
