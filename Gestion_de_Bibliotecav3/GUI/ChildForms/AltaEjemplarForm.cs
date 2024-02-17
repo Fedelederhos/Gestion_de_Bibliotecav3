@@ -58,7 +58,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            int codigo = int.Parse(boxCodigo.Text);
+           string codigo = boxCodigo.Text;
             Ejemplar ejemplar = new Ejemplar(codigo, libro);
             controladorEjemplar.CrearEjemplar(ejemplar);
         }
