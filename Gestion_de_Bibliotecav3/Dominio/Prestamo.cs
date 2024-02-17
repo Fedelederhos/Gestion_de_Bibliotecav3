@@ -15,7 +15,6 @@ namespace Gestion_de_Bibliotecav3.Dominio
 
         public int EjemplarID { get; set; }
         public int UsuarioID { get; set; }
-        public Notificacion Notificacion { get; set; }
 
         public Prestamo() { }
 
