@@ -27,9 +27,21 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
         {
-            // EL prestamo se deberia armar en el servicio
-            Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
-            servicioPrestamo.Agregar(prestamo);
+            try
+            {
+                // EL prestamo se deberia armar en el servicio
+                Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
+                servicioPrestamo.Agregar(prestamo);
+                //La pantalla de exito
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+            }
         }
 
         public List<Prestamo> ProximosAVencerse()
@@ -39,12 +51,36 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public void EliminarPrestamo(Prestamo prestamo)
         {
-            servicioPrestamo.Eliminar(prestamo);
+            try
+            {
+                servicioPrestamo.Eliminar(prestamo);
+                //La pantalla de exito
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+            }
         }
 
         public void RegistrarDevolucionPrestamo(Prestamo prestamo, Estado estado)
         {
-            servicioPrestamo.RegistrarDevolucionPrestamo(prestamo, estado);
+            try
+            {
+                servicioPrestamo.RegistrarDevolucionPrestamo(prestamo, estado);
+                //La pantalla de exito
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+            }
         }
 
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla
@@ -52,9 +88,23 @@ namespace Gestion_de_Bibliotecav3.Controladores
             return servicioPrestamo.ejemplaresUsuario(usuario);
         }
 
-        public DateTime AsignarVencimiento(int dni)
+        public DateTime? AsignarVencimiento(int dni) // Puse DateTime? porque si pasa algun error, no devolvera ese tipo de dato
         {
-            return servicioPrestamo.AsignarVencimiento(dni);
+            try
+            {
+                return servicioPrestamo.AsignarVencimiento(dni);
+                //La pantalla de exito
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                return null;
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                return null;
+            }
         }
     }
 }
