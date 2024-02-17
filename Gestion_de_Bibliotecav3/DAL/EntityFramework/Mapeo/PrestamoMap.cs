@@ -11,7 +11,6 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework.Mapeo
     public class PrestamoMap
     {
         public DbSet<Prestamo> Prestamos { get; set; }
-        public DbSet<Notificacion> Notificaciones { get; set; }
 
 
         private ModelBuilder modelBuilder;
@@ -45,10 +44,6 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework.Mapeo
                 entity.HasOne(prestamo => prestamo.Usuario) //OneToMany
                       .WithMany(usuario => usuario.Prestamo)
                       .HasForeignKey(prestamo => prestamo.UsuarioID);
-
-                entity.HasOne(prestamo => prestamo.Notificacion)
-                      .WithOne(n => n.IPrestamo)
-                      .HasForeignKey<Notificacion>(n => n.PrestamoID);
             });
         }
     }
