@@ -61,7 +61,8 @@ namespace Gestion_de_Biblioteca.GUI
             string direccion = textBoxDireccion.Text;
             string telefono = textBoxTelefono.Text;
             string email = textBoxEmail.Text;
-            controladorUsuario.CrearUsuario(dni, nombreCompleto, direccion, telefono, email);
+            Usuario usuario = new Usuario(int.Parse(dni), nombreCompleto, direccion, int.Parse(telefono), email);
+            controladorUsuario.CrearUsuario(usuario);
         }
     }
 }

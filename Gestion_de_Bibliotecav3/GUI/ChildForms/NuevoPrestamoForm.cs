@@ -21,6 +21,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         Ejemplar ejemplar;
         string codigoEjemplar;
         Usuario usuario;
+        List<Usuario> listaUsuario;
         public NuevoPrestamoForm()
         {
             InitializeComponent();
@@ -67,14 +68,15 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            controladorPrestamo.NuevoPrestamo(ejemplar, usuario);
+            int dni = usuario.DNI;
+            controladorPrestamo.NuevoPrestamo(ejemplar, usuario, controladorPrestamo.AsignarVencimiento(dni));
         }
 
         private void buttonBuscarUsuario_Click(object sender, EventArgs e)
         {
             string dni = textBoxDNI.Text;
-            usuario = controladorUsuario.obtenerUsuario(dni);
-
+            listaUsuario = controladorUsuario.obtenerUsuario(dni);
+            usuario = listaUsuario[0];
         }
 
         private void gridEjemplares_CellClick(object sender, DataGridViewCellEventArgs e)
