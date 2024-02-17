@@ -15,7 +15,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
     public partial class GestionPrestamoForm : Form
     {
         Prestamo prestamo;
-        ControladorPrestamos controladorPrestamos = new ControladorPrestamos();
+        ControladorPrestamo controladorPrestamo = new ControladorPrestamo();
         string idPrestamo;
         string codigoEjemplar;
 
@@ -31,13 +31,13 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         }
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            controladorPrestamos.EliminarPrestamo(prestamo);
+            controladorPrestamo.EliminarPrestamo(prestamo);
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             string busqueda = textBusqueda.Text;
-            controladorPrestamos.BuscarPrestamos(busqueda);
+            controladorPrestamo.BuscarPrestamos(busqueda);
         }
 
         private void gridPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -49,7 +49,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 idPrestamo = filaSeleccionada.Cells[0].Value.ToString();
                 codigoEjemplar = filaSeleccionada.Cells[1].Value.ToString();
                 // CAMBIAR POR EL METODO DE BUSQUEDA DE PRESTAMO POR ID
-                prestamo = controladorPrestamos.BuscarPrestamos(codigoEjemplar)[0];
+                prestamo = controladorPrestamo.BuscarPrestamos(codigoEjemplar)[0];
             }
         }
     }

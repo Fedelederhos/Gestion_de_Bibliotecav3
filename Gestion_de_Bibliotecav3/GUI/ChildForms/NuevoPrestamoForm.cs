@@ -17,7 +17,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
     {
         ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
         ControladorUsuario controladorUsuario = new ControladorUsuario();
-        ControladorPrestamos controladorPrestamos = new ControladorPrestamos();
+        ControladorPrestamo controladorPrestamo = new ControladorPrestamo();
         Ejemplar ejemplar;
         string codigoEjemplar;
         Usuario usuario;
@@ -67,7 +67,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            controladorPrestamos.NuevoPrestamo(ejemplar, usuario);
+            controladorPrestamo.NuevoPrestamo(ejemplar, usuario);
         }
 
         private void buttonBuscarUsuario_Click(object sender, EventArgs e)

@@ -9,52 +9,52 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Gestion_de_Bibliotecav3.Controladores
 {
-    internal class ControladorPrestamos
+    internal class ControladorPrestamo
     {
-        ServicioPrestamo servicioPrestamos = new ServicioPrestamo();
+        ServicioPrestamo servicioPrestamo = new ServicioPrestamo();
         ServicioEjemplar servicioEjemplar = new ServicioEjemplar();
         ServicioUsuario servicioUsuario = new ServicioUsuario();
 
         public Prestamo BuscarPrestamoPorID(int id)
         { 
-            return servicioPrestamos.BuscarPrestamoPorID(id);
+            return servicioPrestamo.BuscarPrestamoPorID(id);
         }
 
         public List<Prestamo> BuscarPrestamosPorCodigoODNI(string codigoODNI)
         {
-            return servicioPrestamos.BuscarPrestamosPorCodigoODNI(codigoODNI);
+            return servicioPrestamo.BuscarPrestamosPorCodigoODNI(codigoODNI);
         }
 
         public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
         {
             // EL prestamo se deberia armar en el servicio
             Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
-            servicioPrestamos.Agregar(prestamo);
+            servicioPrestamo.Agregar(prestamo);
         }
 
         public List<Prestamo> ProximosAVencerse()
         {
-            return servicioPrestamos.ProximosAVencerse();
+            return servicioPrestamo.ProximosAVencerse();
         }
 
         public void EliminarPrestamo(Prestamo prestamo)
         {
-            servicioPrestamos.Eliminar(prestamo);
+            servicioPrestamo.Eliminar(prestamo);
         }
 
         public void RegistrarDevolucionPrestamo(Prestamo prestamo, Estado estado)
         {
-            servicioPrestamos.RegistrarDevolucionPrestamo(prestamo, estado);
+            servicioPrestamo.RegistrarDevolucionPrestamo(prestamo, estado);
         }
 
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla
         {
-            return servicioPrestamos.ejemplaresUsuario(usuario);
+            return servicioPrestamo.ejemplaresUsuario(usuario);
         }
 
         public DateTime AsignarVencimiento(int dni)
         {
-            return servicioPrestamos.AsignarVencimiento(dni);
+            return servicioPrestamo.AsignarVencimiento(dni);
         }
     }
 }
