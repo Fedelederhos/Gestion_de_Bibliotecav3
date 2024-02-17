@@ -60,12 +60,13 @@ namespace Gestion_de_Bibliotecav3.Servicios
             }
             else
             {
-                listaLibros.AddRange(this.BuscarLibroPorNombre(isbnONombre));
+                listaLibros.AddRange(repositorioLibro.BuscarLibroPorNombreAPI(isbnONombre));
             }
 
             
 
             return listaLibros;
         }
+
     }
 }

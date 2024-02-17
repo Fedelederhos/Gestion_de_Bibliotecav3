@@ -207,5 +207,54 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             }
             return libro;
         }
+
+        public string AsignarIsbn(Docs doc)
+        {
+            foreach (string isbn in doc.Isbn)
+            {
+                long number1 = 0;
+                bool canConvert = long.TryParse(isbn, out number1);
+                if (canConvert)
+                {
+                    return isbn;
+                }
+            }
+            return "1111111"; // No hay chance que llegue aca.
+            
+        }
+
+        public async Task<List<Libro>> BuscarLibroPorNombreAPI(string nombre)
+        {
+            using var httpClient = new HttpClient();
+            var openLibraryApiClient = new OpenLibraryApiClient(httpClient);
+            List<Libro> libros = new List<Libro>();
+
+            HttpResponseMessage response = await openLibraryApiClient.ObtenerLibroAsync_nombre(nombre);
+
+            if (response != null && response.IsSuccessStatusCode)
+            {
+                string jsonResponse = await response.Content.ReadAsStringAsync();
+
+                RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(jsonResponse);
+
+                if (rootObject != null)
+                {
+                    Docs[] docs = rootObject.docs;
+
+                    if (docs != null)
+                    {
+                        foreach (var doc in docs)
+                        {
+                            Libro libro = new Libro();
+                            libro.ISBN = AsignarIsbn(doc);
+                            libro.Nombre = doc.Title;
+                            libro.FechaPublicacion = doc.FirstPublishYear.ToString();
+                            libros.Add(libro);
+                        }
+                    }
+                }
+            }
+            return libros;
+        }
     }
 }
