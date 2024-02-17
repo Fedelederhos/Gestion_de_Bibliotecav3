@@ -28,7 +28,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
 
         public void Agregar(Ejemplar ejemplar)
         {
-            if (ejemplar.ID != null && !repositorioEjemplar.Existe(ejemplar.ID))
+            if (ejemplar.ID != null && !repositorioEjemplar.Existe(ejemplar.ID) && !ExisteCodigo(ejemplar.Codigo))
             {
                 repositorioEjemplar.Agregar(ejemplar);
             }
@@ -79,6 +79,11 @@ namespace Gestion_de_Bibliotecav3.Servicios
         public Ejemplar BuscarPorCodigo(string codigo)
         {
             return repositorioEjemplar.BuscarPorCodigo(codigo);
+        }
+
+        public bool ExisteCodigo(string codigo)
+        {
+            return (repositorioEjemplar.BuscarPorCodigo(codigo) != null) ? true : false;
         }
     }
 }
