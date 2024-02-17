@@ -144,10 +144,25 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
+        public Prestamo BuscarPrestamoActivo(string codigo)
+        {
+            Prestamo prestamo = new Prestamo();
+            List<Prestamo> prestamos = BuscarPrestamosPorCodigoODNI(codigo);
+            foreach (Prestamo buscado in prestamos)
+            {
+                if (buscado.FechaDevolucion == null)
+                {
+                    prestamo = buscado;
+                }
+            }
+            return prestamo;
+        }
+
         public void RegistrarDevolucionPrestamo(string codigo, Estado estado)
         {
-            Prestamo prestamo = this.BuscarPrestamosPorCodigoODNI(codigo)[0];
-            if (prestamo != null && prestamo.FechaDevolucion == null) //Me fijo si se pasa un objeto y si este ademas no ha sido devuelto
+            Prestamo prestamo = this.BuscarPrestamoActivo(codigo);
+            
+            if (prestamo != null) //Me fijo si se pasa un objeto y si este ademas no ha sido devuelto
             {
                 prestamo.FechaDevolucion = DateTime.Now;
                 prestamo.Ejemplar.Disponibilidad = true;
