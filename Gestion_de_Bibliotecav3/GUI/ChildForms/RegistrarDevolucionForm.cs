@@ -60,7 +60,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             String codigo;
             estado = estadoComboBox.SelectedText;
             codigo = codigoLabel.Text;
-            //controladorPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
+            // controladorPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
