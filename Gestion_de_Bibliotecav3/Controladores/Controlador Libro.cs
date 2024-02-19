@@ -14,12 +14,30 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public Task<List<Libro>> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
         {
-            return servicioLibro.BuscarLibrosPorIsbnONombre(isbnONombre);
+            try
+            {
+                return servicioLibro.BuscarLibrosPorIsbnONombre(isbnONombre);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public List<Libro> BuscarLibroPorNombreOISBN(string nombreOISBN)
         {
-            return servicioLibro.BuscarLibroPorNombreOISBN(nombreOISBN);
+            try
+            {
+                return servicioLibro.BuscarLibroPorNombreOISBN(nombreOISBN);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }
