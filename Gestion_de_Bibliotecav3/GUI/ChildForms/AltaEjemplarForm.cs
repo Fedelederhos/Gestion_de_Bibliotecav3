@@ -17,7 +17,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
     {
         Libro libro;
         ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
-        
+        Controlador_Libro controladorLibro = new Controlador_Libro();
         public AltaEjemplarForm()
         {
             InitializeComponent();
@@ -66,9 +66,9 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             string isbnONombre = boxISBNoNombre.Text;
-            
-            // cargarEnTabla
-
+            List<Libro> lista;
+            lista = controladorLibro.BuscarLibroPorNombreOISBN(isbnONombre);
+            cargarTabla(lista);
         }
 
         private void gridEjemplar_CellClick(object sender, DataGridViewCellEventArgs e)
