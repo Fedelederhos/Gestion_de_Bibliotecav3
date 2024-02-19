@@ -1,4 +1,5 @@
-﻿using Gestion_de_Bibliotecav3.Dominio;
+﻿using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.Dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
     public partial class ModificarEjemplarForm : Form
     {
         public Ejemplar ejemplar { get; set; }
-
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
         public ModificarEjemplarForm(Ejemplar ejemplar)
         {
             InitializeComponent();
@@ -23,7 +24,10 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.ejemplar = ejemplar;
+            this.textBoxCodigo.Text = ejemplar.Codigo;
+            this.textBoxFechaBaja.Text = ejemplar.FechaBaja.ToShortDateString();
         }
+
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -57,11 +61,16 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             string codigo = textBoxCodigo.Text;
-            //string fechaAlta = textBoxFechaAlta.Text;
             string fechaBaja = textBoxFechaBaja.Text;
             string disponibilidad = comboBoxDisponibilidad.SelectedText;
-
-            //metodo que modifica lo cargado
+            Ejemplar ejemplarOriginal = new Ejemplar();
+            ejemplarOriginal = controladorEjemplar.BuscarPorCodigo(codigo);
+            Ejemplar ejemplar = new Ejemplar(codigo, ejemplarOriginal.Libro);
+            ejemplar.FechaBaja = DateTime.Parse(fechaBaja);
+            Boolean dispo;
+            if (disponibilidad == "Disponible") { ejemplar.Disponibilidad = true; }
+            else if (disponibilidad == "No disponible") { ejemplar.Disponibilidad = false; }
+            controladorEjemplar.ModificarEjemplar(ejemplar);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,8 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class RegistrarDevolucionForm : Form
     {
+        ControladorPrestamo controladorPrestamo = new ControladorPrestamo();
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
         public RegistrarDevolucionForm()
         {
             InitializeComponent();
@@ -56,13 +60,13 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             String codigo;
             estado = estadoComboBox.SelectedText;
             codigo = codigoLabel.Text;
-            //método del controlador que toma estado y codigo y registra la devolución, se tiene que registrar la fecha de la máquina con esto
+            //controladorPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             bool value;
-            // método buscar si codigo es válido, TRUE OR FALSE
+            //metodo buscar prestamo sin vencer del ejemplar
             value = true; //acá va a haber que asignar ese resultado
             if (value)
             {

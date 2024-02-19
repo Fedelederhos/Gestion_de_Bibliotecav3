@@ -85,9 +85,8 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             {
                 // Obtener la fila clickeada
                 DataGridViewRow filaSeleccionada = gridEjemplares.Rows[e.RowIndex];
-                string isbn = filaSeleccionada.Cells[1].Value.ToString();
-                //cambiar por buscar ejemplar por id
-                ejemplar = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(isbn)[0];
+                string id = filaSeleccionada.Cells[0].Value.ToString();
+                ejemplar = controladorEjemplar.BuscarEjemplarPorID(int.Parse(id));
             }
         }
         private void cargarTabla(List<Ejemplar> lista)

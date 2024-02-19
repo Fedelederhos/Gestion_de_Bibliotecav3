@@ -9,12 +9,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gestion_de_Bibliotecav3.Controladores;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class ModificarUsuarioForm : Form
     {
         public Usuario usuario { get; set; }
+        ControladorUsuario controladorUsuario = new ControladorUsuario();
 
         public ModificarUsuarioForm(Usuario usuario)
         {
@@ -23,6 +25,12 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.usuario = usuario;
+            this.textBoxDNI.Text = usuario.DNI.ToString();
+            this.textBoxNombre.Text = usuario.Nombre;
+            this.textBoxDireccion.Text = usuario.Direccion;
+            this.textBoxEmail.Text = usuario.Email; 
+            this.textBoxTelefono.Text = usuario.Telefono.ToString();
+
         }
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -68,7 +76,10 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             string direccion = textBoxDireccion.Text;
             string telefono = textBoxTelefono.Text;
             string email = textBoxEmail.Text;
-            //metodo que guarda lo que se modifico
+            //Usuario usuarioOriginal = new Usuario();
+            //usuarioOriginal = controladorUsuario.obtenerUsuario(dni)[0];
+            Usuario usuarioNuevo = new Usuario(int.Parse(dni), nombre, direccion, int.Parse(telefono),email);
+            controladorUsuario.ModificarUsuario(usuario);
         }
     }
 }

@@ -37,7 +37,9 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             string busqueda = textBusqueda.Text;
-            controladorPrestamo.BuscarPrestamosPorCodigoODNI(busqueda);
+            List<Prestamo> lista = new List<Prestamo> { prestamo };
+            lista = controladorPrestamo.BuscarPrestamosPorCodigoODNI(busqueda);
+            cargarTabla(lista);
         }
 
         private void gridPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -48,9 +50,13 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 DataGridViewRow filaSeleccionada = gridPrestamos.Rows[e.RowIndex];
                 idPrestamo = filaSeleccionada.Cells[0].Value.ToString();
                 codigoEjemplar = filaSeleccionada.Cells[1].Value.ToString();
-                // CAMBIAR POR EL METODO DE BUSQUEDA DE PRESTAMO POR ID
-                prestamo = controladorPrestamo.BuscarPrestamosPorCodigoODNI(codigoEjemplar)[0];
+                prestamo = controladorPrestamo.BuscarPrestamoPorID(int.Parse(idPrestamo));
             }
+        }
+
+        private void cargarTabla(List<Prestamo> lista)
+        {
+            gridPrestamos.DataSource = lista;
         }
     }
 }
