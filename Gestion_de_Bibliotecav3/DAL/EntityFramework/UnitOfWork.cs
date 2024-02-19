@@ -23,12 +23,15 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             this.RepositorioUsuarios = new RepositorioUsuarios(pDBContext);
             this.RepositorioEjemplares = new RepositorioEjemplares(pDBContext);
         }
-
+        public IRepositorioAutores RepositorioAutores { get; private set; }
+        public IRepositorioCategorias RepositorioCategorias { get; private set; }
+        public IRepositorioEditoriales RepositorioEditoriales { get; private set; }
         public IRepositorioPrestamos RepositorioPrestamos { get; private set; }
 
         public IRepositorioUsuarios RepositorioUsuarios { get; private set; }
 
         public IRepositorioEjemplares RepositorioEjemplares { get; private set; }
+        public IRepositorioLibros RepositorioLibros { get; private set; }
 
         public void Completar()
         {

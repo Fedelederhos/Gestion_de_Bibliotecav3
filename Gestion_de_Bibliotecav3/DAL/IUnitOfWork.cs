@@ -12,6 +12,10 @@ namespace Gestion_de_Bibliotecav3.DAL
 
         IRepositorioEjemplares RepositorioEjemplares { get; }
 
+        IRepositorioLibros RepositorioLibros { get; }
+        IRepositorioAutores RepositorioAutores { get; }
+        IRepositorioCategorias RepositorioCategorias { get; }
+
         void Completar();
     }
 }

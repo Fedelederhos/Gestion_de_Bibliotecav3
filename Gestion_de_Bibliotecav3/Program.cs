@@ -26,5 +26,10 @@ namespace Gestion_de_Bibliotecav3
             menu.ShowDialog();
 
         }
+        private static void ConfigureServices()
+        {
+
+        }
     }
+    
 }
