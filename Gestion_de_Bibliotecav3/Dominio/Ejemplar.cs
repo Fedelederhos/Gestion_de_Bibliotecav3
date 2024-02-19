@@ -18,7 +18,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
         private DateTime iFechaAlta;
         private DateTime? iFechaBaja;
         private Boolean iDisponibilidad;
-        private Class1 iEstado;
+        private Estado iEstado;
         private Libro iLibro;
 
         public virtual ICollection<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
