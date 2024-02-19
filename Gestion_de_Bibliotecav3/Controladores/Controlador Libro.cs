@@ -10,7 +10,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
 {
     public class Controlador_Libro
     {
-        ServicioLibro servicioLibro;
+        ServicioLibro servicioLibro = new ServicioLibro();
 
         public Task<List<Libro>> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
         {

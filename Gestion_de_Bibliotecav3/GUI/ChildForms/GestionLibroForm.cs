@@ -14,16 +14,16 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class GestionLibroForm : Form
     {
-       // ControladorLibro controladorLibro = new ControladorLibro();
+        Controlador_Libro controladorLibro = new Controlador_Libro();
         public GestionLibroForm()
         {
             InitializeComponent();
         }
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string busqueda = textBusqueda.Text;    
+            string busqueda = textBusqueda.Text;
 
-            // busqueda por id de libros
+            controladorLibro.BuscarEjemplaresPorIsbnONombre(busqueda);
         }
     }
 }
