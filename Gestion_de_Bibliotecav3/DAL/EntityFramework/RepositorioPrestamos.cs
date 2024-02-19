@@ -80,5 +80,21 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
         }
 
+        public List<Prestamo> ProximosPrestamosAVencer(DateTime fechaHoy)
+        {
+            List<Prestamo> prestamos = (List<Prestamo>)GetAll();
+
+            List<Prestamo> prestamosIntervalo = new List<Prestamo>();
+
+            foreach (Prestamo prestamo in prestamos)
+            {
+                if ((prestamo.FechaVencimiento.Date - fechaHoy.Date).Days <= 2)
+                {
+                    prestamosIntervalo.Add(prestamo);
+                }
+            }
+
+            return prestamosIntervalo;
+        }
     }
 }

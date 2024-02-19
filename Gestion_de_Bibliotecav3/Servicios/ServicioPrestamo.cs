@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -58,12 +60,17 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException(); // Si no pasa por el condicional devuelvo un error (sera atrapado por el controlador)
         }
 
-        public List<Prestamo> ProximosAVencerse()
+        public List<Prestamo> BuscarPrestamosActivos()
         {
             DateTime fechaHoy = DateTime.Today;
             DateTime fechaEnUnaSemana = fechaHoy.AddDays(7);
 
             return repositorioPrestamos.buscarPorFechas(fechaHoy, fechaEnUnaSemana);
+        }
+
+        public List<Prestamo> ProximosPrestamosAVencer(DateTime fechaHoy)
+        {
+            return repositorioPrestamos.ProximosPrestamosAVencer(fechaHoy);
         }
 
         public List<Prestamo> BuscarPrestamoPorCodigoEjemplar(string codigo)
@@ -200,6 +207,34 @@ namespace Gestion_de_Bibliotecav3.Servicios
                 this.Actualizar(prestamo);
             }
             throw new SystemException();
+        }
+
+        public void EnviarNotificacion()
+        {
+            DateTime fechaHoy = DateTime.Now;
+            List<Prestamo> prestamosAVencer = this.ProximosPrestamosAVencer(fechaHoy);
+
+            foreach (Prestamo prestamo in prestamosAVencer)
+            {
+                if (!prestamo.Notificacion)
+                {
+                    // Configurar el cliente SMTP
+                    SmtpClient clienteSmtp = new SmtpClient("lederhos.federico@proyecto.frcu.utn.edu.ar");
+                    clienteSmtp.Port = 587;
+                    clienteSmtp.EnableSsl = true;
+                    clienteSmtp.Credentials = new NetworkCredential("lederhos.federico@proyecto.frcu.utn.edu.ar", "14123235");
+
+                    // Crear el mensaje
+                    MailMessage mensaje = new MailMessage();
+                    mensaje.From = new MailAddress("lederhos.federico@proyecto.frcu.utn.edu.ar");
+                    mensaje.To.Add(prestamo.Usuario.Email);
+                    mensaje.Subject = ""; //Definir asunto
+                    mensaje.Body = ""; //Definir mensaje
+
+                    // Enviar el mensaje
+                    clienteSmtp.Send(mensaje);
+                }
+            }
         }
     }
 }
