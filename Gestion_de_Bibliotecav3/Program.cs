@@ -1,3 +1,4 @@
+using Gestion_de_Biblioteca;
 using Gestion_de_Bibliotecav3.DAL.EntityFramework;
 
 namespace Gestion_de_Bibliotecav3
@@ -20,6 +21,10 @@ namespace Gestion_de_Bibliotecav3
 
             var context = new AdministradorPrestamosDBContext();
             context.Database.EnsureCreated();
+            
+            MenuPrincipal menu = new MenuPrincipal();
+            menu.ShowDialog();
+
         }
     }
 }

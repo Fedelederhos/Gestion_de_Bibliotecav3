@@ -60,10 +60,12 @@ namespace Gestion_de_Bibliotecav3.Servicios
             }
             else
             {
-                listaLibros.AddRange(this.BuscarLibroPorNombre(isbnONombre));
+                // Reemplazar espacios con el carácter deseado
+                string nombre = isbnONombre.Replace(" ", "+");
+                listaLibros.AddRange(this.BuscarLibroPorNombre(nombre));
                 if (listaLibros.Count == 0)
                 {
-                    List<Libro> libros = await repositorioLibro.BuscarLibroPorNombreAPI(isbnONombre);
+                    List<Libro> libros = await repositorioLibro.BuscarLibroPorNombreAPI(nombre);
                     listaLibros.AddRange(libros);
                 }
             }

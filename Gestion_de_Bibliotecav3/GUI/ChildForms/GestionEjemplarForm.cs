@@ -56,7 +56,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 string fechaPublicacion = filaSeleccionada.Cells[3].Value.ToString();
                 string codigo = filaSeleccionada.Cells[4].Value.ToString();
                 Libro libro = new Libro(isbn, nombre, fechaPublicacion);
-                ejemplar = new Ejemplar(int.Parse(codigo), libro);
+                ejemplar = new Ejemplar(codigo, libro);
             }
         }
     }
