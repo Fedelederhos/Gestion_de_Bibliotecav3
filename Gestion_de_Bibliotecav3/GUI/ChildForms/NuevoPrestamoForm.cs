@@ -69,7 +69,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
             int dni = usuario.DNI;
-            controladorPrestamo.NuevoPrestamo(ejemplar, usuario, controladorPrestamo.AsignarVencimiento(dni));
+            controladorPrestamo.NuevoPrestamo(ejemplar, usuario, (DateTime)controladorPrestamo.AsignarVencimiento(dni));
         }
 
         private void buttonBuscarUsuario_Click(object sender, EventArgs e)
