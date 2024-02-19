@@ -14,6 +14,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class GestionCategoriaForm : Form
     {
+        ControladorCategoria controladorCategoria = new ControladorCategoria();
         public GestionCategoriaForm()
         {
             InitializeComponent();
@@ -21,12 +22,13 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
+            string busqueda = textBusqueda.Text;
             List<Categoria> lista = new List<Categoria>();
-            //lista = controladorAutor.BuscarAutoresPorCoincidencia(textBusqueda.Text);
-            //cargarTabla(lista);
+            lista = controladorCategoria.BuscarCategoriasPorCoincidencia(busqueda);
+            cargarTabla(lista);
         }
 
-        private void cargarTabla(List<Autor> lista)
+        private void cargarTabla(List<Categoria> lista)
         {
             categoriasGrid.DataSource = lista;
         }

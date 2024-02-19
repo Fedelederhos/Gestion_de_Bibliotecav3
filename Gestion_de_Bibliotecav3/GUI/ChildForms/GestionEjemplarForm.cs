@@ -42,7 +42,10 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            //busqueda de ejemplares por código
+            string busqueda = textBusqueda.Text;
+            List<Ejemplar> lista;
+            lista = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(busqueda);
+            cargarTabla(lista);
         }
 
         private void gridEjemplar_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -58,6 +61,10 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 Libro libro = new Libro(isbn, nombre, fechaPublicacion);
                 ejemplar = new Ejemplar(codigo, libro);
             }
+        }
+        private void cargarTabla(List<Ejemplar> lista)
+        {
+            gridEjemplar.DataSource = lista;
         }
     }
 }
