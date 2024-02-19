@@ -242,7 +242,7 @@
             Controls.Add(panelBotones);
             Controls.Add(panelBanner);
             Name = "ModificarUsuarioForm";
-            Text = "AltaUsuarioForm";
+            Text = "Modificar Usuario";
             panelBanner.ResumeLayout(false);
             panelBanner.PerformLayout();
             panelBotones.ResumeLayout(false);
