@@ -10,11 +10,26 @@ namespace Gestion_de_Bibliotecav3.Controladores
 {
     internal class ControladorAutor
     {
-        ServicioAutor servicioAutor;
+        ServicioAutor servicioAutor ;
 
         public List<Autor> BuscarAutoresPorCoincidencia(string nombre)
         {
-            return servicioAutor.BuscarAutoresPorCoincidencia(nombre);
+            try
+            {
+                return servicioAutor.BuscarAutoresPorCoincidencia(nombre);
+
+            }
+            catch (NullReferenceException n)
+            {
+                Console.WriteLine(n.Message);
+                return null;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }

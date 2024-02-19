@@ -23,14 +23,8 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             string busqueda = textBusqueda.Text;    
-            List<Libro> lista= new List<Libro>();
-            lista= controladorLibro.BuscarLibroPorNombreOISBN(busqueda);
-            cargarTabla(lista);
 
-        }
-        private void cargarTabla(List<Libro> lista)
-        {
-            gridLibros.DataSource = lista;
+            // busqueda por id de libros
         }
     }
 }

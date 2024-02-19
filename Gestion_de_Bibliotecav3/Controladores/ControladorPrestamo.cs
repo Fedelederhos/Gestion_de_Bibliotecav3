@@ -16,13 +16,34 @@ namespace Gestion_de_Bibliotecav3.Controladores
         ServicioUsuario servicioUsuario = new ServicioUsuario();
 
         public Prestamo BuscarPrestamoPorID(int id)
-        { 
-            return servicioPrestamo.BuscarPrestamoPorID(id);
+        {
+            
+            try
+            {
+                return servicioPrestamo.BuscarPrestamoPorID(id);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+
+
         }
 
         public List<Prestamo> BuscarPrestamosPorCodigoODNI(string codigoODNI)
         {
-            return servicioPrestamo.BuscarPrestamosPorCodigoODNI(codigoODNI);
+            try
+            {
+                return servicioPrestamo.BuscarPrestamosPorCodigoODNI(codigoODNI);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
@@ -46,7 +67,16 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public List<Prestamo> ProximosPrestamosAVencer()
         {
-            return servicioPrestamo.ProximosPrestamosAVencer(DateTime.Today);
+            try
+            {
+                return servicioPrestamo.ProximosPrestamosAVencer(DateTime.Today);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public void EliminarPrestamo(Prestamo prestamo)
@@ -63,6 +93,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
             }
         }
 
@@ -80,12 +112,23 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
             }
         }
 
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla
         {
-            return servicioPrestamo.ejemplaresUsuario(usuario);
+            try
+            {
+                return servicioPrestamo.ejemplaresUsuario(usuario);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public DateTime? AsignarVencimiento(int dni) // Puse DateTime? porque si pasa algun error, no devolvera ese tipo de dato
@@ -103,6 +146,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
                 return null;
             }
         }

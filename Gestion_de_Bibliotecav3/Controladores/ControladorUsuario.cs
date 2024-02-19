@@ -26,6 +26,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
             }
         }
         public void ModificarUsuario(Usuario usuario)
@@ -42,12 +44,22 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
             }
         }
 
         public bool Existe(string dni)
         {
-            return servicioUsuario.Existe(int.Parse(dni));
+            try
+            {
+                return servicioUsuario.Existe(int.Parse(dni));
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine(e.ToString());
+                return false;
+            }
         }
 
         public List<Usuario> obtenerUsuario(string dniONombre)
@@ -75,7 +87,10 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
             catch (Exception e)
             {
+
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(e.Message);
+
                 return null;
             }
 
@@ -83,7 +98,16 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public List<Usuario> GetAll()
         {
-            return servicioUsuario.GetAll();
+            List<Usuario> usuarios = new List<Usuario>();
+            try
+            {
+                return servicioUsuario.GetAll();
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine(e.ToString());
+                return usuarios;
+            }
         }
 
         public void Eliminar(string dni)
@@ -100,6 +124,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
             }
         }
     }

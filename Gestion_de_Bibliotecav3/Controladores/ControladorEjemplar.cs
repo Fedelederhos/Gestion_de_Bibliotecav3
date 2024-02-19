@@ -28,6 +28,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
                 return null;
             }
 
@@ -35,33 +37,69 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public List<Categoria> BuscarCategorias(string categoria)
         {
-            return servicioEjemplar.BuscarCategorias(categoria);
+            try
+            {
+                return servicioEjemplar.BuscarCategorias(categoria);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public Ejemplar BuscarPorCodigo(string codigo)
         {
-            return servicioEjemplar.BuscarPorCodigo(codigo);
+            try
+            {
+                return servicioEjemplar.BuscarPorCodigo(codigo);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public Ejemplar BuscarEjemplarPorID(int id)
         {
-            return servicioEjemplar.Get(id);
+            try
+            {
+                return servicioEjemplar.Get(id);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         public List<Ejemplar> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
         {
-            List<Ejemplar> listaEjemplares = new List<Ejemplar>();
-            long number1 = 0;
-            bool canConvert = long.TryParse(isbnONombre, out number1);
-            if (canConvert)
+            try
             {
-                listaEjemplares.Add(servicioEjemplar.BuscarEjemplarPorISBN(isbnONombre));
+                List<Ejemplar> listaEjemplares = new List<Ejemplar>();
+                long number1 = 0;
+                bool canConvert = long.TryParse(isbnONombre, out number1);
+                if (canConvert)
+                {
+                    listaEjemplares.Add(servicioEjemplar.BuscarEjemplarPorISBN(isbnONombre));
+                }
+                else
+                {
+                    listaEjemplares.AddRange(servicioEjemplar.BuscarEjemplarPorNombre(isbnONombre));
+                }
+                return listaEjemplares;
             }
-            else
+            catch (Exception ex)
             {
-                listaEjemplares.AddRange(servicioEjemplar.BuscarEjemplarPorNombre(isbnONombre));
+                Console.WriteLine(ex.Message);
+                return null;
             }
-            return listaEjemplares;
+
+            
         }
 
         public void ModificarEjemplar(Ejemplar ejemplar)// necesito un nuevo constructor de ejemplar para poder cargarle una fecha de baja
@@ -78,6 +116,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception e)
             {
                 // Se debe mostrar este error "e.Message.ToString()"
+                Console.WriteLine(e.Message);
+
             }
         }
 
@@ -95,6 +135,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception e)
             {
                 // Se debe mostrar este error "e.Message.ToString()"
+                Console.WriteLine(e.Message);
+
             }
         }
 

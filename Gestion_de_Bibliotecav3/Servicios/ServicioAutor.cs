@@ -56,7 +56,15 @@ namespace Gestion_de_Bibliotecav3.Servicios
 
         public List<Autor> BuscarAutoresPorCoincidencia(string nombre)
         {
-            return repositorioAutor.BuscarAutoresPorCoincidencia(nombre);
+            try
+            {
+                return repositorioAutor.BuscarAutoresPorCoincidencia(nombre);
+
+            }
+            catch (Exception e)
+            {
+                Console.Error.WriteLine(e.Message); return new List<Autor>();
+            }
         }
     }
 }

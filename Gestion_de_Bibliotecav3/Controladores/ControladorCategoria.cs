@@ -14,7 +14,16 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public List<Categoria> BuscarCategoriasPorCoincidencia(string nombre)
         {
-            return servicioCategoria.BuscarCategoriasPorCoincidencia(nombre);
+            try
+            {
+                return servicioCategoria.BuscarCategoriasPorCoincidencia(nombre);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }

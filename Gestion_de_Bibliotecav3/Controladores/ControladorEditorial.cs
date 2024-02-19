@@ -14,7 +14,16 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         public List<Editorial> BuscarEditorialesPorCoincidencia(string nombre)
         {
-            return servicioEditorial.BuscarEditorialesPorCoincidencia(nombre);
+            try
+            {
+                return servicioEditorial.BuscarEditorialesPorCoincidencia(nombre);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
     }
 }
