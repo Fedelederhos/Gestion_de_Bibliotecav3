@@ -44,9 +44,9 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
         }
 
-        public List<Prestamo> ProximosAVencerse()
+        public List<Prestamo> ProximosPrestamosAVencer()
         {
-            return servicioPrestamo.ProximosAVencerse();
+            return servicioPrestamo.ProximosPrestamosAVencer(DateTime.Today);
         }
 
         public void EliminarPrestamo(Prestamo prestamo)
