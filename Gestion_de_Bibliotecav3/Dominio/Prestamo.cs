@@ -10,6 +10,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
         private DateTime iFechaEntrega;
         private DateTime iFechaVencimiento;
         private DateTime? iFechaDevolucion;
+        private bool iNotificacion;
         private Ejemplar iEjemplar;
         private Usuario iUsuario;
 
@@ -23,6 +24,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
             iFechaEntrega = DateTime.Now;
             iFechaVencimiento = pFechaVencimiento;
             iFechaDevolucion = null;
+            iNotificacion = false;
             iEjemplar = pEjemplar;
             iUsuario = pUsuario;
         }
@@ -49,6 +51,12 @@ namespace Gestion_de_Bibliotecav3.Dominio
         {
             get { return this.iFechaDevolucion; }
             set { this.iFechaDevolucion = value; }
+        }
+
+        public bool Notificacion
+        {
+            get { return this.iNotificacion;}
+            set { this.iNotificacion = value; }
         }
 
         public Usuario Usuario
