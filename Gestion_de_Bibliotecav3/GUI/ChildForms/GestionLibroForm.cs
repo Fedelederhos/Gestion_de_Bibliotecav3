@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.Dominio;
 
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class GestionLibroForm : Form
     {
-       // ControladorLibro controladorLibro = new ControladorLibro();
+        Controlador_Libro controladorLibro = new Controlador_Libro();
         public GestionLibroForm()
         {
             InitializeComponent();
@@ -22,8 +23,14 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             string busqueda = textBusqueda.Text;    
+            List<Libro> lista= new List<Libro>();
+            lista= controladorLibro.BuscarLibroPorNombreOISBN(busqueda);
+            cargarTabla(lista);
 
-            // busqueda por id de libros
+        }
+        private void cargarTabla(List<Libro> lista)
+        {
+            gridLibros.DataSource = lista;
         }
     }
 }
