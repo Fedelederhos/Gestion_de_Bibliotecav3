@@ -1,4 +1,5 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 using Gestion_de_Bibliotecav3.Servicios;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
             catch (Exception ex)
             {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
                 Console.WriteLine(ex.Message);
                 return null;
             }
@@ -41,6 +44,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
             catch (Exception ex)
             {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
                 Console.WriteLine(ex.Message);
                 return null;
             }
@@ -58,10 +63,14 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (SystemException s)
             {
                 //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
             }
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
             }
         }
 
@@ -74,6 +83,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
             catch (Exception ex)
             {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
                 Console.WriteLine(ex.Message);
                 return null;
             }
@@ -89,10 +100,14 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (SystemException s)
             {
                 //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
             }
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
                 Console.WriteLine(ex.Message);
 
             }
@@ -108,9 +123,13 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (SystemException s)
             {
                 //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
             }
             catch (Exception ex)
             {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
                 Console.WriteLine(ex.Message);
 
@@ -127,6 +146,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
                 return null;
             }
         }
@@ -141,12 +162,16 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (SystemException s)
             {
                 //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
                 return null;
             }
             catch (Exception ex)
             {
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
                 Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
 
                 return null;
             }

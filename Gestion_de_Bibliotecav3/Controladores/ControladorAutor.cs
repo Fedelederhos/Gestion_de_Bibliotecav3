@@ -1,4 +1,5 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 using Gestion_de_Bibliotecav3.Servicios;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
             catch (NullReferenceException n)
             {
+                PopUpForm popup = new PopUpForm(n.ToString());
+                popup.ShowDialog();
                 Console.WriteLine(n.Message);
                 return null;
 
@@ -28,6 +31,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
                 return null;
             }
         }
