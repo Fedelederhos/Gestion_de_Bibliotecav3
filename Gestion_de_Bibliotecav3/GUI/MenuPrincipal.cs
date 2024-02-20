@@ -1,4 +1,7 @@
 ﻿using Gestion_de_Biblioteca.GUI.ChildForms;
+using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.Dominio;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +19,7 @@ namespace Gestion_de_Biblioteca
 {
     public partial class MenuPrincipal : Form
     {
+        ControladorPrestamo controladorPrestamo = new ControladorPrestamo();
         //fields
         private Button currentButton;
         private Random random;
@@ -30,6 +34,7 @@ namespace Gestion_de_Biblioteca
             this.Text = String.Empty;
             this.ControlBox = false;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.Load += CargarTabla;
         }
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -44,6 +49,21 @@ namespace Gestion_de_Biblioteca
         }
 
         //Metodos
+        private void CargarTabla(object? sender, EventArgs e)
+        {
+            List<Prestamo> listaOriginal = new List<Prestamo>();
+            listaOriginal = controladorPrestamo.ProximosPrestamosAVencer();
+            string isbn;
+            string usuario;
+            string fechaVencimiento;
+            foreach (Prestamo prestamo in listaOriginal)
+            {
+                isbn = prestamo.Ejemplar.Libro.ISBN;
+                usuario = prestamo.Usuario.DNI.ToString();
+                fechaVencimiento = prestamo.FechaVencimiento.ToString();
+                dataGrid.Rows.Add(isbn, usuario, fechaVencimiento);
+            }
+        }
         private Color SeleccionarColor()
         {
             int index = random.Next(Colores.ListaColores.Count);
@@ -141,11 +161,6 @@ namespace Gestion_de_Biblioteca
         private void btnGestionCategorias_Click(object sender, EventArgs e)
         {
             OpenChildForm(new GUI.ChildForms.GestionCategoriaForm(), sender);
-        }
-
-        private void btnGestionEditoriales_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new GUI.ChildForms.GestionEditorialForm(), sender);
         }
 
         private void btnRegistrarDevolucion_Click(object sender, EventArgs e)

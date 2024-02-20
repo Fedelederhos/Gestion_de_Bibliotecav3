@@ -30,429 +30,404 @@ namespace Gestion_de_Biblioteca
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnGestionEditoriales = new System.Windows.Forms.Button();
-            this.btnGestionCategorias = new System.Windows.Forms.Button();
-            this.btnGestionAutores = new System.Windows.Forms.Button();
-            this.btnGestionEjemplares = new System.Windows.Forms.Button();
-            this.btnGestionLibros = new System.Windows.Forms.Button();
-            this.btnGestionPrestamos = new System.Windows.Forms.Button();
-            this.btnGestionUsuario = new System.Windows.Forms.Button();
-            this.btnRegistrarDevolucion = new System.Windows.Forms.Button();
-            this.btnNuevoPrestamo = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelBaner = new System.Windows.Forms.Panel();
-            this.buttonCloseChildForm = new System.Windows.Forms.Button();
-            this.buttonMinimize = new System.Windows.Forms.Button();
-            this.buttonMaximize = new System.Windows.Forms.Button();
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.labelTitulo = new System.Windows.Forms.Label();
-            this.panelDesktop = new System.Windows.Forms.Panel();
-            this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isbn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaVencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelMenu.SuspendLayout();
-            this.panelBaner.SuspendLayout();
-            this.panelDesktop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
-            this.SuspendLayout();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            panelMenu = new Panel();
+            btnGestionCategorias = new Button();
+            btnGestionAutores = new Button();
+            btnGestionEjemplares = new Button();
+            btnGestionLibros = new Button();
+            btnGestionPrestamos = new Button();
+            btnGestionUsuario = new Button();
+            btnRegistrarDevolucion = new Button();
+            btnNuevoPrestamo = new Button();
+            panelLogo = new Panel();
+            panelBaner = new Panel();
+            buttonCloseChildForm = new Button();
+            buttonMinimize = new Button();
+            buttonMaximize = new Button();
+            buttonClose = new Button();
+            labelTitulo = new Label();
+            panelDesktop = new Panel();
+            dataGrid = new DataGridView();
+            usuario = new DataGridViewTextBoxColumn();
+            isbn = new DataGridViewTextBoxColumn();
+            fechaVencimiento = new DataGridViewTextBoxColumn();
+            panelMenu.SuspendLayout();
+            panelBaner.SuspendLayout();
+            panelDesktop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGrid).BeginInit();
+            SuspendLayout();
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(57)))));
-            this.panelMenu.Controls.Add(this.btnGestionEditoriales);
-            this.panelMenu.Controls.Add(this.btnGestionCategorias);
-            this.panelMenu.Controls.Add(this.btnGestionAutores);
-            this.panelMenu.Controls.Add(this.btnGestionEjemplares);
-            this.panelMenu.Controls.Add(this.btnGestionLibros);
-            this.panelMenu.Controls.Add(this.btnGestionPrestamos);
-            this.panelMenu.Controls.Add(this.btnGestionUsuario);
-            this.panelMenu.Controls.Add(this.btnRegistrarDevolucion);
-            this.panelMenu.Controls.Add(this.btnNuevoPrestamo);
-            this.panelMenu.Controls.Add(this.panelLogo);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(188, 531);
-            this.panelMenu.TabIndex = 0;
-            this.panelMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
-            // 
-            // btnGestionEditoriales
-            // 
-            this.btnGestionEditoriales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestionEditoriales.FlatAppearance.BorderSize = 0;
-            this.btnGestionEditoriales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionEditoriales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnGestionEditoriales.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGestionEditoriales.Location = new System.Drawing.Point(0, 409);
-            this.btnGestionEditoriales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnGestionEditoriales.Name = "btnGestionEditoriales";
-            this.btnGestionEditoriales.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnGestionEditoriales.Size = new System.Drawing.Size(188, 41);
-            this.btnGestionEditoriales.TabIndex = 9;
-            this.btnGestionEditoriales.Text = "Gestión de Editoriales";
-            this.btnGestionEditoriales.UseVisualStyleBackColor = true;
-            this.btnGestionEditoriales.Click += new System.EventHandler(this.btnGestionEditoriales_Click);
+            panelMenu.BackColor = Color.FromArgb(37, 52, 57);
+            panelMenu.Controls.Add(btnGestionCategorias);
+            panelMenu.Controls.Add(btnGestionAutores);
+            panelMenu.Controls.Add(btnGestionEjemplares);
+            panelMenu.Controls.Add(btnGestionLibros);
+            panelMenu.Controls.Add(btnGestionPrestamos);
+            panelMenu.Controls.Add(btnGestionUsuario);
+            panelMenu.Controls.Add(btnRegistrarDevolucion);
+            panelMenu.Controls.Add(btnNuevoPrestamo);
+            panelMenu.Controls.Add(panelLogo);
+            panelMenu.Dock = DockStyle.Left;
+            panelMenu.Location = new Point(0, 0);
+            panelMenu.Margin = new Padding(2);
+            panelMenu.Name = "panelMenu";
+            panelMenu.Size = new Size(219, 613);
+            panelMenu.TabIndex = 0;
+            panelMenu.MouseDown += MenuPrincipal_MouseDown;
             // 
             // btnGestionCategorias
             // 
-            this.btnGestionCategorias.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestionCategorias.FlatAppearance.BorderSize = 0;
-            this.btnGestionCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnGestionCategorias.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGestionCategorias.Location = new System.Drawing.Point(0, 368);
-            this.btnGestionCategorias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnGestionCategorias.Name = "btnGestionCategorias";
-            this.btnGestionCategorias.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnGestionCategorias.Size = new System.Drawing.Size(188, 41);
-            this.btnGestionCategorias.TabIndex = 8;
-            this.btnGestionCategorias.Text = "Gestión de Categorías";
-            this.btnGestionCategorias.UseVisualStyleBackColor = true;
-            this.btnGestionCategorias.Click += new System.EventHandler(this.btnGestionCategorias_Click);
+            btnGestionCategorias.Dock = DockStyle.Top;
+            btnGestionCategorias.FlatAppearance.BorderSize = 0;
+            btnGestionCategorias.FlatStyle = FlatStyle.Flat;
+            btnGestionCategorias.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionCategorias.ForeColor = Color.Gainsboro;
+            btnGestionCategorias.Location = new Point(0, 422);
+            btnGestionCategorias.Margin = new Padding(2);
+            btnGestionCategorias.Name = "btnGestionCategorias";
+            btnGestionCategorias.Padding = new Padding(10, 0, 0, 0);
+            btnGestionCategorias.Size = new Size(219, 47);
+            btnGestionCategorias.TabIndex = 8;
+            btnGestionCategorias.Text = "Gestión de Categorías";
+            btnGestionCategorias.UseVisualStyleBackColor = true;
+            btnGestionCategorias.Click += btnGestionCategorias_Click;
             // 
             // btnGestionAutores
             // 
-            this.btnGestionAutores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestionAutores.FlatAppearance.BorderSize = 0;
-            this.btnGestionAutores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionAutores.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnGestionAutores.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGestionAutores.Location = new System.Drawing.Point(0, 327);
-            this.btnGestionAutores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnGestionAutores.Name = "btnGestionAutores";
-            this.btnGestionAutores.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnGestionAutores.Size = new System.Drawing.Size(188, 41);
-            this.btnGestionAutores.TabIndex = 7;
-            this.btnGestionAutores.Text = "Gestión de Autores";
-            this.btnGestionAutores.UseVisualStyleBackColor = true;
-            this.btnGestionAutores.Click += new System.EventHandler(this.btnGestionAutores_Click);
+            btnGestionAutores.Dock = DockStyle.Top;
+            btnGestionAutores.FlatAppearance.BorderSize = 0;
+            btnGestionAutores.FlatStyle = FlatStyle.Flat;
+            btnGestionAutores.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionAutores.ForeColor = Color.Gainsboro;
+            btnGestionAutores.Location = new Point(0, 375);
+            btnGestionAutores.Margin = new Padding(2);
+            btnGestionAutores.Name = "btnGestionAutores";
+            btnGestionAutores.Padding = new Padding(10, 0, 0, 0);
+            btnGestionAutores.Size = new Size(219, 47);
+            btnGestionAutores.TabIndex = 7;
+            btnGestionAutores.Text = "Gestión de Autores";
+            btnGestionAutores.UseVisualStyleBackColor = true;
+            btnGestionAutores.Click += btnGestionAutores_Click;
             // 
             // btnGestionEjemplares
             // 
-            this.btnGestionEjemplares.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestionEjemplares.FlatAppearance.BorderSize = 0;
-            this.btnGestionEjemplares.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionEjemplares.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnGestionEjemplares.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGestionEjemplares.Location = new System.Drawing.Point(0, 286);
-            this.btnGestionEjemplares.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnGestionEjemplares.Name = "btnGestionEjemplares";
-            this.btnGestionEjemplares.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnGestionEjemplares.Size = new System.Drawing.Size(188, 41);
-            this.btnGestionEjemplares.TabIndex = 6;
-            this.btnGestionEjemplares.Text = "Gestión de Ejemplares";
-            this.btnGestionEjemplares.UseVisualStyleBackColor = true;
-            this.btnGestionEjemplares.Click += new System.EventHandler(this.btnGestionEjemplares_Click);
+            btnGestionEjemplares.Dock = DockStyle.Top;
+            btnGestionEjemplares.FlatAppearance.BorderSize = 0;
+            btnGestionEjemplares.FlatStyle = FlatStyle.Flat;
+            btnGestionEjemplares.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionEjemplares.ForeColor = Color.Gainsboro;
+            btnGestionEjemplares.Location = new Point(0, 328);
+            btnGestionEjemplares.Margin = new Padding(2);
+            btnGestionEjemplares.Name = "btnGestionEjemplares";
+            btnGestionEjemplares.Padding = new Padding(10, 0, 0, 0);
+            btnGestionEjemplares.Size = new Size(219, 47);
+            btnGestionEjemplares.TabIndex = 6;
+            btnGestionEjemplares.Text = "Gestión de Ejemplares";
+            btnGestionEjemplares.UseVisualStyleBackColor = true;
+            btnGestionEjemplares.Click += btnGestionEjemplares_Click;
             // 
             // btnGestionLibros
             // 
-            this.btnGestionLibros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestionLibros.FlatAppearance.BorderSize = 0;
-            this.btnGestionLibros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionLibros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnGestionLibros.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGestionLibros.Location = new System.Drawing.Point(0, 245);
-            this.btnGestionLibros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnGestionLibros.Name = "btnGestionLibros";
-            this.btnGestionLibros.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnGestionLibros.Size = new System.Drawing.Size(188, 41);
-            this.btnGestionLibros.TabIndex = 5;
-            this.btnGestionLibros.Text = "Gestión de Libros";
-            this.btnGestionLibros.UseVisualStyleBackColor = true;
-            this.btnGestionLibros.Click += new System.EventHandler(this.btnGestionLibros_Click);
+            btnGestionLibros.Dock = DockStyle.Top;
+            btnGestionLibros.FlatAppearance.BorderSize = 0;
+            btnGestionLibros.FlatStyle = FlatStyle.Flat;
+            btnGestionLibros.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionLibros.ForeColor = Color.Gainsboro;
+            btnGestionLibros.Location = new Point(0, 281);
+            btnGestionLibros.Margin = new Padding(2);
+            btnGestionLibros.Name = "btnGestionLibros";
+            btnGestionLibros.Padding = new Padding(10, 0, 0, 0);
+            btnGestionLibros.Size = new Size(219, 47);
+            btnGestionLibros.TabIndex = 5;
+            btnGestionLibros.Text = "Gestión de Libros";
+            btnGestionLibros.UseVisualStyleBackColor = true;
+            btnGestionLibros.Click += btnGestionLibros_Click;
             // 
             // btnGestionPrestamos
             // 
-            this.btnGestionPrestamos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestionPrestamos.FlatAppearance.BorderSize = 0;
-            this.btnGestionPrestamos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionPrestamos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnGestionPrestamos.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGestionPrestamos.Location = new System.Drawing.Point(0, 204);
-            this.btnGestionPrestamos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnGestionPrestamos.Name = "btnGestionPrestamos";
-            this.btnGestionPrestamos.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnGestionPrestamos.Size = new System.Drawing.Size(188, 41);
-            this.btnGestionPrestamos.TabIndex = 4;
-            this.btnGestionPrestamos.Text = "Gestión de Préstamos";
-            this.btnGestionPrestamos.UseVisualStyleBackColor = true;
-            this.btnGestionPrestamos.Click += new System.EventHandler(this.btnGestionPrestamos_Click);
+            btnGestionPrestamos.Dock = DockStyle.Top;
+            btnGestionPrestamos.FlatAppearance.BorderSize = 0;
+            btnGestionPrestamos.FlatStyle = FlatStyle.Flat;
+            btnGestionPrestamos.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionPrestamos.ForeColor = Color.Gainsboro;
+            btnGestionPrestamos.Location = new Point(0, 234);
+            btnGestionPrestamos.Margin = new Padding(2);
+            btnGestionPrestamos.Name = "btnGestionPrestamos";
+            btnGestionPrestamos.Padding = new Padding(10, 0, 0, 0);
+            btnGestionPrestamos.Size = new Size(219, 47);
+            btnGestionPrestamos.TabIndex = 4;
+            btnGestionPrestamos.Text = "Gestión de Préstamos";
+            btnGestionPrestamos.UseVisualStyleBackColor = true;
+            btnGestionPrestamos.Click += btnGestionPrestamos_Click;
             // 
             // btnGestionUsuario
             // 
-            this.btnGestionUsuario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGestionUsuario.FlatAppearance.BorderSize = 0;
-            this.btnGestionUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGestionUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnGestionUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnGestionUsuario.Location = new System.Drawing.Point(0, 163);
-            this.btnGestionUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnGestionUsuario.Name = "btnGestionUsuario";
-            this.btnGestionUsuario.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnGestionUsuario.Size = new System.Drawing.Size(188, 41);
-            this.btnGestionUsuario.TabIndex = 3;
-            this.btnGestionUsuario.Text = "Gestión de Usuarios";
-            this.btnGestionUsuario.UseVisualStyleBackColor = true;
-            this.btnGestionUsuario.Click += new System.EventHandler(this.btnGestionUsuario_Click);
+            btnGestionUsuario.Dock = DockStyle.Top;
+            btnGestionUsuario.FlatAppearance.BorderSize = 0;
+            btnGestionUsuario.FlatStyle = FlatStyle.Flat;
+            btnGestionUsuario.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionUsuario.ForeColor = Color.Gainsboro;
+            btnGestionUsuario.Location = new Point(0, 187);
+            btnGestionUsuario.Margin = new Padding(2);
+            btnGestionUsuario.Name = "btnGestionUsuario";
+            btnGestionUsuario.Padding = new Padding(10, 0, 0, 0);
+            btnGestionUsuario.Size = new Size(219, 47);
+            btnGestionUsuario.TabIndex = 3;
+            btnGestionUsuario.Text = "Gestión de Usuarios";
+            btnGestionUsuario.UseVisualStyleBackColor = true;
+            btnGestionUsuario.Click += btnGestionUsuario_Click;
             // 
             // btnRegistrarDevolucion
             // 
-            this.btnRegistrarDevolucion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnRegistrarDevolucion.FlatAppearance.BorderSize = 0;
-            this.btnRegistrarDevolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarDevolucion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnRegistrarDevolucion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnRegistrarDevolucion.Location = new System.Drawing.Point(0, 122);
-            this.btnRegistrarDevolucion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnRegistrarDevolucion.Name = "btnRegistrarDevolucion";
-            this.btnRegistrarDevolucion.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnRegistrarDevolucion.Size = new System.Drawing.Size(188, 41);
-            this.btnRegistrarDevolucion.TabIndex = 2;
-            this.btnRegistrarDevolucion.Text = "Registrar Devolución";
-            this.btnRegistrarDevolucion.UseVisualStyleBackColor = true;
-            this.btnRegistrarDevolucion.Click += new System.EventHandler(this.btnRegistrarDevolucion_Click);
+            btnRegistrarDevolucion.Dock = DockStyle.Top;
+            btnRegistrarDevolucion.FlatAppearance.BorderSize = 0;
+            btnRegistrarDevolucion.FlatStyle = FlatStyle.Flat;
+            btnRegistrarDevolucion.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnRegistrarDevolucion.ForeColor = Color.Gainsboro;
+            btnRegistrarDevolucion.Location = new Point(0, 140);
+            btnRegistrarDevolucion.Margin = new Padding(2);
+            btnRegistrarDevolucion.Name = "btnRegistrarDevolucion";
+            btnRegistrarDevolucion.Padding = new Padding(10, 0, 0, 0);
+            btnRegistrarDevolucion.Size = new Size(219, 47);
+            btnRegistrarDevolucion.TabIndex = 2;
+            btnRegistrarDevolucion.Text = "Registrar Devolución";
+            btnRegistrarDevolucion.UseVisualStyleBackColor = true;
+            btnRegistrarDevolucion.Click += btnRegistrarDevolucion_Click;
             // 
             // btnNuevoPrestamo
             // 
-            this.btnNuevoPrestamo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNuevoPrestamo.FlatAppearance.BorderSize = 0;
-            this.btnNuevoPrestamo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoPrestamo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.btnNuevoPrestamo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnNuevoPrestamo.Location = new System.Drawing.Point(0, 81);
-            this.btnNuevoPrestamo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnNuevoPrestamo.Name = "btnNuevoPrestamo";
-            this.btnNuevoPrestamo.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnNuevoPrestamo.Size = new System.Drawing.Size(188, 41);
-            this.btnNuevoPrestamo.TabIndex = 1;
-            this.btnNuevoPrestamo.Text = "Nuevo Préstamo";
-            this.btnNuevoPrestamo.UseVisualStyleBackColor = true;
-            this.btnNuevoPrestamo.Click += new System.EventHandler(this.btnNuevoPrestamo_Click);
+            btnNuevoPrestamo.Dock = DockStyle.Top;
+            btnNuevoPrestamo.FlatAppearance.BorderSize = 0;
+            btnNuevoPrestamo.FlatStyle = FlatStyle.Flat;
+            btnNuevoPrestamo.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnNuevoPrestamo.ForeColor = Color.Gainsboro;
+            btnNuevoPrestamo.Location = new Point(0, 93);
+            btnNuevoPrestamo.Margin = new Padding(2);
+            btnNuevoPrestamo.Name = "btnNuevoPrestamo";
+            btnNuevoPrestamo.Padding = new Padding(10, 0, 0, 0);
+            btnNuevoPrestamo.Size = new Size(219, 47);
+            btnNuevoPrestamo.TabIndex = 1;
+            btnNuevoPrestamo.Text = "Nuevo Préstamo";
+            btnNuevoPrestamo.UseVisualStyleBackColor = true;
+            btnNuevoPrestamo.Click += btnNuevoPrestamo_Click;
             // 
             // panelLogo
             // 
-            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(57)))));
-            this.panelLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLogo.BackgroundImage")));
-            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelLogo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(188, 81);
-            this.panelLogo.TabIndex = 0;
-            this.panelLogo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
+            panelLogo.BackColor = Color.FromArgb(37, 52, 57);
+            panelLogo.BackgroundImage = (Image)resources.GetObject("panelLogo.BackgroundImage");
+            panelLogo.BackgroundImageLayout = ImageLayout.Zoom;
+            panelLogo.Dock = DockStyle.Top;
+            panelLogo.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            panelLogo.ForeColor = SystemColors.ControlText;
+            panelLogo.Location = new Point(0, 0);
+            panelLogo.Margin = new Padding(2);
+            panelLogo.Name = "panelLogo";
+            panelLogo.Size = new Size(219, 93);
+            panelLogo.TabIndex = 0;
+            panelLogo.MouseDown += MenuPrincipal_MouseDown;
             // 
             // panelBaner
             // 
-            this.panelBaner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(52)))), ((int)(((byte)(57)))));
-            this.panelBaner.Controls.Add(this.buttonCloseChildForm);
-            this.panelBaner.Controls.Add(this.buttonMinimize);
-            this.panelBaner.Controls.Add(this.buttonMaximize);
-            this.panelBaner.Controls.Add(this.buttonClose);
-            this.panelBaner.Controls.Add(this.labelTitulo);
-            this.panelBaner.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBaner.Location = new System.Drawing.Point(188, 0);
-            this.panelBaner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelBaner.Name = "panelBaner";
-            this.panelBaner.Size = new System.Drawing.Size(698, 81);
-            this.panelBaner.TabIndex = 1;
-            this.panelBaner.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBaner_MouseDown);
+            panelBaner.BackColor = Color.FromArgb(37, 52, 57);
+            panelBaner.Controls.Add(buttonCloseChildForm);
+            panelBaner.Controls.Add(buttonMinimize);
+            panelBaner.Controls.Add(buttonMaximize);
+            panelBaner.Controls.Add(buttonClose);
+            panelBaner.Controls.Add(labelTitulo);
+            panelBaner.Dock = DockStyle.Top;
+            panelBaner.Location = new Point(219, 0);
+            panelBaner.Margin = new Padding(2);
+            panelBaner.Name = "panelBaner";
+            panelBaner.Size = new Size(815, 93);
+            panelBaner.TabIndex = 1;
+            panelBaner.MouseDown += panelBaner_MouseDown;
             // 
             // buttonCloseChildForm
             // 
-            this.buttonCloseChildForm.FlatAppearance.BorderSize = 0;
-            this.buttonCloseChildForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCloseChildForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCloseChildForm.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonCloseChildForm.Location = new System.Drawing.Point(19, 22);
-            this.buttonCloseChildForm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonCloseChildForm.Name = "buttonCloseChildForm";
-            this.buttonCloseChildForm.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.buttonCloseChildForm.Size = new System.Drawing.Size(41, 45);
-            this.buttonCloseChildForm.TabIndex = 3;
-            this.buttonCloseChildForm.Text = "X";
-            this.buttonCloseChildForm.UseVisualStyleBackColor = true;
-            this.buttonCloseChildForm.Click += new System.EventHandler(this.buttonCloseChildForm_Click);
+            buttonCloseChildForm.FlatAppearance.BorderSize = 0;
+            buttonCloseChildForm.FlatStyle = FlatStyle.Flat;
+            buttonCloseChildForm.Font = new Font("Microsoft Sans Serif", 22.2F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonCloseChildForm.ForeColor = Color.Gainsboro;
+            buttonCloseChildForm.Location = new Point(22, 25);
+            buttonCloseChildForm.Margin = new Padding(2);
+            buttonCloseChildForm.Name = "buttonCloseChildForm";
+            buttonCloseChildForm.RightToLeft = RightToLeft.No;
+            buttonCloseChildForm.Size = new Size(48, 52);
+            buttonCloseChildForm.TabIndex = 3;
+            buttonCloseChildForm.Text = "X";
+            buttonCloseChildForm.UseVisualStyleBackColor = true;
+            buttonCloseChildForm.Click += buttonCloseChildForm_Click;
             // 
             // buttonMinimize
             // 
-            this.buttonMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMinimize.FlatAppearance.BorderSize = 0;
-            this.buttonMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMinimize.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMinimize.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonMinimize.Location = new System.Drawing.Point(611, 2);
-            this.buttonMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonMinimize.Name = "buttonMinimize";
-            this.buttonMinimize.Size = new System.Drawing.Size(22, 24);
-            this.buttonMinimize.TabIndex = 2;
-            this.buttonMinimize.Text = "O";
-            this.buttonMinimize.UseVisualStyleBackColor = true;
-            this.buttonMinimize.Click += new System.EventHandler(this.buttonMinimize_Click);
+            buttonMinimize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonMinimize.FlatAppearance.BorderSize = 0;
+            buttonMinimize.FlatStyle = FlatStyle.Flat;
+            buttonMinimize.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonMinimize.ForeColor = Color.Gainsboro;
+            buttonMinimize.Location = new Point(714, 2);
+            buttonMinimize.Margin = new Padding(2);
+            buttonMinimize.Name = "buttonMinimize";
+            buttonMinimize.Size = new Size(26, 28);
+            buttonMinimize.TabIndex = 2;
+            buttonMinimize.Text = "O";
+            buttonMinimize.UseVisualStyleBackColor = true;
+            buttonMinimize.Click += buttonMinimize_Click;
             // 
             // buttonMaximize
             // 
-            this.buttonMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMaximize.FlatAppearance.BorderSize = 0;
-            this.buttonMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMaximize.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMaximize.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonMaximize.Location = new System.Drawing.Point(642, 2);
-            this.buttonMaximize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonMaximize.Name = "buttonMaximize";
-            this.buttonMaximize.Size = new System.Drawing.Size(22, 24);
-            this.buttonMaximize.TabIndex = 2;
-            this.buttonMaximize.Text = "O";
-            this.buttonMaximize.UseVisualStyleBackColor = true;
-            this.buttonMaximize.Click += new System.EventHandler(this.buttonMaximize_Click);
+            buttonMaximize.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonMaximize.FlatAppearance.BorderSize = 0;
+            buttonMaximize.FlatStyle = FlatStyle.Flat;
+            buttonMaximize.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonMaximize.ForeColor = Color.Gainsboro;
+            buttonMaximize.Location = new Point(750, 2);
+            buttonMaximize.Margin = new Padding(2);
+            buttonMaximize.Name = "buttonMaximize";
+            buttonMaximize.Size = new Size(26, 28);
+            buttonMaximize.TabIndex = 2;
+            buttonMaximize.Text = "O";
+            buttonMaximize.UseVisualStyleBackColor = true;
+            buttonMaximize.Click += buttonMaximize_Click;
             // 
             // buttonClose
             // 
-            this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonClose.FlatAppearance.BorderSize = 0;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClose.ForeColor = System.Drawing.Color.Gainsboro;
-            this.buttonClose.Location = new System.Drawing.Point(673, 2);
-            this.buttonClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(22, 24);
-            this.buttonClose.TabIndex = 1;
-            this.buttonClose.Text = "O";
-            this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            buttonClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonClose.FlatAppearance.BorderSize = 0;
+            buttonClose.FlatStyle = FlatStyle.Flat;
+            buttonClose.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonClose.ForeColor = Color.Gainsboro;
+            buttonClose.Location = new Point(786, 2);
+            buttonClose.Margin = new Padding(2);
+            buttonClose.Name = "buttonClose";
+            buttonClose.Size = new Size(26, 28);
+            buttonClose.TabIndex = 1;
+            buttonClose.Text = "O";
+            buttonClose.UseVisualStyleBackColor = true;
+            buttonClose.Click += buttonClose_Click;
             // 
             // labelTitulo
             // 
-            this.labelTitulo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTitulo.AutoSize = true;
-            this.labelTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelTitulo.Location = new System.Drawing.Point(234, 41);
-            this.labelTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(242, 26);
-            this.labelTitulo.TabIndex = 0;
-            this.labelTitulo.Text = "Próximos Vencimientos";
-            this.labelTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            labelTitulo.Anchor = AnchorStyles.None;
+            labelTitulo.AutoSize = true;
+            labelTitulo.FlatStyle = FlatStyle.Flat;
+            labelTitulo.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelTitulo.ForeColor = Color.Gainsboro;
+            labelTitulo.Location = new Point(273, 47);
+            labelTitulo.Margin = new Padding(2, 0, 2, 0);
+            labelTitulo.Name = "labelTitulo";
+            labelTitulo.Size = new Size(242, 26);
+            labelTitulo.TabIndex = 0;
+            labelTitulo.Text = "Próximos Vencimientos";
+            labelTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panelDesktop
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(61)))), ((int)(((byte)(66)))));
-            this.panelDesktop.Controls.Add(this.dataGrid);
-            this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(188, 81);
-            this.panelDesktop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(698, 450);
-            this.panelDesktop.TabIndex = 2;
-            this.panelDesktop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelDesktop_MouseDown);
+            panelDesktop.BackColor = Color.FromArgb(46, 61, 66);
+            panelDesktop.Controls.Add(dataGrid);
+            panelDesktop.Dock = DockStyle.Fill;
+            panelDesktop.Location = new Point(219, 93);
+            panelDesktop.Margin = new Padding(2);
+            panelDesktop.Name = "panelDesktop";
+            panelDesktop.Size = new Size(815, 520);
+            panelDesktop.TabIndex = 2;
+            panelDesktop.MouseDown += panelDesktop_MouseDown;
             // 
             // dataGrid
             // 
-            this.dataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGrid.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(45)))), ((int)(((byte)(57)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGrid.ColumnHeadersHeight = 25;
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.usuario,
-            this.isbn,
-            this.fechaVencimiento});
-            this.dataGrid.EnableHeadersVisualStyles = false;
-            this.dataGrid.GridColor = System.Drawing.Color.Gainsboro;
-            this.dataGrid.Location = new System.Drawing.Point(153, 21);
-            this.dataGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGrid.RowHeadersVisible = false;
-            this.dataGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGrid.RowTemplate.Height = 24;
-            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(379, 371);
-            this.dataGrid.TabIndex = 1;
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_CellContentClick);
+            dataGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGrid.BackgroundColor = Color.Gainsboro;
+            dataGrid.BorderStyle = BorderStyle.None;
+            dataGrid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(30, 45, 57);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGrid.ColumnHeadersHeight = 25;
+            dataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGrid.Columns.AddRange(new DataGridViewColumn[] { usuario, isbn, fechaVencimiento });
+            dataGrid.EnableHeadersVisualStyles = false;
+            dataGrid.GridColor = Color.Gainsboro;
+            dataGrid.Location = new Point(178, 24);
+            dataGrid.Margin = new Padding(2);
+            dataGrid.Name = "dataGrid";
+            dataGrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGrid.RowHeadersVisible = false;
+            dataGrid.RowHeadersWidth = 51;
+            dataGridViewCellStyle3.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 6.5F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.MenuHighlight;
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(224, 224, 224);
+            dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGrid.RowTemplate.Height = 24;
+            dataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGrid.Size = new Size(443, 429);
+            dataGrid.TabIndex = 1;
+            dataGrid.CellContentClick += dataGrid_CellContentClick;
             // 
             // usuario
             // 
-            this.usuario.HeaderText = "USUARIO";
-            this.usuario.MinimumWidth = 6;
-            this.usuario.Name = "usuario";
-            this.usuario.ReadOnly = true;
-            this.usuario.Width = 106;
+            usuario.HeaderText = "USUARIO";
+            usuario.MinimumWidth = 6;
+            usuario.Name = "usuario";
+            usuario.ReadOnly = true;
+            usuario.Width = 106;
             // 
             // isbn
             // 
-            this.isbn.HeaderText = "ISBN";
-            this.isbn.MinimumWidth = 6;
-            this.isbn.Name = "isbn";
-            this.isbn.ReadOnly = true;
-            this.isbn.Width = 70;
+            isbn.HeaderText = "ISBN";
+            isbn.MinimumWidth = 6;
+            isbn.Name = "isbn";
+            isbn.ReadOnly = true;
+            isbn.Width = 70;
             // 
             // fechaVencimiento
             // 
-            this.fechaVencimiento.HeaderText = "FECHA DE VENCIMIENTO";
-            this.fechaVencimiento.MinimumWidth = 6;
-            this.fechaVencimiento.Name = "fechaVencimiento";
-            this.fechaVencimiento.ReadOnly = true;
-            this.fechaVencimiento.Width = 233;
+            fechaVencimiento.HeaderText = "FECHA DE VENCIMIENTO";
+            fechaVencimiento.MinimumWidth = 6;
+            fechaVencimiento.Name = "fechaVencimiento";
+            fechaVencimiento.ReadOnly = true;
+            fechaVencimiento.Width = 233;
             // 
             // MenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 531);
-            this.Controls.Add(this.panelDesktop);
-            this.Controls.Add(this.panelBaner);
-            this.Controls.Add(this.panelMenu);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "MenuPrincipal";
-            this.Text = "Menu Principal";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MenuPrincipal_MouseDown);
-            this.panelMenu.ResumeLayout(false);
-            this.panelBaner.ResumeLayout(false);
-            this.panelBaner.PerformLayout();
-            this.panelDesktop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1034, 613);
+            Controls.Add(panelDesktop);
+            Controls.Add(panelBaner);
+            Controls.Add(panelMenu);
+            Margin = new Padding(2);
+            Name = "MenuPrincipal";
+            Text = "Menu Principal";
+            MouseDown += MenuPrincipal_MouseDown;
+            panelMenu.ResumeLayout(false);
+            panelBaner.ResumeLayout(false);
+            panelBaner.PerformLayout();
+            panelDesktop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGrid).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -460,7 +435,6 @@ namespace Gestion_de_Biblioteca
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnNuevoPrestamo;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button btnGestionEditoriales;
         private System.Windows.Forms.Button btnGestionCategorias;
         private System.Windows.Forms.Button btnGestionAutores;
         private System.Windows.Forms.Button btnGestionEjemplares;
