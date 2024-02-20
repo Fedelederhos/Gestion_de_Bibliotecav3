@@ -56,11 +56,28 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            String estado;
-            String codigo;
-            estado = estadoComboBox.SelectedText;
+            
+            string estado;
+            string codigo;
+            estado = estadoComboBox.SelectedItem.ToString();
             codigo = codigoLabel.Text;
-            // controladorPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
+
+            controladorPrestamo.RegistrarDevolucionPrestamo(codigo, ParseEstado(estado));
+        }
+
+        private Estado ParseEstado(string estado)
+        {
+            switch(estado)
+            {
+                case "Bueno":
+                    return Estado.Bueno;
+                case "Regular":
+                    return Estado.Regular;
+                case "Arruinado":
+                    return Estado.Arruinado;
+                default:
+                    throw new ArgumentException("Estado no válido", nameof(estado));
+            }
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
