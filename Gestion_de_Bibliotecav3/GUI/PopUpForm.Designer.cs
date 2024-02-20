@@ -85,11 +85,13 @@
             // 
             // labelMensaje
             // 
+            labelMensaje.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             labelMensaje.AutoSize = true;
             labelMensaje.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             labelMensaje.ForeColor = Color.Snow;
-            labelMensaje.Location = new Point(98, 71);
+            labelMensaje.Location = new Point(97, 65);
             labelMensaje.Margin = new Padding(2, 0, 2, 0);
+            labelMensaje.MaximumSize = new Size(250, 250);
             labelMensaje.Name = "labelMensaje";
             labelMensaje.Size = new Size(76, 20);
             labelMensaje.TabIndex = 5;
