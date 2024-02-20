@@ -91,7 +91,7 @@
             labelMensaje.ForeColor = Color.Snow;
             labelMensaje.Location = new Point(97, 65);
             labelMensaje.Margin = new Padding(2, 0, 2, 0);
-            labelMensaje.MaximumSize = new Size(250, 100);
+            labelMensaje.MaximumSize = new Size(250, 250);
             labelMensaje.Name = "labelMensaje";
             labelMensaje.Size = new Size(76, 20);
             labelMensaje.TabIndex = 5;
