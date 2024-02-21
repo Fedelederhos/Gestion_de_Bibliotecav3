@@ -10,9 +10,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Dominio;
 using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.GUI;
+using Gestion_de_Bibliotecav3.Servicios;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
-{
+{/// <summary>
+/// Alta de Ejemplares, se crea a partir del codigo de ejemplar y la seleccion de un libro
+/// </summary>
     public partial class AltaEjemplarForm : Form
     {
         Libro libro;
@@ -44,33 +48,81 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         private void panelBotones_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        //Métodos
 
+
+        /// <summary>
+        /// Cierra la venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Acepta el DTO y llama al controlador
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-           string codigo = boxCodigo.Text;
-            Ejemplar ejemplar = new Ejemplar(codigo, libro);
-            controladorEjemplar.CrearEjemplar(ejemplar);
+            try
+            {
+                string codigo = boxCodigo.Text;
+                Ejemplar ejemplar = new Ejemplar(codigo, libro);
+                controladorEjemplar.CrearEjemplar(ejemplar);
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+            }
         }
 
+        /// <summary>
+        /// Busca el Libro a asociar al Ejemplar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string isbnONombre = boxISBNoNombre.Text;
-            List<Libro> lista;
-            lista = controladorLibro.BuscarLibroPorNombreOISBN(isbnONombre);
-            cargarTabla(lista);
+                try
+                {
+                    string isbnONombre = boxISBNoNombre.Text;
+                    List<Libro> lista;
+                    lista = controladorLibro.BuscarLibroPorNombreOISBN(isbnONombre);
+                    cargarTabla(lista);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    PopUpForm popup = new PopUpForm(ex.ToString());
+                    popup.ShowDialog();
+                }
+            
         }
 
+        /// <summary>
+        /// Método para seleccionar un libro en la tabla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridEjemplar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -84,6 +136,10 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             }
         }
 
+        /// <summary>
+        /// Método que carga el DTO en la tabla de Libros
+        /// </summary>
+        /// <param name="lista"></param>
         private void cargarTabla(List<Libro> lista)
         {
             gridEjemplar.DataSource = lista;

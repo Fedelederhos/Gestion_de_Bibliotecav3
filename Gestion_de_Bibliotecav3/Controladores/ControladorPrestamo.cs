@@ -10,18 +10,26 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Gestion_de_Bibliotecav3.Controladores
 {
+    /// <summary>
+    /// Clase controladora de Préstamo
+    /// </summary>
     internal class ControladorPrestamo
     {
         ServicioPrestamo servicioPrestamo = new ServicioPrestamo();
         ServicioEjemplar servicioEjemplar = new ServicioEjemplar();
         ServicioUsuario servicioUsuario = new ServicioUsuario();
 
+        /// <summary>
+        /// Permite buscar un préstamo por su ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Prestamo BuscarPrestamoPorID(int id)
         {
-            
+            return servicioPrestamo.BuscarPrestamoPorID(id);
             try
             {
-                return servicioPrestamo.BuscarPrestamoPorID(id);
+                
 
             }
             catch (Exception ex)
@@ -35,6 +43,11 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="codigoODNI"></param>
+        /// <returns></returns>
         public List<Prestamo> BuscarPrestamosPorCodigoODNI(string codigoODNI)
         {
             try
@@ -51,6 +64,12 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ejemplar"></param>
+        /// <param name="usuario"></param>
+        /// <param name="fechaVencimiento"></param>
         public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
         {
             try
@@ -74,6 +93,10 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Prestamo> ProximosPrestamosAVencer()
         {
             try
@@ -90,6 +113,10 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="prestamo"></param>
         public void EliminarPrestamo(Prestamo prestamo)
         {
             try
@@ -113,6 +140,11 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="codigo"></param>
+        /// <param name="estado"></param>
         public void RegistrarDevolucionPrestamo(string codigo, Estado estado)
         {
             try
@@ -136,6 +168,11 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla
         {
             try
@@ -152,6 +189,11 @@ namespace Gestion_de_Bibliotecav3.Controladores
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
         public DateTime? AsignarVencimiento(int dni) // Puse DateTime? porque si pasa algun error, no devolvera ese tipo de dato
         {
             try

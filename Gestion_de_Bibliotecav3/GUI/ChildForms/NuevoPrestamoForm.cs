@@ -1,5 +1,6 @@
 ﻿using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,9 +62,18 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            List<Ejemplar> list = new List<Ejemplar>();
-            list = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(textBox1.Text);
-            cargarTabla(list);
+            try
+            {
+                List<Ejemplar> list = new List<Ejemplar>();
+                list = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(textBox1.Text);
+                cargarTabla(list);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+            }
         }
 
         private void buttonAceptar_Click(object sender, EventArgs e)
@@ -81,14 +91,24 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void gridEjemplares_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                // Obtener la fila clickeada
-                DataGridViewRow filaSeleccionada = gridEjemplares.Rows[e.RowIndex];
-                string id = filaSeleccionada.Cells[0].Value.ToString();
-                ejemplar = controladorEjemplar.BuscarEjemplarPorID(int.Parse(id));
+                if (e.RowIndex >= 0)
+                {
+                    // Obtener la fila clickeada
+                    DataGridViewRow filaSeleccionada = gridEjemplares.Rows[e.RowIndex];
+                    string id = filaSeleccionada.Cells[0].Value.ToString();
+                    ejemplar = controladorEjemplar.BuscarEjemplarPorID(int.Parse(id));
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+            }   
         }
+
         private void cargarTabla(List<Ejemplar> lista)
         {
             gridEjemplares.DataSource = lista;

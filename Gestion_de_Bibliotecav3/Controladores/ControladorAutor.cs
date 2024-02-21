@@ -9,32 +9,21 @@ using System.Threading.Tasks;
 
 namespace Gestion_de_Bibliotecav3.Controladores
 {
+    /// <summary>
+    /// Clase controladora de Autor
+    /// </summary>
     internal class ControladorAutor
     {
         ServicioAutor servicioAutor ;
 
+        /// <summary>
+        /// Lista por autores por coincidencia
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
         public List<Autor> BuscarAutoresPorCoincidencia(string nombre)
         {
-            try
-            {
-                return servicioAutor.BuscarAutoresPorCoincidencia(nombre);
-
-            }
-            catch (NullReferenceException n)
-            {
-                PopUpForm popup = new PopUpForm(n.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(n.Message);
-                return null;
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                return null;
-            }
+            return servicioAutor.BuscarAutoresPorCoincidencia(nombre);
         }
     }
 }
