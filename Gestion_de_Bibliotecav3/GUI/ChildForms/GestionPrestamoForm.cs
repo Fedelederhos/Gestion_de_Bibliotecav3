@@ -1,5 +1,6 @@
 ﻿using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,13 +45,22 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void gridPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                // Obtener la fila clickeada
-                DataGridViewRow filaSeleccionada = gridPrestamos.Rows[e.RowIndex];
-                idPrestamo = filaSeleccionada.Cells[0].Value.ToString();
-                codigoEjemplar = filaSeleccionada.Cells[1].Value.ToString();
-                prestamo = controladorPrestamo.BuscarPrestamoPorID(int.Parse(idPrestamo));
+                if (e.RowIndex >= 0)
+                {
+                    // Obtener la fila clickeada
+                    DataGridViewRow filaSeleccionada = gridPrestamos.Rows[e.RowIndex];
+                    idPrestamo = filaSeleccionada.Cells[0].Value.ToString();
+                    codigoEjemplar = filaSeleccionada.Cells[1].Value.ToString();
+                    prestamo = controladorPrestamo.BuscarPrestamoPorID(int.Parse(idPrestamo));
+                }
+            }
+            catch (Exception ex)
+            {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                Console.WriteLine(ex.Message);
             }
         }
 
