@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
@@ -42,10 +43,19 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string busqueda = textBusqueda.Text;
-            List<Ejemplar> lista;
-            lista = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(busqueda);
-            cargarTabla(lista);
+            try
+            {
+                string busqueda = textBusqueda.Text;
+                List<Ejemplar> lista;
+                lista = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(busqueda);
+                cargarTabla(lista);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+            } 
         }
 
         private void gridEjemplar_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -73,9 +73,25 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         /// <param name="e"></param>
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-           string codigo = boxCodigo.Text;
-            Ejemplar ejemplar = new Ejemplar(codigo, libro);
-            controladorEjemplar.CrearEjemplar(ejemplar);
+            try
+            {
+                string codigo = boxCodigo.Text;
+                Ejemplar ejemplar = new Ejemplar(codigo, libro);
+                controladorEjemplar.CrearEjemplar(ejemplar);
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+            }
         }
 
         /// <summary>
