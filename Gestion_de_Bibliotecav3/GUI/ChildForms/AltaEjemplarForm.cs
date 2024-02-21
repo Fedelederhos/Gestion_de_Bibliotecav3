@@ -12,7 +12,9 @@ using Gestion_de_Bibliotecav3.Dominio;
 using Gestion_de_Bibliotecav3.Controladores;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
-{
+{/// <summary>
+/// Alta de Ejemplares, se crea a partir del codigo de ejemplar y la seleccion de un libro
+/// </summary>
     public partial class AltaEjemplarForm : Form
     {
         Libro libro;
