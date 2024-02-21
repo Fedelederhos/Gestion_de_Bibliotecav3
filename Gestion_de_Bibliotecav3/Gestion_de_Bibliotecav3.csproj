@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="DTOs\LibroDTOs\" />
-    <Folder Include="DTOs\PrestamosDTOs\" />
   </ItemGroup>
 
 </Project>
