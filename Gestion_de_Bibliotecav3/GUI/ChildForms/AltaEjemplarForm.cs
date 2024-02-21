@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Dominio;
 using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.GUI;
+using Gestion_de_Bibliotecav3.Servicios;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {/// <summary>
@@ -46,18 +48,29 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
         private void panelBotones_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        //Métodos
 
+
+        /// <summary>
+        /// Cierra la venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// Acepta el DTO y llama al controlador
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
            string codigo = boxCodigo.Text;
@@ -65,14 +78,35 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             controladorEjemplar.CrearEjemplar(ejemplar);
         }
 
+        /// <summary>
+        /// Busca el Libro a asociar al Ejemplar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string isbnONombre = boxISBNoNombre.Text;
-            List<Libro> lista;
-            lista = controladorLibro.BuscarLibroPorNombreOISBN(isbnONombre);
-            cargarTabla(lista);
+                try
+                {
+                    string isbnONombre = boxISBNoNombre.Text;
+                    List<Libro> lista;
+                    lista = controladorLibro.BuscarLibroPorNombreOISBN(isbnONombre);
+                    cargarTabla(lista);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    PopUpForm popup = new PopUpForm(ex.ToString());
+                    popup.ShowDialog();
+                }
+            
         }
 
+        /// <summary>
+        /// Método para seleccionar un libro en la tabla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gridEjemplar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -86,6 +120,10 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             }
         }
 
+        /// <summary>
+        /// Método que carga el DTO en la tabla de Libros
+        /// </summary>
+        /// <param name="lista"></param>
         private void cargarTabla(List<Libro> lista)
         {
             gridEjemplar.DataSource = lista;

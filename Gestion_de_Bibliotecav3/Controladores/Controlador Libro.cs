@@ -9,40 +9,30 @@ using System.Threading.Tasks;
 
 namespace Gestion_de_Bibliotecav3.Controladores
 {
+    /// <summary>
+    /// Clase controladora de Libro
+    /// </summary>
     public class Controlador_Libro
     {
         ServicioLibro servicioLibro = new ServicioLibro();
-
+        /// <summary>
+        /// Busca a los ejemplares asociados a un libro según su ISBN o Nombre
+        /// </summary>
+        /// <param name="isbnONombre"></param>
+        /// <returns></returns>
         public Task<List<Libro>> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
         {
-            try
-            {
-                return servicioLibro.BuscarLibrosPorIsbnONombre(isbnONombre);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                return null;
-            }
+            return servicioLibro.BuscarLibrosPorIsbnONombre(isbnONombre);
         }
 
+        /// <summary>
+        /// Busca a los libros según su isbn o nombre
+        /// </summary>
+        /// <param name="nombreOISBN"></param>
+        /// <returns></returns>
         public List<Libro> BuscarLibroPorNombreOISBN(string nombreOISBN)
         {
-            try
-            {
-                return servicioLibro.BuscarLibroPorNombreOISBN(nombreOISBN);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                return null;
-            }
+            return servicioLibro.BuscarLibroPorNombreOISBN(nombreOISBN);
         }
     }
 }
