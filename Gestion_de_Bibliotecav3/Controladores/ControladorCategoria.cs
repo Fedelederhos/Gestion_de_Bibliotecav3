@@ -9,24 +9,21 @@ using System.Threading.Tasks;
 
 namespace Gestion_de_Bibliotecav3.Controladores
 {
+    /// <summary>
+    /// Clase controladora de categoria
+    /// </summary>
     internal class ControladorCategoria
     {
         ServicioCategoria servicioCategoria;
 
+        /// <summary>
+        /// Lista por categoria por coincidencia
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
         public List<Categoria> BuscarCategoriasPorCoincidencia(string nombre)
         {
-            try
-            {
-                return servicioCategoria.BuscarCategoriasPorCoincidencia(nombre);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                return null;
-            }
+            return servicioCategoria.BuscarCategoriasPorCoincidencia(nombre);
         }
     }
 }

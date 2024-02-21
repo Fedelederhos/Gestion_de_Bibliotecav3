@@ -1,5 +1,7 @@
 ﻿using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
+using Gestion_de_Bibliotecav3.Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,17 +62,32 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            string codigo = textBoxCodigo.Text;
-            string fechaBaja = textBoxFechaBaja.Text;
-            string disponibilidad = comboBoxDisponibilidad.SelectedText;
-            Ejemplar ejemplarOriginal = new Ejemplar();
-            ejemplarOriginal = controladorEjemplar.BuscarPorCodigo(codigo);
-            Ejemplar ejemplar = new Ejemplar(codigo, ejemplarOriginal.Libro);
-            ejemplar.FechaBaja = DateTime.Parse(fechaBaja);
-            Boolean dispo;
-            if (disponibilidad == "Disponible") { ejemplar.Disponibilidad = true; }
-            else if (disponibilidad == "No disponible") { ejemplar.Disponibilidad = false; }
-            controladorEjemplar.ModificarEjemplar(ejemplar);
+            try
+            {
+                string codigo = textBoxCodigo.Text;
+                string fechaBaja = textBoxFechaBaja.Text;
+                string disponibilidad = comboBoxDisponibilidad.SelectedText;
+                Ejemplar ejemplarOriginal = new Ejemplar();
+                ejemplarOriginal = controladorEjemplar.BuscarPorCodigo(codigo);
+                Ejemplar ejemplar = new Ejemplar(codigo, ejemplarOriginal.Libro);
+                ejemplar.FechaBaja = DateTime.Parse(fechaBaja);
+                Boolean dispo;
+                if (disponibilidad == "Disponible") { ejemplar.Disponibilidad = true; }
+                else if (disponibilidad == "No disponible") { ejemplar.Disponibilidad = false; }
+                controladorEjemplar.ModificarEjemplar(ejemplar);
+            }
+            catch (SystemException s)
+            {
+                // Algun parametro esta mal (id o no existe)
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+            }       
         }
     }
 }
