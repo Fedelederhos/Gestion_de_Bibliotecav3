@@ -16,9 +16,6 @@
 
   <ItemGroup>
     <Folder Include="DTOs\LibroDTOs\" />
-    <Folder Include="DTOs\AutorDTOs\" />
-    <Folder Include="DTOs\CategoriaDTOs\" />
-    <Folder Include="DTOs\EjemplarDTOs\" />
     <Folder Include="DTOs\UsuarioDTOs\" />
     <Folder Include="DTOs\PrestamosDTOs\" />
   </ItemGroup>

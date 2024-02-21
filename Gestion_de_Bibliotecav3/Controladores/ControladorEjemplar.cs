@@ -40,21 +40,6 @@ namespace Gestion_de_Bibliotecav3.Controladores
 
         }
 
-        public List<Categoria> BuscarCategorias(string categoria)
-        {
-            try
-            {
-                return servicioEjemplar.BuscarCategorias(categoria);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                return null;
-            }
-        }
-
         public Ejemplar BuscarPorCodigo(string codigo)
         {
             try
