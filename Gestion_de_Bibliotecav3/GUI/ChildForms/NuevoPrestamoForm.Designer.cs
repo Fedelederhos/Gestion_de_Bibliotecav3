@@ -43,14 +43,13 @@
             textBoxDNI = new TextBox();
             label1 = new Label();
             gridEjemplares = new DataGridView();
+            buttonBuscar = new Button();
+            textBox1 = new TextBox();
+            labelIngrese = new Label();
             id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             codigo = new DataGridViewTextBoxColumn();
-            editorial = new DataGridViewTextBoxColumn();
-            buttonBuscar = new Button();
-            textBox1 = new TextBox();
-            labelIngrese = new Label();
             panelBanner.SuspendLayout();
             panelBotones.SuspendLayout();
             panelCampos.SuspendLayout();
@@ -194,7 +193,7 @@
             gridEjemplares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplares.ColumnHeadersHeight = 25;
             gridEjemplares.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplares.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, codigo, editorial });
+            gridEjemplares.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, codigo });
             gridEjemplares.EnableHeadersVisualStyles = false;
             gridEjemplares.GridColor = Color.Gainsboro;
             gridEjemplares.Location = new Point(72, 79);
@@ -221,44 +220,6 @@
             gridEjemplares.Size = new Size(538, 75);
             gridEjemplares.TabIndex = 13;
             gridEjemplares.CellClick += gridEjemplares_CellClick;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Width = 48;
-            // 
-            // isbn
-            // 
-            isbn.HeaderText = "ISBN";
-            isbn.MinimumWidth = 6;
-            isbn.Name = "isbn";
-            isbn.ReadOnly = true;
-            isbn.Width = 70;
-            // 
-            // nombre
-            // 
-            nombre.HeaderText = "NOMBRE";
-            nombre.MinimumWidth = 6;
-            nombre.Name = "nombre";
-            nombre.ReadOnly = true;
-            nombre.Width = 105;
-            // 
-            // codigo
-            // 
-            codigo.HeaderText = "CÓDIGO";
-            codigo.MinimumWidth = 6;
-            codigo.Name = "codigo";
-            codigo.ReadOnly = true;
-            codigo.Width = 99;
-            // 
-            // editorial
-            // 
-            editorial.HeaderText = "EDITORIAL";
-            editorial.MinimumWidth = 6;
-            editorial.Name = "editorial";
-            editorial.ReadOnly = true;
-            editorial.Width = 117;
             // 
             // buttonBuscar
             // 
@@ -289,6 +250,36 @@
             labelIngrese.Size = new Size(210, 17);
             labelIngrese.TabIndex = 5;
             labelIngrese.Text = "Ingresar ISBN o nombre de libro";
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Width = 48;
+            // 
+            // isbn
+            // 
+            isbn.HeaderText = "ISBN";
+            isbn.MinimumWidth = 6;
+            isbn.Name = "isbn";
+            isbn.ReadOnly = true;
+            isbn.Width = 70;
+            // 
+            // nombre
+            // 
+            nombre.HeaderText = "NOMBRE";
+            nombre.MinimumWidth = 6;
+            nombre.Name = "nombre";
+            nombre.ReadOnly = true;
+            nombre.Width = 105;
+            // 
+            // codigo
+            // 
+            codigo.HeaderText = "CÓDIGO";
+            codigo.MinimumWidth = 6;
+            codigo.Name = "codigo";
+            codigo.ReadOnly = true;
+            codigo.Width = 99;
             // 
             // NuevoPrestamoForm
             // 
@@ -329,6 +320,5 @@
         private DataGridViewTextBoxColumn isbn;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn codigo;
-        private DataGridViewTextBoxColumn editorial;
     }
 }
