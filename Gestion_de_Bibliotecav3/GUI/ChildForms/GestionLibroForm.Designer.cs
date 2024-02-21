@@ -112,6 +112,7 @@
             gridLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             gridLibros.ColumnHeadersHeight = 25;
             gridLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            gridLibros.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, autor, fechaPublicacion, categoria });
             gridLibros.EnableHeadersVisualStyles = false;
             gridLibros.GridColor = Color.FromArgb(30, 45, 57);
             gridLibros.Location = new Point(98, 80);
