@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Gestion_de_Bibliotecav3.DAL;
+using Gestion_de_Bibliotecav3.DAL.EntityFramework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -6,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Gestion_de_Bibliotecav3.Servicios
 {
-    public class OpenLibraryApiClient
+    public class OpenLibraryApiClient : IOpenLibraryApiClient
     {
+
         private readonly HttpClient _httpClient;
         private const string Api = "https://openlibrary.org/search.json";
         private const string Filtro = "fields=title,first_publish_year,author_name,subject";
