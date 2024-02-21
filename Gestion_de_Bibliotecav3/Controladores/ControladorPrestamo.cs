@@ -27,24 +27,10 @@ namespace Gestion_de_Bibliotecav3.Controladores
         public Prestamo BuscarPrestamoPorID(int id)
         {
             return servicioPrestamo.BuscarPrestamoPorID(id);
-            try
-            {
-                
-
-            }
-            catch (Exception ex)
-            {
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(ex.Message);
-                return null;
-            }
-
-
         }
 
         /// <summary>
-        /// 
+        /// Permite buscar a un prestamo según el código del Ejemplar o el DNI del usuario
         /// </summary>
         /// <param name="codigoODNI"></param>
         /// <returns></returns>
