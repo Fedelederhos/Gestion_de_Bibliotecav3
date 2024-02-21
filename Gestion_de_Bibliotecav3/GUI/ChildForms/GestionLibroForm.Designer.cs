@@ -41,7 +41,6 @@
             nombre = new DataGridViewTextBoxColumn();
             autor = new DataGridViewTextBoxColumn();
             fechaPublicacion = new DataGridViewTextBoxColumn();
-            editorial = new DataGridViewTextBoxColumn();
             categoria = new DataGridViewTextBoxColumn();
             panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gridLibros).BeginInit();
@@ -113,7 +112,6 @@
             gridLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             gridLibros.ColumnHeadersHeight = 25;
             gridLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridLibros.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, autor, fechaPublicacion, editorial, categoria });
             gridLibros.EnableHeadersVisualStyles = false;
             gridLibros.GridColor = Color.FromArgb(30, 45, 57);
             gridLibros.Location = new Point(98, 80);
@@ -181,14 +179,6 @@
             fechaPublicacion.ReadOnly = true;
             fechaPublicacion.Width = 151;
             // 
-            // editorial
-            // 
-            editorial.HeaderText = "Editorial";
-            editorial.MinimumWidth = 6;
-            editorial.Name = "editorial";
-            editorial.ReadOnly = true;
-            editorial.Width = 77;
-            // 
             // categoria
             // 
             categoria.HeaderText = "Categoria";
@@ -223,7 +213,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn autor;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaPublicacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn editorial;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
     }
 }
