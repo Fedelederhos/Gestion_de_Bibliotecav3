@@ -17,7 +17,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
         ServicioAutor servicioAutor ;
 
         /// <summary>
-        /// 
+        /// Lista por autores por coincidencia
         /// </summary>
         /// <param name="nombre"></param>
         /// <returns></returns>
