@@ -99,9 +99,25 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonBuscarUsuario_Click(object sender, EventArgs e)
         {
-            string dni = textBoxDNI.Text;
-            listaUsuario = controladorUsuario.obtenerUsuario(dni);
-            usuario = listaUsuario[0];
+            try
+            {
+                string dni = textBoxDNI.Text;
+                listaUsuario = controladorUsuario.obtenerUsuario(dni);
+                usuario = listaUsuario[0];
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void gridEjemplares_CellClick(object sender, DataGridViewCellEventArgs e)

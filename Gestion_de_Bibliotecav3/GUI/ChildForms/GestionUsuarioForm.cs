@@ -1,5 +1,6 @@
 ﻿using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -30,7 +31,24 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            controladorUsuario.Eliminar(dni2);
+            try
+            {
+                controladorUsuario.Eliminar(dni2);
+            }
+            catch (SystemException s)
+            {
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+                //La panntalla deberia mostrar que algun parametro esta mal
+            }
+            catch (Exception ex)
+            {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
+            }
         }
 
         private void gridUsuario_CellClick(object sender, DataGridViewCellEventArgs e)

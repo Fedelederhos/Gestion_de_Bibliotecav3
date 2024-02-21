@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Controladores;
+using Gestion_de_Bibliotecav3.GUI;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
@@ -71,15 +72,31 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            string dni = textBoxDNI.Text;
-            string nombre = textBoxNombre.Text;
-            string direccion = textBoxDireccion.Text;
-            string telefono = textBoxTelefono.Text;
-            string email = textBoxEmail.Text;
-            //Usuario usuarioOriginal = new Usuario();
-            //usuarioOriginal = controladorUsuario.obtenerUsuario(dni)[0];
-            Usuario usuarioNuevo = new Usuario(int.Parse(dni), nombre, direccion, int.Parse(telefono),email);
-            controladorUsuario.ModificarUsuario(usuario);
+            try
+            {
+                string dni = textBoxDNI.Text;
+                string nombre = textBoxNombre.Text;
+                string direccion = textBoxDireccion.Text;
+                string telefono = textBoxTelefono.Text;
+                string email = textBoxEmail.Text;
+                //Usuario usuarioOriginal = new Usuario();
+                //usuarioOriginal = controladorUsuario.obtenerUsuario(dni)[0];
+                Usuario usuarioNuevo = new Usuario(int.Parse(dni), nombre, direccion, int.Parse(telefono), email);
+                controladorUsuario.ModificarUsuario(usuario);
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
