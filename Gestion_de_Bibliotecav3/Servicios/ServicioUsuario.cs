@@ -1,5 +1,6 @@
 ﻿using Gestion_de_Bibliotecav3.DAL.EntityFramework;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,10 +29,12 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return (List<Usuario>)repositorioUsuarios.GetAll();
         }
 
-        public void Agregar(Usuario usuario)
+        public void Agregar(UsuarioDTO usuariodto)
         {
-            if (usuario.ID != null && !repositorioUsuarios.Existe(usuario.ID))
-            { //No debe existir el usuario
+            if (usuariodto.DNI != null && !repositorioUsuarios.ExistePorDni(usuariodto.DNI))
+            { 
+                //No debe existir el usuario
+                Usuario usuario = new Usuario(usuariodto.DNI, usuariodto.Nombre, usuariodto.Direccion, usuariodto.Telefono, usuariodto.Email);
                 repositorioUsuarios.Agregar(usuario);
             }
 

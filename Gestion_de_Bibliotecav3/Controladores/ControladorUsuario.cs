@@ -1,4 +1,5 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using Gestion_de_Bibliotecav3.GUI;
 using Gestion_de_Bibliotecav3.Servicios;
 using System;
@@ -22,7 +23,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// 
         /// </summary>
         /// <param name="usuario"></param>
-        public void CrearUsuario(Usuario usuario)
+        public void CrearUsuario(UsuarioDTO usuario)
         {
             servicioUsuario.Agregar(usuario);
         }
