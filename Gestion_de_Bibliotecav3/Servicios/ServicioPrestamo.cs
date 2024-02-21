@@ -233,6 +233,8 @@ namespace Gestion_de_Bibliotecav3.Servicios
 
                     // Enviar el mensaje
                     clienteSmtp.Send(mensaje);
+                    prestamo.Notificacion = true;
+                    this.Actualizar(prestamo);
                 }
             }
         }

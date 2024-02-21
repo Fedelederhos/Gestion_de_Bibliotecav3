@@ -57,18 +57,6 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework.Mapeo
                             j.ToTable("Libro_Categoria");
                         }
                       );
-                entity.HasOne(libro => libro.iEditorial) //OneToMany
-                      .WithMany(editorial => editorial.Libros)
-                      .HasForeignKey(libro => libro.EditorialID);
-
-
-
-                //entity.HasOne(libro => libro.Editorial)
-                //      .WithMany()
-                //      .HasForeignKey(libro => libro.Editorial.ID);
-                //entity.HasMany(libro => libro.Libro_Autor)
-                //      .WithMany();
-                //entity.HasMany(libro => libro.Libro_Categoria);
             });
 
 

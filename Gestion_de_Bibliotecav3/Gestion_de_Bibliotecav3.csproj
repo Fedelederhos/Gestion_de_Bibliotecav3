@@ -14,4 +14,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\LibroDTOs\" />
+    <Folder Include="DTOs\PrestamosDTOs\" />
+  </ItemGroup>
+
 </Project>

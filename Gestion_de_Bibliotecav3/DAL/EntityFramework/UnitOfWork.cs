@@ -30,6 +30,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
         public IRepositorioEjemplares RepositorioEjemplares { get; private set; }
 
+
         public void Completar()
         {
             this.iDBContext.SaveChanges();

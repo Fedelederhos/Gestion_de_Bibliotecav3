@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gestion_de_Bibliotecav3.DAL
+namespace Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs
 {
-    public interface IEntity
+    internal class EliminarUsuarioDTO
     {
-        int Id { get; }
+        public string dni { get; set; }
     }
 }

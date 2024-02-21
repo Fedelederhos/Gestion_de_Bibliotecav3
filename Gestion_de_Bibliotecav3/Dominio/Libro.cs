@@ -11,7 +11,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
         private string iISBN;
         private string iNombre;
         private string iFechaPublicacion;
-        public Editorial iEditorial;
+
         public virtual ICollection<Autor> Autores { get; set; } = new List<Autor>();
         public virtual ICollection<Categoria> Categorias { get; set; } = new List<Categoria>();
         public virtual ICollection<Ejemplar> Ejemplares { get; set; } = new List<Ejemplar>();
@@ -54,10 +54,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
             set { this.iFechaPublicacion = value; }
         }
 
-        public Editorial Editorial
-        {
-            get { return this.iEditorial; }
-        }
+       
 
     }
 }
