@@ -75,7 +75,12 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 if (disponibilidad == "Disponible") { ejemplar.Disponibilidad = true; }
                 else if (disponibilidad == "No disponible") { ejemplar.Disponibilidad = false; }
                 controladorEjemplar.ModificarEjemplar(ejemplar);
-
+            }
+            catch (SystemException s)
+            {
+                // Algun parametro esta mal (id o no existe)
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
             }
             catch (Exception ex)
             {

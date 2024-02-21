@@ -85,25 +85,8 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// <param name="ejemplar"></param>
         public void ModificarEjemplar(Ejemplar ejemplar)// necesito un nuevo constructor de ejemplar para poder cargarle una fecha de baja
         {
-            try
-            {
-                servicioEjemplar.Actualizar(ejemplar);
-                // Mensaje de exito
-            }
-            catch (SystemException s)
-            {
-                // Algun parametro esta mal (id o no existe)
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-            }
-            catch (Exception e)
-            {
-                // Se debe mostrar este error "e.Message.ToString()"
-                PopUpForm popup = new PopUpForm(e.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(e.Message);
-
-            }
+            servicioEjemplar.Actualizar(ejemplar);
+            // Mensaje de exito
         }
 
         /// <summary>
@@ -112,25 +95,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// <param name="ejemplar"></param>
         public void EliminarEjemplar(Ejemplar ejemplar)
         {
-            try
-            {
-                servicioEjemplar.Eliminar(ejemplar);
-                // Mensaje de exito
-            }
-            catch (SystemException s)
-            {
-                // Algun parametro esta mal (id o no existe)
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-            }
-            catch (Exception e)
-            {
-                // Se debe mostrar este error "e.Message.ToString()"
-                PopUpForm popup = new PopUpForm(e.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(e.Message);
-
-            }
+            servicioEjemplar.Eliminar(ejemplar);
         }    
     }
 }
