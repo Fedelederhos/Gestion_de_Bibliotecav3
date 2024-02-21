@@ -36,173 +36,69 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// <returns></returns>
         public List<Prestamo> BuscarPrestamosPorCodigoODNI(string codigoODNI)
         {
-            try
-            {
-                return servicioPrestamo.BuscarPrestamosPorCodigoODNI(codigoODNI);
-
-            }
-            catch (Exception ex)
-            {
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(ex.Message);
-                return null;
-            }
+            return servicioPrestamo.BuscarPrestamosPorCodigoODNI(codigoODNI);
         }
 
         /// <summary>
-        /// 
+        /// Se crea un Nuevo Préstamo a partir del DTO recibido
         /// </summary>
         /// <param name="ejemplar"></param>
         /// <param name="usuario"></param>
         /// <param name="fechaVencimiento"></param>
         public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
         {
-            try
-            {
-                // EL prestamo se deberia armar en el servicio
-                Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
-                servicioPrestamo.Agregar(prestamo);
-                //La pantalla de exito
-            }
-            catch (SystemException s)
-            {
-                //La panntalla deberia mostrar que algun parametro esta mal
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-            }
+            // EL prestamo se deberia armar en el servicio
+            Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
+            servicioPrestamo.Agregar(prestamo);
+            
         }
 
         /// <summary>
-        /// 
+        /// Se listan los Préstamos próximos a vencerse dentro de un intervalo
         /// </summary>
         /// <returns></returns>
         public List<Prestamo> ProximosPrestamosAVencer()
         {
-            try
-            {
-                return servicioPrestamo.ProximosPrestamosAVencer(DateTime.Today);
-
-            }
-            catch (Exception ex)
-            {
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(ex.Message);
-                return null;
-            }
+            return servicioPrestamo.ProximosPrestamosAVencer(DateTime.Today);
         }
 
         /// <summary>
-        /// 
+        /// Se elimina el Préstamo a partir del DTO recibido
         /// </summary>
         /// <param name="prestamo"></param>
         public void EliminarPrestamo(Prestamo prestamo)
         {
-            try
-            {
-                servicioPrestamo.Eliminar(prestamo);
-                //La pantalla de exito
-            }
-            catch (SystemException s)
-            {
-                //La panntalla deberia mostrar que algun parametro esta mal
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(ex.Message);
-
-            }
+            servicioPrestamo.Eliminar(prestamo);
         }
 
         /// <summary>
-        /// 
+        /// Se registra la devolución de un Préstamo
         /// </summary>
         /// <param name="codigo"></param>
         /// <param name="estado"></param>
         public void RegistrarDevolucionPrestamo(string codigo, Estado estado)
         {
-            try
-            {
-                servicioPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
-                //La pantalla de exito
-            }
-            catch (SystemException s)
-            {
-                //La panntalla deberia mostrar que algun parametro esta mal
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
-                Console.WriteLine(ex.Message);
-
-            }
+            servicioPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
         }
 
         /// <summary>
-        /// 
+        /// Se listan los ejemplares que formaron parte de un préstamo de un Usuario en particular
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla
         {
-            try
-            {
-                return servicioPrestamo.ejemplaresUsuario(usuario);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                return null;
-            }
+            return servicioPrestamo.ejemplaresUsuario(usuario);
         }
 
         /// <summary>
-        /// 
+        /// Se le asigna un vencimiento al préstamo a partir del score de un usuario
         /// </summary>
         /// <param name="dni"></param>
         /// <returns></returns>
         public DateTime? AsignarVencimiento(int dni) // Puse DateTime? porque si pasa algun error, no devolvera ese tipo de dato
         {
-            try
-            {
-                return servicioPrestamo.AsignarVencimiento(dni);
-                //La pantalla de exito
-            }
-            catch (SystemException s)
-            {
-                //La panntalla deberia mostrar que algun parametro esta mal
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-                return null;
-            }
-            catch (Exception ex)
-            {
-                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
-                Console.WriteLine(ex.Message);
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-
-                return null;
-            }
+            return servicioPrestamo.AsignarVencimiento(dni);
         }
     }
 }

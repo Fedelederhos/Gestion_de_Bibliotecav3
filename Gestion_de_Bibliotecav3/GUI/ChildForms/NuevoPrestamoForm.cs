@@ -78,8 +78,23 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            int dni = usuario.DNI;
-            controladorPrestamo.NuevoPrestamo(ejemplar, usuario, (DateTime)controladorPrestamo.AsignarVencimiento(dni));
+            try
+            {
+                int dni = usuario.DNI;
+                controladorPrestamo.NuevoPrestamo(ejemplar, usuario, (DateTime)controladorPrestamo.AsignarVencimiento(dni));
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+            }
         }
 
         private void buttonBuscarUsuario_Click(object sender, EventArgs e)

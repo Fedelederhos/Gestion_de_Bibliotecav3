@@ -1,5 +1,6 @@
 ﻿using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,13 +57,29 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            
-            string estado;
-            string codigo;
-            estado = estadoComboBox.SelectedItem.ToString();
-            codigo = codigoLabel.Text;
+            try
+            {
+                string estado;
+                string codigo;
+                estado = estadoComboBox.SelectedItem.ToString();
+                codigo = codigoLabel.Text;
 
-            controladorPrestamo.RegistrarDevolucionPrestamo(codigo, ParseEstado(estado));
+                controladorPrestamo.RegistrarDevolucionPrestamo(codigo, ParseEstado(estado));
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
+            }
         }
 
         private Estado ParseEstado(string estado)
