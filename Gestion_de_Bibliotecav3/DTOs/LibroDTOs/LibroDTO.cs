@@ -1,4 +1,5 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.AutorDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace Gestion_de_Bibliotecav3.DTOs.LibroDTOs
 {
-    internal class LibroDTO
+    public class LibroDTO
     {
-        public int ID { get; set; } //va?
         public string ISBN { get; set; }
         public string Nombre { get; set; }
-        public virtual ICollection<Autor> Autores { get; set; } = new List<Autor>();
+        public virtual ICollection<AutorDTO> Autores { get; set; } = new List<AutorDTO>();
         public string FechaPublicacion { get; set; }
-        public virtual ICollection<Categoria> Categorias { get; set; } = new List<Categoria>();
+        public virtual ICollection<CategoriaDTO> Categorias { get; set; } = new List<CategoriaDTO>();
     }
 }

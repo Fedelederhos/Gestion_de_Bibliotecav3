@@ -63,5 +63,45 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             }
             return buscado;
         }
+
+        /// <summary>
+        /// Busca todos los ejemplares actuales en la base d datos que coinciden con el parametro categoria dado
+        /// </summary>
+        /// <param name="categoria"></param>
+        /// <returns> Devuelve una lista de ejemplares </returns>
+        public List<Ejemplar> BuscarEjemplaresPorCategoriasPorCoincidencia(Categoria categoria)
+        {
+            List<Ejemplar> ejemplares = (List<Ejemplar>)GetAll();
+            List<Ejemplar> buscados = new List<Ejemplar>();
+
+            foreach (Ejemplar ejemplar in ejemplares)
+            {
+                if (ejemplar.Libro.Categorias.Contains(categoria))
+                {
+                    buscados.Add(ejemplar);
+                }
+            }
+            return buscados;
+        }
+
+        /// <summary>
+        /// Busca todos los ejemplares actuales en la base d datos que coinciden con el parametro autor dado
+        /// </summary>
+        /// <param name="autor"></param>
+        /// <returns> Devuelve una lista de ejemplares </returns>
+        public List<Ejemplar> BuscarEjemplaresPorAutoresPorCoincidencia(Autor autor)
+        {
+            List<Ejemplar> ejemplares = (List<Ejemplar>)GetAll();
+            List<Ejemplar> buscados = new List<Ejemplar>();
+
+            foreach (Ejemplar ejemplar in ejemplares)
+            {
+                if (ejemplar.Libro.Autores.Contains(autor))
+                {
+                    buscados.Add(ejemplar);
+                }
+            }
+            return buscados;
+        }
     }
 }

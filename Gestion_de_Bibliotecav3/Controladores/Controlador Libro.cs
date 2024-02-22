@@ -1,4 +1,5 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.LibroDTOs;
 using Gestion_de_Bibliotecav3.GUI;
 using Gestion_de_Bibliotecav3.Servicios;
 using System;
@@ -10,29 +11,30 @@ using System.Threading.Tasks;
 namespace Gestion_de_Bibliotecav3.Controladores
 {
     /// <summary>
-    /// Clase controladora de Libro
+    /// Controlador para la gestión de libros
     /// </summary>
     public class Controlador_Libro
     {
         ServicioLibro servicioLibro = new ServicioLibro();
+
         /// <summary>
-        /// Busca a los ejemplares asociados a un libro según su ISBN o Nombre
+        /// Busca libros utilizando una API externa según su ISBN o nombre.
         /// </summary>
-        /// <param name="isbnONombre"></param>
-        /// <returns></returns>
-        public Task<List<Libro>> BuscarEjemplaresPorIsbnONombre(string isbnONombre)
+        /// <param name="isbnONombre">El ISBN o nombre del libro a buscar.</param>
+        /// <returns>Una lista de libros en formato DTO.</returns>
+        public Task<List<LibroDTO>> BuscarLibrosPorIsbnONombreConApi(string isbnONombre)
         {
-            return servicioLibro.BuscarLibrosPorIsbnONombre(isbnONombre);
+            return servicioLibro.BuscarLibrosPorIsbnONombreConApi(isbnONombre);
         }
 
         /// <summary>
-        /// Busca a los libros según su isbn o nombre
+        /// Busca libros en la base de datos local según su ISBN o nombre.
         /// </summary>
-        /// <param name="nombreOISBN"></param>
-        /// <returns></returns>
-        public List<Libro> BuscarLibroPorNombreOISBN(string nombreOISBN)
+        /// <param name="nombreOISBN">El ISBN o nombre del libro a buscar.</param>
+        /// <returns>Una lista de libros en formato DTO.</returns>
+        public List<LibroDTO> BuscarLibrosPorIsbnONombreConBD(string nombreOISBN)
         {
-            return servicioLibro.BuscarLibroPorNombreOISBN(nombreOISBN);
+            return servicioLibro.BuscarLibrosPorIsbnONombreConBD(nombreOISBN);
         }
     }
 }

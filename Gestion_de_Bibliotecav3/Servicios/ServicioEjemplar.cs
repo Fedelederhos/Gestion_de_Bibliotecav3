@@ -85,5 +85,17 @@ namespace Gestion_de_Bibliotecav3.Servicios
         {
             return (repositorioEjemplar.BuscarPorCodigo(codigo) != null) ? true : false;
         }
+
+        public List<Ejemplar> BuscarEjemplaresPorCategoriasPorCoincidencia(string nombre)
+        {
+            Categoria categoria = new Categoria(nombre);
+            return repositorioEjemplar.BuscarEjemplaresPorCategoriasPorCoincidencia(categoria);
+        }
+
+        public List<Ejemplar> BuscarEjemplaresPorAutoresPorCoincidencia(string nombre)
+        {
+            Autor autor = new Autor(nombre);
+            return repositorioEjemplar.BuscarEjemplaresPorAutoresPorCoincidencia(autor);
+        }
     }
 }
