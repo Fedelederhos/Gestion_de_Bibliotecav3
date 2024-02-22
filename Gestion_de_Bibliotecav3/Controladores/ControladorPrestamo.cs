@@ -25,70 +25,76 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// <summary>
         /// Permite buscar un préstamo por su ID
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Identificador del préstamo</param>
+        /// <returns>DTO del préstamo encontrado</returns>
         public PrestamoDTO BuscarPrestamoPorID(int id)
         {
             return servicioPrestamo.BuscarPrestamoPorID(id);
         }
 
         /// <summary>
-        /// Permite buscar a un prestamo según el código del Ejemplar o el DNI del usuario
+        /// Permite buscar un préstamo por el código del Ejemplar o el DNI del usuario
         /// </summary>
-        /// <param name="codigoODNI"></param>
-        /// <returns></returns>
+        /// <param name="codigoODNI">Código del Ejemplar o DNI del usuario</param>
+        /// <returns>Lista de DTOs de préstamos encontrados</returns>
         public List<PrestamoDTO> BuscarPrestamosPorCodigoODNI(string codigoODNI)
         {
             return servicioPrestamo.BuscarPrestamosPorCodigoODNI(codigoODNI);
         }
 
         /// <summary>
-        /// Se crea un Nuevo Préstamo a partir del DTO recibido
+        /// Crea un nuevo préstamo a partir de los datos recibidos
         /// </summary>
-        /// <param name="ejemplar"></param>
-        /// <param name="usuario"></param>
-        /// <param name="fechaVencimiento"></param>
+        /// <param name="ejemplar">DTO del ejemplar prestado</param>
+        /// <param name="usuario">DTO del usuario que realiza el préstamo</param>
+        /// <param name="fechaVencimiento">Fecha de vencimiento del préstamo</param>
         public void NuevoPrestamo(BuscarEjemplarDTO ejemplar, BuscarUsuarioDTO usuario, DateTime fechaVencimiento)
         {
             servicioPrestamo.Agregar(ejemplar, usuario, fechaVencimiento);
         }
 
         /// <summary>
-        /// Se listan los Préstamos próximos a vencerse dentro de un intervalo
+        /// Lista los préstamos próximos a vencerse dentro de un intervalo
         /// </summary>
-        /// <returns></returns>
+        /// <param name="fechaHoy">Fecha actual</param>
+        /// <returns>Lista de DTOs de préstamos próximos a vencerse</returns>
         public List<PrestamoAVencerDTO> ProximosPrestamosAVencer(DateTime fechaHoy)
         {
             return servicioPrestamo.ProximosPrestamosAVencer(fechaHoy);
         }
 
         /// <summary>
-        /// Se elimina el Préstamo a partir del DTO recibido
+        /// Elimina el préstamo a partir del DTO recibido
         /// </summary>
-        /// <param name="prestamo"></param>
+        /// <param name="prestamo">DTO del préstamo a eliminar</param>
         public void EliminarPrestamo(PrestamoDTO prestamo)
         {
             servicioPrestamo.Eliminar(prestamo);
         }
 
         /// <summary>
-        /// Se registra la devolución de un Préstamo
+        /// Registra la devolución de un préstamo
         /// </summary>
-        /// <param name="codigo"></param>
-        /// <param name="estado"></param>
+        /// <param name="codigo">Código del préstamo</param>
+        /// <param name="estado">Estado de la devolución</param>
         public void RegistrarDevolucionPrestamo(string codigo, string estado)
         {
             servicioPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
         }
 
         /// <summary>
-        /// Se le asigna un vencimiento al préstamo a partir del score de un usuario
+        /// Asigna un vencimiento al préstamo a partir del DNI del usuario
         /// </summary>
-        /// <param name="dni"></param>
-        /// <returns></returns>
-        public string AsignarVencimiento(string dni) // Puse DateTime? porque si pasa algun error, no devolvera ese tipo de dato
+        /// <param name="dni">DNI del usuario</param>
+        /// <returns>Fecha de vencimiento asignada al préstamo</returns>
+        public string AsignarVencimiento(string dni)
         {
             return servicioPrestamo.AsignarVencimiento(dni);
+        }
+
+        public PrestamoDTO BuscarPrestamoActivo(string codigo)
+        {
+            return servicioPrestamo.BuscarPrestamoActivo(codigo);
         }
     }
 }
