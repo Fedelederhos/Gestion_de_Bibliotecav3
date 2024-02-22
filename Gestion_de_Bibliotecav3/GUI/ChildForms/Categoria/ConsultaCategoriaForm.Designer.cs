@@ -37,11 +37,6 @@
             labelIngrese = new Label();
             categoriasGrid = new DataGridView();
             nombre = new DataGridViewTextBoxColumn();
-            anioPublicacion = new DataGridViewTextBoxColumn();
-            codigo = new DataGridViewTextBoxColumn();
-            fechaAlta = new DataGridViewTextBoxColumn();
-            fechaBaja = new DataGridViewTextBoxColumn();
-            disponibilidad = new DataGridViewTextBoxColumn();
             panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)categoriasGrid).BeginInit();
             SuspendLayout();
@@ -141,36 +136,7 @@
             nombre.HeaderText = "Nombre";
             nombre.Name = "nombre";
             nombre.Width = 73;
-            // 
-            // anioPublicacion
-            // 
-            anioPublicacion.HeaderText = "Año de publicación";
-            anioPublicacion.Name = "anioPublicacion";
-            anioPublicacion.Width = 138;
-            // 
-            // codigo
-            // 
-            codigo.HeaderText = "Código";
-            codigo.Name = "codigo";
-            codigo.Width = 70;
-            // 
-            // fechaAlta
-            // 
-            fechaAlta.HeaderText = "Fecha de Alta";
-            fechaAlta.Name = "fechaAlta";
-            fechaAlta.Width = 109;
-            // 
-            // fechaBaja
-            // 
-            fechaBaja.HeaderText = "Fecha de Baja";
-            fechaBaja.Name = "fechaBaja";
-            fechaBaja.Width = 112;
-            // 
-            // disponibilidad
-            // 
-            disponibilidad.HeaderText = "Disponibilidad";
-            disponibilidad.Name = "disponibilidad";
-            disponibilidad.Width = 110;
+            
             // 
             // ConsultaCategoriaForm
             // 
