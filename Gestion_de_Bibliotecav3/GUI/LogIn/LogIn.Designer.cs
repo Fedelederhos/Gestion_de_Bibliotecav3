@@ -84,7 +84,6 @@
             labelUsuario.TabIndex = 1;
             labelUsuario.Text = "Usuario";
             labelUsuario.TextAlign = ContentAlignment.MiddleCenter;
-            labelUsuario.Click += this.labelUsuario_Click;
             // 
             // labelContrasenia
             // 
@@ -100,7 +99,6 @@
             labelContrasenia.TabIndex = 2;
             labelContrasenia.Text = "Contraseña";
             labelContrasenia.TextAlign = ContentAlignment.MiddleCenter;
-            labelContrasenia.Click += this.labelContrasenia_Click;
             // 
             // buttonAceptar
             // 
@@ -133,7 +131,6 @@
             textBoxUsuario.Name = "textBoxUsuario";
             textBoxUsuario.Size = new Size(217, 23);
             textBoxUsuario.TabIndex = 8;
-            textBoxUsuario.TextChanged += this.textBoxUsuario_TextChanged;
             // 
             // textBoxContrasenia
             // 
