@@ -46,7 +46,8 @@ Esta modalidad facilita el desarrollo, la prueba y el mantenimiento de cada capa
 
 # Documentación disponible
 * Prototipado de pantallas: https://lucid.app/lucidchart/2459c858-fde7-455c-8ae0-64529da7b607/edit?invitationId=inv_cdb388a1-3f7e-45c7-a0a2-433b43d320cf&page=0_0#
-* Diagrama de clases: https://drive.google.com/file/d/1guqRAgfkbcR2PU4M-lKStpAR0j8db2DY/view?usp=sharing
+* Diagrama de clases: https://drive.google.com/file/d/1BBDvEeFKdT-VrlLrmMQvY9V6IF42DbFs/view?usp=sharing
+* Manual de Usuario: https://drive.google.com/file/d/1McrI-AZPIm1mCP0cKwZqxEE15MXO-I7t/view?usp=sharing
 
 # Guía de instalación
 ## Versionado y Paquetes
