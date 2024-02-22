@@ -38,32 +38,13 @@ namespace Gestion_de_Bibliotecav3.Controladores
         }
 
         /// <summary>
-        /// Verifica si existe un usuario con el DNI especificado.
-        /// </summary>
-        /// <param name="dni">DNI del usuario a verificar.</param>
-        /// <returns>True si el usuario existe, false en caso contrario.</returns>
-        public bool Existe(string dni)
-        {
-            return servicioUsuario.Existe(int.Parse(dni)); // Llama al servicio para verificar la existencia de un usuario.
-        }
-
-        /// <summary>
         /// Obtiene una lista de usuarios por su nombre o DNI.
         /// </summary>
         /// <param name="dniONombre">Nombre o DNI del usuario a buscar.</param>
         /// <returns>Lista de usuarios encontrados.</returns>
-        public List<UsuarioDTO> ObtenerUsuarioPorNombreODNI(string dniONombre)
+        public List<BuscarUsuarioDTO> ObtenerUsuarioPorNombreODNI(string dniONombre)
         {
             return servicioUsuario.ObtenerUsuarioPorNombreODNI(dniONombre); // Llama al servicio para obtener usuarios por nombre o DNI.
-        }
-
-        /// <summary>
-        /// Obtiene todos los usuarios.
-        /// </summary>
-        /// <returns>Lista de todos los usuarios.</returns>
-        public List<UsuarioDTO> GetAll()
-        {
-            return servicioUsuario.GetAll(); // Llama al servicio para obtener todos los usuarios.
         }
 
         /// <summary>

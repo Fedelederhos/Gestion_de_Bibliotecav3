@@ -1,5 +1,6 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
 using Gestion_de_Bibliotecav3.DTOs.AutorDTOs;
+using Gestion_de_Bibliotecav3.DTOs.CategoriaDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,6 +1,7 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
 using Gestion_de_Bibliotecav3.DTOs.AutorDTOs;
 using Gestion_de_Bibliotecav3.DTOs.CategoriaDTOs;
+using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
 using Gestion_de_Bibliotecav3.DTOs.LibroDTOs;
 using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -47,6 +48,29 @@ namespace Gestion_de_Bibliotecav3.Servicios
             dto.Telefono = usuario.Telefono;
             dto.Direccion = usuario.Direccion;
             dto.Email = usuario.Email;
+            return dto;
+        }
+
+        public BuscarUsuarioDTO aDTOBuscar(Usuario usuario)
+        {
+            BuscarUsuarioDTO dto = new BuscarUsuarioDTO();
+            dto.DNI = usuario.DNI;
+            dto.Nombre = usuario.Nombre;
+            dto.Telefono = usuario.Telefono;
+            dto.Direccion = usuario.Direccion;
+            dto.Email = usuario.Email;
+            dto.Score = usuario.Score.ToString();
+            return dto;
+        }
+
+        public BuscarEjemplarDTO aDTO(Ejemplar ejemplar)
+        {
+            BuscarEjemplarDTO dto = new BuscarEjemplarDTO();
+            dto.isbn = ejemplar.Libro.ISBN;
+            dto.nombre = ejemplar.Libro.Nombre;
+            dto.codigo = ejemplar.Codigo;
+            dto.fechaAlta = ejemplar.FechaAlta.Date.ToString();
+            dto.fechaBaja = ejemplar.FechaBaja.Date.ToString();
             return dto;
         }
     }

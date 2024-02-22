@@ -8,7 +8,6 @@ namespace Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs
 {
     public class BuscarEjemplarDTO
     {
-        public int id { get; set; }
         public string isbn { get; set; }
         public string nombre { get; set; }
         public string añoPublicacion { get; set; }

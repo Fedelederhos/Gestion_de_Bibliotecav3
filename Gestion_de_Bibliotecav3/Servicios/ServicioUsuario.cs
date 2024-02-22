@@ -132,18 +132,18 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// </summary>
         /// <param name="dniONombre">Nombre o DNI del usuario.</param>
         /// <returns>Lista de usuarios encontrados.</returns>
-        public List<UsuarioDTO> ObtenerUsuarioPorNombreODNI(string dniONombre) 
+        public List<BuscarUsuarioDTO> ObtenerUsuarioPorNombreODNI(string dniONombre) 
         {
-            List<UsuarioDTO> usuarios = new List<UsuarioDTO>();
+            List<BuscarUsuarioDTO> usuarios = new List<BuscarUsuarioDTO>();
             int number1 = 0;
             bool canConvert = int.TryParse(dniONombre, out number1);
             if (canConvert)
             {
-                usuarios.Add(servicioDTO.aDTO(this.obtenerPorDni(int.Parse(dniONombre))));
+                usuarios.Add(servicioDTO.aDTOBuscar(this.obtenerPorDni(int.Parse(dniONombre))));
             }
             else
             {
-                usuarios.AddRange(this.obtenerPorNombre(dniONombre).Select(usuario => servicioDTO.aDTO(usuario)).ToList());
+                usuarios.AddRange(this.obtenerPorNombre(dniONombre).Select(usuario => servicioDTO.aDTOBuscar(usuario)).ToList());
             }
             return usuarios;
             // Retorna una lista de usuarios encontrados por nombre o DNI.
