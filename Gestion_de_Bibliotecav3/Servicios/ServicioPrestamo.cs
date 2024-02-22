@@ -10,6 +10,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Gestion_de_Bibliotecav3.DTOs.PrestamoDTOs;
+using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 
 namespace Gestion_de_Bibliotecav3.Servicios
 {
@@ -17,12 +20,14 @@ namespace Gestion_de_Bibliotecav3.Servicios
     {
         private RepositorioPrestamos repositorioPrestamos;
         private RepositorioUsuarios repositorioUsuarios;
+        private RepositorioEjemplares repositorioEjemplares;
         private ServicioUsuario servicioUsuario;
         private ServicioEjemplar servicioEjemplar;
+        private ServicioDTO servicioDTO;
 
-        public Prestamo BuscarPrestamoPorID(int id)
+        public PrestamoDTO BuscarPrestamoPorID(int id)
         {
-            return repositorioPrestamos.Get(id);
+            return servicioDTO.aDTO(repositorioPrestamos.Get(id));
         }
 
         public List<Prestamo> findAll()
@@ -30,14 +35,12 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return (List<Prestamo>)repositorioPrestamos.GetAll();
         }
 
-        public void Agregar(Prestamo prestamo)
+        public void Agregar(BuscarEjemplarDTO ejemplardto, BuscarUsuarioDTO usuariodto, DateTime fechaVencimiento)
         {
-            if (prestamo.ID != null && !repositorioPrestamos.Existe(prestamo.ID))
-            { //No debe existir el usuario
-                repositorioPrestamos.Agregar(prestamo);
-            }
-
-            throw new SystemException(); // Si no pasa por el condicional devuelvo un error (sera atrapado por el controlador)
+            Usuario usuario = servicioUsuario.obtenerPorDni(usuariodto.DNI);
+            Ejemplar ejemplar = repositorioEjemplares.BuscarPorCodigo(ejemplardto.codigo);
+            Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
+            repositorioPrestamos.Agregar(prestamo);
         }
 
         public void Actualizar(Prestamo prestamo)
@@ -50,9 +53,10 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException(); // Si no pasa por el condicional devuelvo un error (sera atrapado por el controlador)
         }
 
-        public void Eliminar(Prestamo prestamo)
+        public void Eliminar(PrestamoDTO prestamodto)
         {
-            if (prestamo.ID != null && repositorioPrestamos.Existe(prestamo.ID)) //Debe de existir el usuario
+            Prestamo prestamo = repositorioPrestamos.Get(int.Parse(prestamodto.ID));
+            if (prestamo.ID != null && repositorioPrestamos.Existe(prestamo.ID))
             {
                 repositorioPrestamos.Eliminar(prestamo.ID, prestamo);
             }
@@ -68,9 +72,9 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return repositorioPrestamos.buscarPorFechas(fechaHoy, fechaEnUnaSemana);
         }
 
-        public List<Prestamo> ProximosPrestamosAVencer(DateTime fechaHoy)
+        public List<PrestamoAVencerDTO> ProximosPrestamosAVencer(DateTime fechaHoy)
         {
-            return repositorioPrestamos.ProximosPrestamosAVencer(fechaHoy);
+            return repositorioPrestamos.ProximosPrestamosAVencer(fechaHoy).Select(prestamo => servicioDTO.aDTOVencer(prestamo)).ToList();
         }
 
         public List<Prestamo> BuscarPrestamoPorCodigoEjemplar(string codigo)
@@ -91,18 +95,18 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
-        public List<Prestamo> BuscarPrestamosPorCodigoODNI(string codigoODNI)
+        public List<PrestamoDTO> BuscarPrestamosPorCodigoODNI(string codigoODNI)
         {
-            List<Prestamo> prestamos = new List<Prestamo>();
+            List<PrestamoDTO> prestamos = new List<PrestamoDTO>();
             int number1 = 0;
             bool canConvert = int.TryParse(codigoODNI, out number1);
             if (canConvert)
             {
-                prestamos = this.BuscarPrestamoPorDNI(int.Parse(codigoODNI));
+                prestamos = this.BuscarPrestamoPorDNI(int.Parse(codigoODNI)).Select(prestamo => servicioDTO.aDTO(prestamo)).ToList();
             }
             else
             {
-                prestamos = this.BuscarPrestamoPorCodigoEjemplar(codigoODNI);
+                prestamos = this.BuscarPrestamoPorCodigoEjemplar(codigoODNI).Select(prestamo => servicioDTO.aDTO(prestamo)).ToList();
             }
 
             return prestamos;
@@ -141,12 +145,12 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
-        public DateTime AsignarVencimiento(int dni)
+        public string AsignarVencimiento(string dni)
         {
             if (dni != null)
             {
                 DateTime fechaHoy = DateTime.Today;
-                return (fechaHoy.AddDays(VariablesGlobales.duracionPrestamoBase + servicioUsuario.ObtenerDiasExtra(dni)));
+                return (fechaHoy.AddDays(VariablesGlobales.duracionPrestamoBase + servicioUsuario.ObtenerDiasExtra(int.Parse(dni)))).Date.ToString();
             }
             throw new SystemException();
         }
@@ -154,7 +158,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         public Prestamo BuscarPrestamoActivo(string codigo)
         {
             Prestamo prestamo = new Prestamo();
-            List<Prestamo> prestamos = BuscarPrestamosPorCodigoODNI(codigo);
+            List<Prestamo> prestamos = repositorioPrestamos.BuscarPrestamoPorCodigoEjemplar(codigo);
             foreach (Prestamo buscado in prestamos)
             {
                 if (buscado.FechaDevolucion == null)
@@ -165,10 +169,27 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return prestamo;
         }
 
-        public void RegistrarDevolucionPrestamo(string codigo, Estado estado)
+        private Estado StringAEstado (string estado)
+        {
+            switch (estado)
+            {
+                case "Bueno":
+                    return Estado.Bueno;
+                case "Regular":
+                    return Estado.Regular;
+                case "Arruinado":
+                    return Estado.Arruinado;
+                default:
+                    return Estado.Bueno;
+            }
+        }
+
+        public void RegistrarDevolucionPrestamo(string codigo, string estadostr)
         {
             Prestamo prestamo = this.BuscarPrestamoActivo(codigo);
-            
+            Estado estado = StringAEstado(estadostr);
+
+
             if (prestamo != null) //Me fijo si se pasa un objeto y si este ademas no ha sido devuelto
             {
                 prestamo.FechaDevolucion = DateTime.Now;
@@ -202,8 +223,8 @@ namespace Gestion_de_Bibliotecav3.Servicios
                 }
 
                 /* Actualizacion del score, el prestamo y el ejemplar */
-                servicioUsuario.Actualizar(prestamo.Usuario);
-                servicioEjemplar.Actualizar(prestamo.Ejemplar);
+                repositorioUsuarios.Actualizar(prestamo.Usuario.ID, prestamo.Usuario);
+                repositorioEjemplares.Actualizar(prestamo.Ejemplar.ID, prestamo.Ejemplar);
                 this.Actualizar(prestamo);
             }
             throw new SystemException();
@@ -212,7 +233,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         public void EnviarNotificacion()
         {
             DateTime fechaHoy = DateTime.Now;
-            List<Prestamo> prestamosAVencer = this.ProximosPrestamosAVencer(fechaHoy);
+            List<Prestamo> prestamosAVencer = repositorioPrestamos.ProximosPrestamosAVencer(fechaHoy);
 
             foreach (Prestamo prestamo in prestamosAVencer)
             {

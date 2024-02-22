@@ -58,6 +58,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// Actualiza un Ejemplar utilizando la información contenida en un DTO de modificación.
         /// </summary>
         /// <param name="ejemplar">DTO con la información actualizada del Ejemplar.</param>
+        /*
         public void Actualizar(ModificarEjemplarDTO ejemplar)
         {
             if (ejemplar.codigo != null && this.ExisteCodigo(ejemplar.codigo))
@@ -66,7 +67,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             }
 
             throw new SystemException();
-        }
+        }*/
 
         /// <summary>
         /// Elimina un Ejemplar utilizando un DTO que contiene su código único.

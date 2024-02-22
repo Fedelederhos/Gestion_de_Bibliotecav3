@@ -3,6 +3,7 @@ using Gestion_de_Bibliotecav3.DTOs.AutorDTOs;
 using Gestion_de_Bibliotecav3.DTOs.CategoriaDTOs;
 using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
 using Gestion_de_Bibliotecav3.DTOs.LibroDTOs;
+using Gestion_de_Bibliotecav3.DTOs.PrestamoDTOs;
 using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
@@ -69,8 +70,30 @@ namespace Gestion_de_Bibliotecav3.Servicios
             dto.isbn = ejemplar.Libro.ISBN;
             dto.nombre = ejemplar.Libro.Nombre;
             dto.codigo = ejemplar.Codigo;
-            dto.fechaAlta = ejemplar.FechaAlta.Date.ToString();
-            dto.fechaBaja = ejemplar.FechaBaja.Date.ToString();
+            dto.fechaAlta = ejemplar.FechaAlta.Date.ToString("dd/mm/yyyy");
+            dto.fechaBaja = ejemplar.FechaBaja.Date.ToString("dd/mm/yyyy");
+            return dto;
+        }
+
+        public PrestamoDTO aDTO(Prestamo prestamo)
+        {
+            PrestamoDTO dto = new PrestamoDTO();
+            dto.ID = prestamo.ID.ToString();
+            dto.CodigoEjemplar = prestamo.Ejemplar.Codigo;
+            dto.DNIUsuario = prestamo.Usuario.DNI.ToString();
+            dto.FechaEntrega = prestamo.FechaEntrega.Date.ToString("dd/mm/yyyy");
+            dto.FechaVencimiento = prestamo.FechaVencimiento.Date.ToString("dd/mm/yyyy");
+            dto.FechaDevolucion = prestamo.FechaDevolucion.ToString();
+            dto.Notificacion = prestamo.Notificacion.ToString();
+            return dto;
+        }
+
+        public PrestamoAVencerDTO aDTOVencer(Prestamo prestamo)
+        {
+            PrestamoAVencerDTO dto = new PrestamoAVencerDTO();
+            dto.DNIUsuario = prestamo.Usuario.DNI.ToString();
+            dto.CodigoEjemplar = prestamo.Ejemplar.Codigo;
+            dto.FechaVencimiento = prestamo.FechaVencimiento.ToString();
             return dto;
         }
     }

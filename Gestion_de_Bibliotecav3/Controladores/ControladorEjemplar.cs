@@ -68,16 +68,6 @@ namespace Gestion_de_Bibliotecav3.Controladores
         }
 
         /// <summary>
-        /// Enviar el DTO al ejemplar para modificarlo
-        /// </summary>
-        /// <param name="ejemplar"></param>
-        public void ModificarEjemplar(ModificarEjemplarDTO ejemplar)// necesito un nuevo constructor de ejemplar para poder cargarle una fecha de baja
-        {
-            servicioEjemplar.Actualizar(ejemplar);
-            // Mensaje de éxito
-        }
-
-        /// <summary>
         /// Llama al controlador para eliminar el ejemplar a partir del DTO recibido
         /// </summary>
         /// <param name="ejemplar"></param>
