@@ -36,7 +36,7 @@
             buttonBuscar = new Button();
             labelIngrese = new Label();
             autorDataGrid = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
+            codigo = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             panelTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)autorDataGrid).BeginInit();
@@ -108,7 +108,7 @@
             autorDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             autorDataGrid.ColumnHeadersHeight = 25;
             autorDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            autorDataGrid.Columns.AddRange(new DataGridViewColumn[] { id, nombre });
+            autorDataGrid.Columns.AddRange(new DataGridViewColumn[] { codigo, nombre });
             autorDataGrid.EnableHeadersVisualStyles = false;
             autorDataGrid.GridColor = Color.FromArgb(30, 45, 57);
             autorDataGrid.Location = new Point(134, 81);
@@ -136,18 +136,18 @@
             autorDataGrid.Size = new Size(539, 358);
             autorDataGrid.TabIndex = 0;
             // 
-            // id
+            // codigo
             // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Width = 44;
+            codigo.HeaderText = "Código";
+            codigo.Name = "codigo";
+            codigo.Width = 70;
             // 
             // nombre
             // 
-            nombre.HeaderText = "Nombre completo";
+            nombre.HeaderText = "Nombre";
             nombre.MinimumWidth = 6;
             nombre.Name = "nombre";
-            nombre.Width = 127;
+            nombre.Width = 73;
             // 
             // GestionAutorForm
             // 
@@ -170,7 +170,7 @@
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label labelIngrese;
         private System.Windows.Forms.TextBox textBusqueda;
-        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn nombre;
     }
 }
