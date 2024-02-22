@@ -45,7 +45,6 @@
             gridEjemplar = new DataGridView();
             boxISBNoNombre = new TextBox();
             labelIngrese = new Label();
-            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             fechaVencimiento = new DataGridViewTextBoxColumn();
@@ -200,7 +199,7 @@
             gridEjemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplar.ColumnHeadersHeight = 25;
             gridEjemplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, fechaVencimiento });
+            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { isbn, nombre, fechaVencimiento });
             gridEjemplar.EnableHeadersVisualStyles = false;
             gridEjemplar.GridColor = Color.Gainsboro;
             gridEjemplar.Location = new Point(107, 66);
@@ -248,12 +247,6 @@
             labelIngrese.Size = new Size(159, 17);
             labelIngrese.TabIndex = 5;
             labelIngrese.Text = "Ingresar ISBN o nombre";
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Width = 48;
             // 
             // isbn
             // 
@@ -314,7 +307,6 @@
         private System.Windows.Forms.TextBox boxCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonBuscar;
-        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn isbn;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn fechaVencimiento;
