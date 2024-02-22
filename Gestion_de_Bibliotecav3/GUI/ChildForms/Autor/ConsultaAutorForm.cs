@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.AutorDTOs;
+using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
 using Gestion_de_Bibliotecav3.GUI;
 using Gestion_de_Bibliotecav3.Servicios;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
-    public partial class GestionAutorForm : Form
+    public partial class ConsultaAutorForm : Form
     { 
-        ControladorAutor controladorAutor = new ControladorAutor();
-        public GestionAutorForm()
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+        public ConsultaAutorForm()
         {
             InitializeComponent();
         }
@@ -26,8 +28,8 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         {
             try
             {
-                List<Autor> lista = new List<Autor>();
-                lista = controladorAutor.BuscarAutoresPorCoincidencia(textBusqueda.Text);
+                List<BuscarEjemplarDTO> lista = new List<BuscarEjemplarDTO>();
+                //lista = controladorEjemplar.Buscar (textBusqueda.Text);
                 cargarTabla(lista);
 
             }
@@ -46,7 +48,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             }
         }
 
-        private void cargarTabla(List<Autor> lista)
+        private void cargarTabla(List<BuscarEjemplarDTO> lista)
         {
             autorDataGrid.DataSource = lista;
         }

@@ -34,10 +34,6 @@ namespace Gestion_de_Biblioteca
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panelMenu = new Panel();
-            btnGestionCategorias = new Button();
-            btnGestionAutores = new Button();
-            btnGestionEjemplares = new Button();
-            btnGestionLibros = new Button();
             btnGestionPrestamos = new Button();
             btnGestionUsuario = new Button();
             btnRegistrarDevolucion = new Button();
@@ -54,6 +50,10 @@ namespace Gestion_de_Biblioteca
             usuario = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             fechaVencimiento = new DataGridViewTextBoxColumn();
+            btnGestionEjemplares = new Button();
+            btnGestionAutores = new Button();
+            btnGestionCategorias = new Button();
+            btnGestionLibros = new Button();
             panelMenu.SuspendLayout();
             panelBaner.SuspendLayout();
             panelDesktop.SuspendLayout();
@@ -79,74 +79,6 @@ namespace Gestion_de_Biblioteca
             panelMenu.Size = new Size(219, 613);
             panelMenu.TabIndex = 0;
             panelMenu.MouseDown += MenuPrincipal_MouseDown;
-            // 
-            // btnGestionCategorias
-            // 
-            btnGestionCategorias.Dock = DockStyle.Top;
-            btnGestionCategorias.FlatAppearance.BorderSize = 0;
-            btnGestionCategorias.FlatStyle = FlatStyle.Flat;
-            btnGestionCategorias.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGestionCategorias.ForeColor = Color.Gainsboro;
-            btnGestionCategorias.Location = new Point(0, 422);
-            btnGestionCategorias.Margin = new Padding(2);
-            btnGestionCategorias.Name = "btnGestionCategorias";
-            btnGestionCategorias.Padding = new Padding(10, 0, 0, 0);
-            btnGestionCategorias.Size = new Size(219, 47);
-            btnGestionCategorias.TabIndex = 8;
-            btnGestionCategorias.Text = "Gestión de Categorías";
-            btnGestionCategorias.UseVisualStyleBackColor = true;
-            btnGestionCategorias.Click += btnGestionCategorias_Click;
-            // 
-            // btnGestionAutores
-            // 
-            btnGestionAutores.Dock = DockStyle.Top;
-            btnGestionAutores.FlatAppearance.BorderSize = 0;
-            btnGestionAutores.FlatStyle = FlatStyle.Flat;
-            btnGestionAutores.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGestionAutores.ForeColor = Color.Gainsboro;
-            btnGestionAutores.Location = new Point(0, 375);
-            btnGestionAutores.Margin = new Padding(2);
-            btnGestionAutores.Name = "btnGestionAutores";
-            btnGestionAutores.Padding = new Padding(10, 0, 0, 0);
-            btnGestionAutores.Size = new Size(219, 47);
-            btnGestionAutores.TabIndex = 7;
-            btnGestionAutores.Text = "Gestión de Autores";
-            btnGestionAutores.UseVisualStyleBackColor = true;
-            btnGestionAutores.Click += btnGestionAutores_Click;
-            // 
-            // btnGestionEjemplares
-            // 
-            btnGestionEjemplares.Dock = DockStyle.Top;
-            btnGestionEjemplares.FlatAppearance.BorderSize = 0;
-            btnGestionEjemplares.FlatStyle = FlatStyle.Flat;
-            btnGestionEjemplares.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGestionEjemplares.ForeColor = Color.Gainsboro;
-            btnGestionEjemplares.Location = new Point(0, 328);
-            btnGestionEjemplares.Margin = new Padding(2);
-            btnGestionEjemplares.Name = "btnGestionEjemplares";
-            btnGestionEjemplares.Padding = new Padding(10, 0, 0, 0);
-            btnGestionEjemplares.Size = new Size(219, 47);
-            btnGestionEjemplares.TabIndex = 6;
-            btnGestionEjemplares.Text = "Gestión de Ejemplares";
-            btnGestionEjemplares.UseVisualStyleBackColor = true;
-            btnGestionEjemplares.Click += btnGestionEjemplares_Click;
-            // 
-            // btnGestionLibros
-            // 
-            btnGestionLibros.Dock = DockStyle.Top;
-            btnGestionLibros.FlatAppearance.BorderSize = 0;
-            btnGestionLibros.FlatStyle = FlatStyle.Flat;
-            btnGestionLibros.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
-            btnGestionLibros.ForeColor = Color.Gainsboro;
-            btnGestionLibros.Location = new Point(0, 281);
-            btnGestionLibros.Margin = new Padding(2);
-            btnGestionLibros.Name = "btnGestionLibros";
-            btnGestionLibros.Padding = new Padding(10, 0, 0, 0);
-            btnGestionLibros.Size = new Size(219, 47);
-            btnGestionLibros.TabIndex = 5;
-            btnGestionLibros.Text = "Gestión de Libros";
-            btnGestionLibros.UseVisualStyleBackColor = true;
-            btnGestionLibros.Click += btnGestionLibros_Click;
             // 
             // btnGestionPrestamos
             // 
@@ -410,6 +342,74 @@ namespace Gestion_de_Biblioteca
             fechaVencimiento.ReadOnly = true;
             fechaVencimiento.Width = 233;
             // 
+            // btnGestionEjemplares
+            // 
+            btnGestionEjemplares.Dock = DockStyle.Top;
+            btnGestionEjemplares.FlatAppearance.BorderSize = 0;
+            btnGestionEjemplares.FlatStyle = FlatStyle.Flat;
+            btnGestionEjemplares.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionEjemplares.ForeColor = Color.Gainsboro;
+            btnGestionEjemplares.Location = new Point(0, 328);
+            btnGestionEjemplares.Margin = new Padding(2);
+            btnGestionEjemplares.Name = "btnGestionEjemplares";
+            btnGestionEjemplares.Padding = new Padding(10, 0, 0, 0);
+            btnGestionEjemplares.Size = new Size(219, 47);
+            btnGestionEjemplares.TabIndex = 6;
+            btnGestionEjemplares.Text = "Gestión de Ejemplares";
+            btnGestionEjemplares.UseVisualStyleBackColor = true;
+            btnGestionEjemplares.Click += btnGestionEjemplares_Click;
+            // 
+            // btnGestionAutores
+            // 
+            btnGestionAutores.Dock = DockStyle.Top;
+            btnGestionAutores.FlatAppearance.BorderSize = 0;
+            btnGestionAutores.FlatStyle = FlatStyle.Flat;
+            btnGestionAutores.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionAutores.ForeColor = Color.Gainsboro;
+            btnGestionAutores.Location = new Point(0, 375);
+            btnGestionAutores.Margin = new Padding(2);
+            btnGestionAutores.Name = "btnGestionAutores";
+            btnGestionAutores.Padding = new Padding(10, 0, 0, 0);
+            btnGestionAutores.Size = new Size(219, 47);
+            btnGestionAutores.TabIndex = 7;
+            btnGestionAutores.Text = "Consulta según Autores";
+            btnGestionAutores.UseVisualStyleBackColor = true;
+            btnGestionAutores.Click += btnGestionAutores_Click;
+            // 
+            // btnGestionCategorias
+            // 
+            btnGestionCategorias.Dock = DockStyle.Top;
+            btnGestionCategorias.FlatAppearance.BorderSize = 0;
+            btnGestionCategorias.FlatStyle = FlatStyle.Flat;
+            btnGestionCategorias.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionCategorias.ForeColor = Color.Gainsboro;
+            btnGestionCategorias.Location = new Point(0, 422);
+            btnGestionCategorias.Margin = new Padding(2);
+            btnGestionCategorias.Name = "btnGestionCategorias";
+            btnGestionCategorias.Padding = new Padding(10, 0, 0, 0);
+            btnGestionCategorias.Size = new Size(219, 47);
+            btnGestionCategorias.TabIndex = 8;
+            btnGestionCategorias.Text = "Consulta según Categorías";
+            btnGestionCategorias.UseVisualStyleBackColor = true;
+            btnGestionCategorias.Click += btnGestionCategorias_Click;
+            // 
+            // btnGestionLibros
+            // 
+            btnGestionLibros.Dock = DockStyle.Top;
+            btnGestionLibros.FlatAppearance.BorderSize = 0;
+            btnGestionLibros.FlatStyle = FlatStyle.Flat;
+            btnGestionLibros.Font = new Font("Microsoft Sans Serif", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
+            btnGestionLibros.ForeColor = Color.Gainsboro;
+            btnGestionLibros.Location = new Point(0, 281);
+            btnGestionLibros.Margin = new Padding(2);
+            btnGestionLibros.Name = "btnGestionLibros";
+            btnGestionLibros.Padding = new Padding(10, 0, 0, 0);
+            btnGestionLibros.Size = new Size(219, 47);
+            btnGestionLibros.TabIndex = 5;
+            btnGestionLibros.Text = "Consulta de Libros";
+            btnGestionLibros.UseVisualStyleBackColor = true;
+            btnGestionLibros.Click += btnGestionLibros_Click;
+            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -435,10 +435,6 @@ namespace Gestion_de_Biblioteca
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Button btnNuevoPrestamo;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Button btnGestionCategorias;
-        private System.Windows.Forms.Button btnGestionAutores;
-        private System.Windows.Forms.Button btnGestionEjemplares;
-        private System.Windows.Forms.Button btnGestionLibros;
         private System.Windows.Forms.Button btnGestionPrestamos;
         private System.Windows.Forms.Button btnGestionUsuario;
         private System.Windows.Forms.Button btnRegistrarDevolucion;
@@ -453,6 +449,10 @@ namespace Gestion_de_Biblioteca
         private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaVencimiento;
+        private Button btnGestionCategorias;
+        private Button btnGestionAutores;
+        private Button btnGestionEjemplares;
+        private Button btnGestionLibros;
     }
 }
 

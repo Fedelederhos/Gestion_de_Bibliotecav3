@@ -41,7 +41,6 @@
             buttonEliminar = new Button();
             buttonNuevo = new Button();
             gridEjemplar = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             anioPublicacion = new DataGridViewTextBoxColumn();
@@ -174,7 +173,7 @@
             gridEjemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplar.ColumnHeadersHeight = 25;
             gridEjemplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, anioPublicacion, codigo, fechaAlta, fechaBaja, disponibilidad });
+            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { isbn, nombre, anioPublicacion, codigo, fechaAlta, fechaBaja, disponibilidad });
             gridEjemplar.EnableHeadersVisualStyles = false;
             gridEjemplar.GridColor = Color.FromArgb(30, 45, 57);
             gridEjemplar.Location = new Point(236, 81);
@@ -201,12 +200,6 @@
             gridEjemplar.Size = new Size(528, 358);
             gridEjemplar.TabIndex = 0;
             gridEjemplar.CellClick += gridEjemplar_CellClick;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Width = 44;
             // 
             // isbn
             // 
@@ -283,7 +276,6 @@
         private System.Windows.Forms.Button buttonModificar;
         private TextBox textBox1;
         private Label label1;
-        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn isbn;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn anioPublicacion;

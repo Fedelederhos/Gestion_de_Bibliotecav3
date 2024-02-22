@@ -11,16 +11,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Gestion_de_Bibliotecav3.DTOs;
+using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     /// <summary>
     /// Pantalla de gestionar categoria
     /// </summary>
-    public partial class GestionCategoriaForm : Form
+    public partial class ConsultaCategoriaForm : Form
     {
-        ControladorCategoria controladorCategoria = new ControladorCategoria();
-        public GestionCategoriaForm()
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+        public ConsultaCategoriaForm()
         {
             InitializeComponent();
         }
@@ -35,8 +37,8 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             try
             {
                 string busqueda = textBusqueda.Text;
-                List<Categoria> lista = new List<Categoria>();
-                lista = controladorCategoria.BuscarCategoriasPorCoincidencia(busqueda);
+                List<BuscarEjemplarDTO> lista = new List<BuscarEjemplarDTO>();
+                ///lista = controladorEjemplar.BuscarCategorias(busqueda);
                 cargarTabla(lista);
             }
             catch (Exception ex)
@@ -51,7 +53,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         /// Carga en la tabla los resultados de la búsqueda
         /// </summary>
         /// <param name="lista"></param>
-        private void cargarTabla(List<Categoria> lista)
+        private void cargarTabla(List<BuscarEjemplarDTO> lista)
         {
             categoriasGrid.DataSource = lista;
         }

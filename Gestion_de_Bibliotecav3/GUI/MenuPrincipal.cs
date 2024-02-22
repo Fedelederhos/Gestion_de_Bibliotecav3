@@ -165,12 +165,12 @@ namespace Gestion_de_Biblioteca
 
         private void btnGestionAutores_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.ChildForms.GestionAutorForm(), sender);
+            OpenChildForm(new GUI.ChildForms.ConsultaAutorForm(), sender);
         }
 
         private void btnGestionCategorias_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new GUI.ChildForms.GestionCategoriaForm(), sender);
+            OpenChildForm(new GUI.ChildForms.ConsultaCategoriaForm(), sender);
         }
 
         private void btnRegistrarDevolucion_Click(object sender, EventArgs e)
