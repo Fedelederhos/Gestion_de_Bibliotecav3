@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Gestion_de_Biblioteca.Servicios
 {
@@ -14,9 +15,12 @@ namespace Gestion_de_Biblioteca.Servicios
 
         public MySqlConnection()
         {
-            myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=Martolomeo23$;database=tallerc#";
             try
             {
+                string archivoJson = "config.json";
+                string contenidoJson = File.ReadAllText(archivoJson);
+                dynamic configuracion = JsonConvert.DeserializeObject(contenidoJson);
+                myConnectionString = configuracion.ConnectionString;
                 conn = new MySql.Data.MySqlClient.MySqlConnection();
                 conn.ConnectionString = myConnectionString;
                 conn.Open();

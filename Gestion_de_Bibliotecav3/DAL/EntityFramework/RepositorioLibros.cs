@@ -19,6 +19,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
         private RepositorioAutores repositorioAutor;
         private RepositorioCategorias repositorioCategoria;
+        private IOpenLibraryApiClient openLibraryApiClient;
 
         // METODOS TODO
         // Existencia  isbn BD 
@@ -44,9 +45,6 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
         public async void Cargar(string isbn)
         {
-            using var httpClient = new HttpClient();
-            var openLibraryApiClient = new OpenLibraryApiClient(httpClient);
-
             HttpResponseMessage response = await openLibraryApiClient.ObtenerLibroAsync_isbn(isbn);
 
             if (response != null && response.IsSuccessStatusCode)
@@ -177,8 +175,6 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
         public async Task<Libro> BuscarPorIsbnAPI(string isbn)
         {
-            using var httpClient = new HttpClient();
-            var openLibraryApiClient = new OpenLibraryApiClient(httpClient);
             Libro libro = new Libro();
 
             HttpResponseMessage response = await openLibraryApiClient.ObtenerLibroAsync_isbn(isbn);
@@ -225,8 +221,6 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
 
         public async Task<List<Libro>> BuscarLibroPorNombreAPI(string nombre)
         {
-            using var httpClient = new HttpClient();
-            var openLibraryApiClient = new OpenLibraryApiClient(httpClient);
             List<Libro> libros = new List<Libro>();
 
             HttpResponseMessage response = await openLibraryApiClient.ObtenerLibroAsync_nombre(nombre);
