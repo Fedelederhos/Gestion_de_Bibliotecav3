@@ -41,7 +41,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return dto;
         }
 
-        public UsuarioDTO aDTO(BusquedaUsuarioDTO usuario)
+        public UsuarioDTO aDTO(Usuario usuario)
         {
             UsuarioDTO dto = new UsuarioDTO();
             dto.DNI = usuario.DNI;
@@ -52,7 +52,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return dto;
         }
 
-        public BuscarUsuarioDTO aDTOBuscar(BusquedaUsuarioDTO usuario)
+        public BuscarUsuarioDTO aDTOBuscar(Usuario usuario)
         {
             BuscarUsuarioDTO dto = new BuscarUsuarioDTO();
             dto.DNI = usuario.DNI;

@@ -17,10 +17,10 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class ModificarUsuarioForm : Form
     {
-        public BusquedaUsuarioDTO usuario { get; set; }
+        public BuscarUsuarioDTO usuario { get; set; }
         ControladorUsuario controladorUsuario = new ControladorUsuario();
 
-        public ModificarUsuarioForm(BusquedaUsuarioDTO usuario)
+        public ModificarUsuarioForm(BuscarUsuarioDTO usuario)
         {
             InitializeComponent();
             this.Text = String.Empty;

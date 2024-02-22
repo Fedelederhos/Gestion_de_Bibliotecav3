@@ -19,7 +19,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
         }*/
 
         public DbSet<Prestamo> Prestamos { get; set; }
-        public DbSet<BusquedaUsuarioDTO> Usuarios { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         public DbSet<Ejemplar> Ejemplares { get; set; }
 

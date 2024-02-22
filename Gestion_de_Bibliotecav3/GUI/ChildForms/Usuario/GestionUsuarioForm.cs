@@ -11,7 +11,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class GestionUsuarioForm : Form
     {
-        BusquedaUsuarioDTO usuario = new BusquedaUsuarioDTO();
+        BuscarUsuarioDTO usuario = new BuscarUsuarioDTO();
         private ControladorUsuario controladorUsuario = new ControladorUsuario();
         private string dni2;
         public GestionUsuarioForm()

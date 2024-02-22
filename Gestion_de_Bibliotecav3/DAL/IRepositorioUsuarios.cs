@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Gestion_de_Bibliotecav3.DAL
 {
-    public interface IRepositorioUsuarios : IRepository<Dominio.BusquedaUsuarioDTO>
+    public interface IRepositorioUsuarios : IRepository<Dominio.Usuario>
     {
 
 
