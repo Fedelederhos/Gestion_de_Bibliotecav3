@@ -19,8 +19,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             /// <returns>Enumeración de medias que cumplen con un listado de condiciones.</returns>
         public override IEnumerable<Administrador> ObtenerDonde(IEnumerable<Func<Administrador, bool>> pCondicion)
         {
-            return iDBContext.Categorias.AsEnumerable().Where(usuario => pCondicion.All(condition => condition(usuario)));
-           
+            return iDBContext.Administrador.AsEnumerable().Where(usuario => pCondicion.All(condition => condition(usuario)));
         }
     }
     }

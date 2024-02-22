@@ -1,4 +1,7 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
+using Gestion_de_Bibliotecav3.DTOs.PrestamoDTOs;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using Gestion_de_Bibliotecav3.GUI;
 using Gestion_de_Bibliotecav3.Servicios;
 using System;
@@ -24,7 +27,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Prestamo BuscarPrestamoPorID(int id)
+        public PrestamoDTO BuscarPrestamoPorID(int id)
         {
             return servicioPrestamo.BuscarPrestamoPorID(id);
         }
@@ -34,7 +37,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// </summary>
         /// <param name="codigoODNI"></param>
         /// <returns></returns>
-        public List<Prestamo> BuscarPrestamosPorCodigoODNI(string codigoODNI)
+        public List<PrestamoDTO> BuscarPrestamosPorCodigoODNI(string codigoODNI)
         {
             return servicioPrestamo.BuscarPrestamosPorCodigoODNI(codigoODNI);
         }
@@ -45,28 +48,25 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// <param name="ejemplar"></param>
         /// <param name="usuario"></param>
         /// <param name="fechaVencimiento"></param>
-        public void NuevoPrestamo(Ejemplar ejemplar, Usuario usuario, DateTime fechaVencimiento)
+        public void NuevoPrestamo(BuscarEjemplarDTO ejemplar, BuscarUsuarioDTO usuario, DateTime fechaVencimiento)
         {
-            // EL prestamo se deberia armar en el servicio
-            Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
-            servicioPrestamo.Agregar(prestamo);
-            
+            servicioPrestamo.Agregar(ejemplar, usuario, fechaVencimiento);
         }
 
         /// <summary>
         /// Se listan los Préstamos próximos a vencerse dentro de un intervalo
         /// </summary>
         /// <returns></returns>
-        public List<Prestamo> ProximosPrestamosAVencer()
+        public List<PrestamoAVencerDTO> ProximosPrestamosAVencer(DateTime fechaHoy)
         {
-            return servicioPrestamo.ProximosPrestamosAVencer(DateTime.Today);
+            return servicioPrestamo.ProximosPrestamosAVencer(fechaHoy);
         }
 
         /// <summary>
         /// Se elimina el Préstamo a partir del DTO recibido
         /// </summary>
         /// <param name="prestamo"></param>
-        public void EliminarPrestamo(Prestamo prestamo)
+        public void EliminarPrestamo(PrestamoDTO prestamo)
         {
             servicioPrestamo.Eliminar(prestamo);
         }
@@ -76,19 +76,9 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// </summary>
         /// <param name="codigo"></param>
         /// <param name="estado"></param>
-        public void RegistrarDevolucionPrestamo(string codigo, Estado estado)
+        public void RegistrarDevolucionPrestamo(string codigo, string estado)
         {
             servicioPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
-        }
-
-        /// <summary>
-        /// Se listan los ejemplares que formaron parte de un préstamo de un Usuario en particular
-        /// </summary>
-        /// <param name="usuario"></param>
-        /// <returns></returns>
-        public List<Ejemplar> ejemplaresUsuario(Usuario usuario)//modificar segun lo que pida la pantalla
-        {
-            return servicioPrestamo.ejemplaresUsuario(usuario);
         }
 
         /// <summary>
@@ -96,7 +86,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// </summary>
         /// <param name="dni"></param>
         /// <returns></returns>
-        public DateTime? AsignarVencimiento(int dni) // Puse DateTime? porque si pasa algun error, no devolvera ese tipo de dato
+        public string AsignarVencimiento(string dni) // Puse DateTime? porque si pasa algun error, no devolvera ese tipo de dato
         {
             return servicioPrestamo.AsignarVencimiento(dni);
         }

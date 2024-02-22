@@ -39,7 +39,6 @@
             buttonModificar = new Button();
             buttonNuevo = new Button();
             gridUsuario = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
             dni = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             direccion = new DataGridViewTextBoxColumn();
@@ -159,7 +158,7 @@
             gridUsuario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridUsuario.ColumnHeadersHeight = 25;
             gridUsuario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridUsuario.Columns.AddRange(new DataGridViewColumn[] { id, dni, nombre, direccion, telefono, email, score });
+            gridUsuario.Columns.AddRange(new DataGridViewColumn[] { dni, nombre, direccion, telefono, email, score });
             gridUsuario.EnableHeadersVisualStyles = false;
             gridUsuario.GridColor = Color.FromArgb(30, 45, 57);
             gridUsuario.Location = new Point(236, 81);
@@ -187,14 +186,6 @@
             gridUsuario.Size = new Size(527, 358);
             gridUsuario.TabIndex = 0;
             gridUsuario.CellClick += gridUsuario_CellClick;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Width = 44;
             // 
             // dni
             // 
@@ -268,7 +259,6 @@
         private System.Windows.Forms.Label labelIngrese;
         private System.Windows.Forms.TextBox textBusqueda;
         private Button button1;
-        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn dni;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn direccion;

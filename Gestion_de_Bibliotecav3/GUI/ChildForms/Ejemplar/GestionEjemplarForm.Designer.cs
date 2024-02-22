@@ -34,14 +34,12 @@
             panelTabla = new Panel();
             textBox1 = new TextBox();
             label1 = new Label();
-            buttonModificar = new Button();
             textBusqueda = new TextBox();
             buttonBuscar = new Button();
             labelIngrese = new Label();
             buttonEliminar = new Button();
             buttonNuevo = new Button();
             gridEjemplar = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             anioPublicacion = new DataGridViewTextBoxColumn();
@@ -58,7 +56,6 @@
             panelTabla.BackColor = Color.FromArgb(46, 61, 66);
             panelTabla.Controls.Add(textBox1);
             panelTabla.Controls.Add(label1);
-            panelTabla.Controls.Add(buttonModificar);
             panelTabla.Controls.Add(textBusqueda);
             panelTabla.Controls.Add(buttonBuscar);
             panelTabla.Controls.Add(labelIngrese);
@@ -90,17 +87,6 @@
             label1.Size = new Size(105, 17);
             label1.TabIndex = 8;
             label1.Text = "ISBN o Nombre";
-            // 
-            // buttonModificar
-            // 
-            buttonModificar.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonModificar.Location = new Point(34, 140);
-            buttonModificar.Name = "buttonModificar";
-            buttonModificar.Size = new Size(171, 38);
-            buttonModificar.TabIndex = 7;
-            buttonModificar.Text = "Modificar Ejemplar";
-            buttonModificar.UseVisualStyleBackColor = true;
-            buttonModificar.Click += buttonModificar_Click;
             // 
             // textBusqueda
             // 
@@ -136,7 +122,7 @@
             // buttonEliminar
             // 
             buttonEliminar.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonEliminar.Location = new Point(34, 202);
+            buttonEliminar.Location = new Point(34, 154);
             buttonEliminar.Name = "buttonEliminar";
             buttonEliminar.Size = new Size(171, 38);
             buttonEliminar.TabIndex = 3;
@@ -174,7 +160,7 @@
             gridEjemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplar.ColumnHeadersHeight = 25;
             gridEjemplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, anioPublicacion, codigo, fechaAlta, fechaBaja, disponibilidad });
+            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { isbn, nombre, anioPublicacion, codigo, fechaAlta, fechaBaja, disponibilidad });
             gridEjemplar.EnableHeadersVisualStyles = false;
             gridEjemplar.GridColor = Color.FromArgb(30, 45, 57);
             gridEjemplar.Location = new Point(236, 81);
@@ -201,12 +187,6 @@
             gridEjemplar.Size = new Size(528, 358);
             gridEjemplar.TabIndex = 0;
             gridEjemplar.CellClick += gridEjemplar_CellClick;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Width = 44;
             // 
             // isbn
             // 
@@ -280,10 +260,8 @@
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label labelIngrese;
         private System.Windows.Forms.TextBox textBusqueda;
-        private System.Windows.Forms.Button buttonModificar;
         private TextBox textBox1;
         private Label label1;
-        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn isbn;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn anioPublicacion;

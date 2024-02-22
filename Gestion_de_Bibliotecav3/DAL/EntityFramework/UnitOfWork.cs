@@ -65,6 +65,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             this.iDBContext.Autores.RemoveRange(iDBContext.Autores);
             this.iDBContext.Categorias.RemoveRange(iDBContext.Categorias);
             this.iDBContext.Libros.RemoveRange(iDBContext.Libros);
+            this.iDBContext.Administrador.RemoveRange(iDBContext.Administrador);
 
             Completar();
         }

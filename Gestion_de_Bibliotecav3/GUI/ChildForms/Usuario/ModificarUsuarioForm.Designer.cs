@@ -40,12 +40,12 @@
             textBoxTelefono = new TextBox();
             textBoxDireccion = new TextBox();
             textBoxNombre = new TextBox();
-            textBoxDNI = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             labelIngrese = new Label();
+            textBoxDNI = new TextBox();
             panelBanner.SuspendLayout();
             panelBotones.SuspendLayout();
             panelCampos.SuspendLayout();
@@ -171,13 +171,6 @@
             textBoxNombre.Size = new Size(168, 23);
             textBoxNombre.TabIndex = 11;
             // 
-            // textBoxDNI
-            // 
-            textBoxDNI.Location = new Point(330, 25);
-            textBoxDNI.Name = "textBoxDNI";
-            textBoxDNI.Size = new Size(88, 23);
-            textBoxDNI.TabIndex = 10;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -233,6 +226,13 @@
             labelIngrese.TabIndex = 5;
             labelIngrese.Text = "DNI";
             // 
+            // textBoxDNI
+            // 
+            textBoxDNI.Location = new Point(330, 25);
+            textBoxDNI.Name = "textBoxDNI";
+            textBoxDNI.Size = new Size(88, 23);
+            textBoxDNI.TabIndex = 10;
+            // 
             // ModificarUsuarioForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -261,14 +261,14 @@
         private System.Windows.Forms.TextBox textBoxTelefono;
         private System.Windows.Forms.TextBox textBoxDireccion;
         private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.TextBox textBoxDNI;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelIngrese;
         private System.Windows.Forms.Label labelTitulo;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
+        private TextBox textBoxDNI;
+        private Label labelIngrese;
     }
 }

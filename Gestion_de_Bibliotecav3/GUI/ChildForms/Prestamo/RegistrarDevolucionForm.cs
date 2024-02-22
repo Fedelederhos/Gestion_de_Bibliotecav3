@@ -64,7 +64,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 estado = estadoComboBox.SelectedItem.ToString();
                 codigo = codigoLabel.Text;
 
-                controladorPrestamo.RegistrarDevolucionPrestamo(codigo, ParseEstado(estado));
+                controladorPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
             }
             catch (SystemException s)
             {
@@ -79,21 +79,6 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 //La panntalla deberia mostrar el siguiente error "ex.ToString()"
                 Console.WriteLine(ex.Message);
 
-            }
-        }
-
-        private Estado ParseEstado(string estado)
-        {
-            switch(estado)
-            {
-                case "Bueno":
-                    return Estado.Bueno;
-                case "Regular":
-                    return Estado.Regular;
-                case "Arruinado":
-                    return Estado.Arruinado;
-                default:
-                    throw new ArgumentException("Estado no válido", nameof(estado));
             }
         }
 
