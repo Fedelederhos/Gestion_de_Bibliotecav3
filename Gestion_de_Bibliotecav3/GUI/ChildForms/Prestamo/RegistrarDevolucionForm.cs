@@ -1,5 +1,6 @@
 ﻿using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.PrestamoDTOs;
 using Gestion_de_Bibliotecav3.GUI;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
     {
         ControladorPrestamo controladorPrestamo = new ControladorPrestamo();
         ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+        PrestamoDTO prestamo = new PrestamoDTO();
         public RegistrarDevolucionForm()
         {
             InitializeComponent();
@@ -85,10 +87,8 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            bool value;
-            controladorPrestamo.BuscarPrestamosPorCodigoODNI(codigoLabel.Text);
-            value = true; //acá va a haber que asignar ese resultado
-            if (value)
+            PrestamoDTO prestamo = controladorPrestamo.BuscarPrestamoActivo(codigoLabel.Text);
+            if (prestamo != null)
             {
                 MessageBox.Show("El código ingresado coincide con un ejemplar existente", "Código válido");
             }

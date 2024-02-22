@@ -80,8 +80,6 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 string direccion = textBoxDireccion.Text;
                 string telefono = textBoxTelefono.Text;
                 string email = textBoxEmail.Text;
-                //Usuario usuarioOriginal = new Usuario();
-                //usuarioOriginal = controladorUsuario.obtenerUsuario(dni)[0];
                 UsuarioDTO usuarioNuevo = new UsuarioDTO();
                 usuarioNuevo.DNI = int.Parse(dni);
                 usuarioNuevo.Nombre = nombre;
