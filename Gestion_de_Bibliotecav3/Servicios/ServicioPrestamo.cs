@@ -1,7 +1,9 @@
 ﻿using Gestion_de_Bibliotecav3.DAL;
 using Gestion_de_Bibliotecav3.DAL.EntityFramework;
 using Gestion_de_Bibliotecav3.Dominio;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Gestion_de_Bibliotecav3.DTOs.PrestamoDTOs;
+using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
-using Gestion_de_Bibliotecav3.DTOs.PrestamoDTOs;
-using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
-using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 
 namespace Gestion_de_Bibliotecav3.Servicios
 {
@@ -25,16 +24,31 @@ namespace Gestion_de_Bibliotecav3.Servicios
         private ServicioEjemplar servicioEjemplar;
         private ServicioDTO servicioDTO;
 
+        /// <summary>
+        /// Busca un préstamo por su ID y lo convierte en un DTO
+        /// </summary>
+        /// <param name="id">Identificador del préstamo</param>
+        /// <returns>DTO del préstamo encontrado</returns>
         public PrestamoDTO BuscarPrestamoPorID(int id)
         {
             return servicioDTO.aDTO(repositorioPrestamos.Get(id));
         }
 
+        /// <summary>
+        /// Obtiene todos los préstamos y los devuelve como una lista
+        /// </summary>
+        /// <returns>Lista de todos los préstamos</returns>
         public List<Prestamo> findAll()
         {
             return (List<Prestamo>)repositorioPrestamos.GetAll();
         }
 
+        /// <summary>
+        /// Agrega un nuevo préstamo a partir de los datos recibidos
+        /// </summary>
+        /// <param name="ejemplardto">DTO del ejemplar prestado</param>
+        /// <param name="usuariodto">DTO del usuario que realiza el préstamo</param>
+        /// <param name="fechaVencimiento">Fecha de vencimiento del préstamo</param>
         public void Agregar(BuscarEjemplarDTO ejemplardto, BuscarUsuarioDTO usuariodto, DateTime fechaVencimiento)
         {
             Usuario usuario = servicioUsuario.obtenerPorDni(usuariodto.DNI);
@@ -43,6 +57,10 @@ namespace Gestion_de_Bibliotecav3.Servicios
             repositorioPrestamos.Agregar(prestamo);
         }
 
+        /// <summary>
+        /// Actualiza la información de un préstamo existente
+        /// </summary>
+        /// <param name="prestamo">Datos actualizados del préstamo</param>
         public void Actualizar(Prestamo prestamo)
         {
             if (prestamo.ID != null && repositorioPrestamos.Existe(prestamo.ID))
@@ -50,9 +68,13 @@ namespace Gestion_de_Bibliotecav3.Servicios
                 repositorioPrestamos.Actualizar(prestamo.ID, prestamo);
             }
 
-            throw new SystemException(); // Si no pasa por el condicional devuelvo un error (sera atrapado por el controlador)
+            throw new SystemException(); // Si no pasa por el condicional devuelvo un error (será atrapado por el controlador)
         }
 
+        /// <summary>
+        /// Elimina un préstamo a partir de su DTO
+        /// </summary>
+        /// <param name="prestamodto">DTO del préstamo a eliminar</param>
         public void Eliminar(PrestamoDTO prestamodto)
         {
             Prestamo prestamo = repositorioPrestamos.Get(int.Parse(prestamodto.ID));
@@ -61,9 +83,13 @@ namespace Gestion_de_Bibliotecav3.Servicios
                 repositorioPrestamos.Eliminar(prestamo.ID, prestamo);
             }
 
-            throw new SystemException(); // Si no pasa por el condicional devuelvo un error (sera atrapado por el controlador)
+            throw new SystemException(); // Si no pasa por el condicional devuelvo un error (será atrapado por el controlador)
         }
 
+        /// <summary>
+        /// Busca préstamos activos en el sistema
+        /// </summary>
+        /// <returns>Lista de préstamos activos</returns>
         public List<Prestamo> BuscarPrestamosActivos()
         {
             DateTime fechaHoy = DateTime.Today;
@@ -72,11 +98,21 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return repositorioPrestamos.buscarPorFechas(fechaHoy, fechaEnUnaSemana);
         }
 
+        /// <summary>
+        /// Busca los préstamos que están próximos a vencerse
+        /// </summary>
+        /// <param name="fechaHoy">Fecha actual</param>
+        /// <returns>Lista de préstamos próximos a vencerse en formato DTO</returns>
         public List<PrestamoAVencerDTO> ProximosPrestamosAVencer(DateTime fechaHoy)
         {
             return repositorioPrestamos.ProximosPrestamosAVencer(fechaHoy).Select(prestamo => servicioDTO.aDTOVencer(prestamo)).ToList();
         }
 
+        /// <summary>
+        /// Busca préstamos asociados a un código de ejemplar específico
+        /// </summary>
+        /// <param name="codigo">Código del ejemplar</param>
+        /// <returns>Lista de préstamos asociados al código de ejemplar</returns>
         public List<Prestamo> BuscarPrestamoPorCodigoEjemplar(string codigo)
         {
             if (codigo != null)
@@ -86,6 +122,11 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
+        /// <summary>
+        /// Busca préstamos asociados a un DNI de usuario específico
+        /// </summary>
+        /// <param name="DNI">DNI del usuario</param>
+        /// <returns>Lista de préstamos asociados al DNI del usuario</returns>
         public List<Prestamo> BuscarPrestamoPorDNI(int DNI)
         {
             if (DNI != null)
@@ -95,6 +136,11 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
+        /// <summary>
+        /// Busca préstamos por código de ejemplar o DNI de usuario y los devuelve como una lista de DTOs
+        /// </summary>
+        /// <param name="codigoODNI">Código de ejemplar o DNI de usuario</param>
+        /// <returns>Lista de préstamos encontrados</returns>
         public List<PrestamoDTO> BuscarPrestamosPorCodigoODNI(string codigoODNI)
         {
             List<PrestamoDTO> prestamos = new List<PrestamoDTO>();
@@ -112,6 +158,11 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return prestamos;
         }
 
+        /// <summary>
+        /// Busca préstamos por nombre de ejemplar
+        /// </summary>
+        /// <param name="nombre">Nombre del ejemplar</param>
+        /// <returns>Lista de préstamos encontrados</returns>
         public List<Prestamo> BuscarPorNombreEjemplar(string nombre)
         {
             if (nombre != null)
@@ -121,10 +172,11 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
-        // BUSCAR TODOS LOS PRESTAMOS  
-        // BUSCAR LO QUE COINCIDEN CON UN USUARIO
-        // DEVOLVER LOS EJEMPLARES 
-
+        /// <summary>
+        /// Devuelve los ejemplares asociados a un usuario
+        /// </summary>
+        /// <param name="usuario">Usuario del que se quieren obtener los ejemplares</param>
+        /// <returns>Lista de ejemplares del usuario</returns>
         public List<Ejemplar> ejemplaresUsuario(Usuario usuario)
         {
             if (usuario != null && repositorioUsuarios.ExistePorDni(usuario.ID))
@@ -145,6 +197,11 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
+        /// <summary>
+        /// Asigna una fecha de vencimiento a partir del DNI de un usuario
+        /// </summary>
+        /// <param name="dni">DNI del usuario</param>
+        /// <returns>Fecha de vencimiento asignada</returns>
         public string AsignarVencimiento(string dni)
         {
             if (dni != null)
@@ -155,11 +212,16 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
-        public Prestamo BuscarPrestamoActivo(string codigo)
+        /// <summary>
+        /// Busca un préstamo activo por código de ejemplar
+        /// </summary>
+        /// <param name="codigo">Código del ejemplar</param>
+        /// <returns>Préstamo activo encontrado</returns>
+        public PrestamoDTO BuscarPrestamoActivo(string codigo)
         {
-            Prestamo prestamo = new Prestamo();
-            List<Prestamo> prestamos = repositorioPrestamos.BuscarPrestamoPorCodigoEjemplar(codigo);
-            foreach (Prestamo buscado in prestamos)
+            PrestamoDTO prestamo = new PrestamoDTO();
+            List<PrestamoDTO> prestamos = repositorioPrestamos.BuscarPrestamoPorCodigoEjemplar(codigo).Select(prestamo => servicioDTO.aDTO(prestamo)).ToList();
+            foreach (PrestamoDTO buscado in prestamos)
             {
                 if (buscado.FechaDevolucion == null)
                 {
@@ -169,7 +231,12 @@ namespace Gestion_de_Bibliotecav3.Servicios
             return prestamo;
         }
 
-        private Estado StringAEstado (string estado)
+        /// <summary>
+        /// Convierte un estado representado como cadena de caracteres en un valor del tipo Estado
+        /// </summary>
+        /// <param name="estado">Estado representado como cadena de caracteres</param>
+        /// <returns>Estado convertido</returns>
+        private Estado StringAEstado(string estado)
         {
             switch (estado)
             {
@@ -184,9 +251,15 @@ namespace Gestion_de_Bibliotecav3.Servicios
             }
         }
 
+        /// <summary>
+        /// Registra la devolución de un préstamo y realiza las actualizaciones correspondientes
+        /// </summary>
+        /// <param name="codigo">Código del ejemplar asociado al préstamo</param>
+        /// <param name="estadostr">Estado del ejemplar devuelto</param>
         public void RegistrarDevolucionPrestamo(string codigo, string estadostr)
         {
-            Prestamo prestamo = this.BuscarPrestamoActivo(codigo);
+            PrestamoDTO prestamodto = this.BuscarPrestamoActivo(codigo);
+            Prestamo prestamo = repositorioPrestamos.Get(int.Parse(prestamodto.ID));
             Estado estado = StringAEstado(estadostr);
 
 
@@ -230,6 +303,9 @@ namespace Gestion_de_Bibliotecav3.Servicios
             throw new SystemException();
         }
 
+        /// <summary>
+        /// Envía notificaciones de préstamos próximos a vencer
+        /// </summary>
         public void EnviarNotificacion()
         {
             DateTime fechaHoy = DateTime.Now;

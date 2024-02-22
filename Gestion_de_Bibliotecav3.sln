@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_de_Bibliotecav3", "Gestion_de_Bibliotecav3\Gestion_de_Bibliotecav3.csproj", "{2030AC77-9F5A-453E-85B0-64D72F188C95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gestion_de_Bibliotecav3", "Gestion_de_Bibliotecav3\Gestion_de_Bibliotecav3.csproj", "{2030AC77-9F5A-453E-85B0-64D72F188C95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_de_Bibliotecav3_Tests", "Gestion_de_Bibliotecav3_Tests\Gestion_de_Bibliotecav3_Tests.csproj", "{9FFC537D-2E69-4C9C-919F-4575F5210349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2030AC77-9F5A-453E-85B0-64D72F188C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2030AC77-9F5A-453E-85B0-64D72F188C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2030AC77-9F5A-453E-85B0-64D72F188C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FFC537D-2E69-4C9C-919F-4575F5210349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FFC537D-2E69-4C9C-919F-4575F5210349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FFC537D-2E69-4C9C-919F-4575F5210349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FFC537D-2E69-4C9C-919F-4575F5210349}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
