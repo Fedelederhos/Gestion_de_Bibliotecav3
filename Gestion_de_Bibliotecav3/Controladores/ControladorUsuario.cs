@@ -1,4 +1,5 @@
 ﻿using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using Gestion_de_Bibliotecav3.GUI;
 using Gestion_de_Bibliotecav3.Servicios;
 using System;
@@ -11,150 +12,79 @@ using System.Windows.Forms;
 
 namespace Gestion_de_Bibliotecav3.Controladores
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class ControladorUsuario
     {
         ServicioUsuario servicioUsuario;
-        private string mensaje = "Operación exitosa";
 
-        public void CrearUsuario(Usuario usuario)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usuario"></param>
+        public void CrearUsuario(UsuarioDTO usuario)
         {
-            try
-            {
-                servicioUsuario.Agregar(usuario);
-                PopUpForm popup = new PopUpForm(mensaje);
-                popup.ShowDialog();
-                //Mensaje de exito
-            }
-            catch (SystemException s)
-            {
-                //La panntalla deberia mostrar que algun parametro esta mal
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(ex.Message);
-            }
+            servicioUsuario.Agregar(usuario);
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="usuario"></param>
         public void ModificarUsuario(Usuario usuario)
         {
-            try
-            {
-                servicioUsuario.Actualizar(usuario);
-                PopUpForm popup = new PopUpForm(mensaje);
-                popup.ShowDialog();
-                //Mensaje de exito
-            }
-            catch (SystemException s)
-            {
-                //La panntalla deberia mostrar que algun parametro esta mal
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(ex.Message);
-            }
+            servicioUsuario.Actualizar(usuario);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
         public bool Existe(string dni)
         {
-            try
-            {
-                return servicioUsuario.Existe(int.Parse(dni));
-            }
-            catch (Exception e) 
-            {
-                PopUpForm popup = new PopUpForm(e.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(e.ToString());
-                return false;
-            }
+            return servicioUsuario.Existe(int.Parse(dni));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dniONombre"></param>
+        /// <returns></returns>
         public List<Usuario> obtenerUsuario(string dniONombre)
         {
-            try
+            List<Usuario> usuarios = new List<Usuario>();
+            int number1 = 0;
+            bool canConvert = int.TryParse(dniONombre, out number1);
+            if (canConvert)
             {
-                List<Usuario> usuarios = new List<Usuario>();
-                int number1 = 0;
-                bool canConvert = int.TryParse(dniONombre, out number1);
-                if (canConvert)
-                {
-                    usuarios.Add(servicioUsuario.obtenerPorDni(int.Parse(dniONombre)));
-                }
-                else
-                {
-                    usuarios.AddRange(servicioUsuario.obtenerPorNombre(dniONombre));
-                }
-
-                return usuarios;
+                usuarios.Add(servicioUsuario.obtenerPorDni(int.Parse(dniONombre)));
             }
-            catch (SystemException s)
+            else
             {
-                //La panntalla deberia mostrar que algun parametro esta mal
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog();
-                return null;
+                usuarios.AddRange(servicioUsuario.obtenerPorNombre(dniONombre));
             }
-            catch (Exception e)
-            {
-
-                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
-                PopUpForm popup = new PopUpForm(e.ToString());
-                popup.ShowDialog();
-                Console.WriteLine(e.Message);
-
-                return null;
-            }
-
+            return usuarios;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Usuario> GetAll()
         {
             List<Usuario> usuarios = new List<Usuario>();
-            try
-            {
-                return servicioUsuario.GetAll();
-            }
-            catch (Exception e) 
-            {
-                Console.WriteLine(e.ToString());
-                PopUpForm popup = new PopUpForm(e.ToString());
-                popup.ShowDialog();
-                return usuarios;
-            }
+            return servicioUsuario.GetAll();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dni"></param>
         public void Eliminar(string dni)
         {
-            try
-            {
-                servicioUsuario.Eliminar(int.Parse(dni));
-                PopUpForm popup = new PopUpForm(mensaje);
-                popup.ShowDialog();
-                //Mensaje de exito
-            }
-            catch (SystemException s)
-            {
-                PopUpForm popup = new PopUpForm("Error en los parametros");
-                popup.ShowDialog(); 
-                //La panntalla deberia mostrar que algun parametro esta mal
-            }
-            catch (Exception ex)
-            {
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
-                Console.WriteLine(ex.Message);
-
-            }
+            servicioUsuario.Eliminar(int.Parse(dni));
         }
     }
 }

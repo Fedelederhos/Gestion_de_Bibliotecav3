@@ -32,15 +32,41 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         }
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
-            controladorPrestamo.EliminarPrestamo(prestamo);
+            try
+            {
+                controladorPrestamo.EliminarPrestamo(prestamo);
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                Console.WriteLine(ex.Message);
+
+            }
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            string busqueda = textBusqueda.Text;
-            List<Prestamo> lista = new List<Prestamo> { prestamo };
-            lista = controladorPrestamo.BuscarPrestamosPorCodigoODNI(busqueda);
-            cargarTabla(lista);
+            try
+            {
+                string busqueda = textBusqueda.Text;
+                List<Prestamo> lista = new List<Prestamo> { prestamo };
+                lista = controladorPrestamo.BuscarPrestamosPorCodigoODNI(busqueda);
+                cargarTabla(lista);
+            }
+            catch (Exception ex)
+            {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void gridPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -1,6 +1,7 @@
 ﻿using Gestion_de_Biblioteca.GUI.ChildForms;
 using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
@@ -51,17 +52,26 @@ namespace Gestion_de_Biblioteca
         //Metodos
         private void CargarTabla(object? sender, EventArgs e)
         {
-            List<Prestamo> listaOriginal = new List<Prestamo>();
-            listaOriginal = controladorPrestamo.ProximosPrestamosAVencer();
-            string isbn;
-            string usuario;
-            string fechaVencimiento;
-            foreach (Prestamo prestamo in listaOriginal)
+            try
             {
-                isbn = prestamo.Ejemplar.Libro.ISBN;
-                usuario = prestamo.Usuario.DNI.ToString();
-                fechaVencimiento = prestamo.FechaVencimiento.ToString();
-                dataGrid.Rows.Add(isbn, usuario, fechaVencimiento);
+                List<Prestamo> listaOriginal = new List<Prestamo>();
+                listaOriginal = controladorPrestamo.ProximosPrestamosAVencer();
+                string isbn;
+                string usuario;
+                string fechaVencimiento;
+                foreach (Prestamo prestamo in listaOriginal)
+                {
+                    isbn = prestamo.Ejemplar.Libro.ISBN;
+                    usuario = prestamo.Usuario.DNI.ToString();
+                    fechaVencimiento = prestamo.FechaVencimiento.ToString();
+                    dataGrid.Rows.Add(isbn, usuario, fechaVencimiento);
+                }
+            }
+            catch (Exception ex)
+            {
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                Console.WriteLine(ex.Message);
             }
         }
         private Color SeleccionarColor()

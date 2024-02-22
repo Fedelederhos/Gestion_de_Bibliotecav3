@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.GUI;
 
 namespace Gestion_de_Biblioteca.GUI
 {
@@ -56,13 +57,29 @@ namespace Gestion_de_Biblioteca.GUI
 
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            string dni = textBoxDNI.Text;
-            string nombreCompleto = textBoxNombre.Text;
-            string direccion = textBoxDireccion.Text;
-            string telefono = textBoxTelefono.Text;
-            string email = textBoxEmail.Text;
-            Usuario usuario = new Usuario(int.Parse(dni), nombreCompleto, direccion, int.Parse(telefono), email);
-            controladorUsuario.CrearUsuario(usuario);
+            try
+            {
+                string dni = textBoxDNI.Text;
+                string nombreCompleto = textBoxNombre.Text;
+                string direccion = textBoxDireccion.Text;
+                string telefono = textBoxTelefono.Text;
+                string email = textBoxEmail.Text;
+                Usuario usuario = new Usuario(int.Parse(dni), nombreCompleto, direccion, int.Parse(telefono), email);
+                controladorUsuario.CrearUsuario(usuario);
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                PopUpForm popup = new PopUpForm(ex.ToString());
+                popup.ShowDialog();
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

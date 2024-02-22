@@ -14,16 +14,11 @@ using System.Windows.Forms;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
-    public partial class NuevoPrestamoForm : Form
+    public partial class RegistrarDevolucionForm : Form
     {
-        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
-        ControladorUsuario controladorUsuario = new ControladorUsuario();
         ControladorPrestamo controladorPrestamo = new ControladorPrestamo();
-        Ejemplar ejemplar;
-        string codigoEjemplar;
-        Usuario usuario;
-        List<Usuario> listaUsuario;
-        public NuevoPrestamoForm()
+        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+        public RegistrarDevolucionForm()
         {
             InitializeComponent();
             this.Text = String.Empty;
@@ -60,59 +55,61 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             Close();
         }
 
-        private void buttonBuscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                List<Ejemplar> list = new List<Ejemplar>();
-                list = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(textBox1.Text);
-                cargarTabla(list);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                PopUpForm popup = new PopUpForm(ex.ToString());
-                popup.ShowDialog();
-            }
-        }
-
         private void buttonAceptar_Click(object sender, EventArgs e)
         {
-            int dni = usuario.DNI;
-            controladorPrestamo.NuevoPrestamo(ejemplar, usuario, (DateTime)controladorPrestamo.AsignarVencimiento(dni));
-        }
-
-        private void buttonBuscarUsuario_Click(object sender, EventArgs e)
-        {
-            string dni = textBoxDNI.Text;
-            listaUsuario = controladorUsuario.obtenerUsuario(dni);
-            usuario = listaUsuario[0];
-        }
-
-        private void gridEjemplares_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
             try
             {
-                if (e.RowIndex >= 0)
-                {
-                    // Obtener la fila clickeada
-                    DataGridViewRow filaSeleccionada = gridEjemplares.Rows[e.RowIndex];
-                    string id = filaSeleccionada.Cells[0].Value.ToString();
-                    ejemplar = controladorEjemplar.BuscarEjemplarPorID(int.Parse(id));
-                }
+                string estado;
+                string codigo;
+                estado = estadoComboBox.SelectedItem.ToString();
+                codigo = codigoLabel.Text;
+
+                controladorPrestamo.RegistrarDevolucionPrestamo(codigo, ParseEstado(estado));
+            }
+            catch (SystemException s)
+            {
+                //La panntalla deberia mostrar que algun parametro esta mal
+                PopUpForm popup = new PopUpForm("Error en los parametros");
+                popup.ShowDialog();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
                 PopUpForm popup = new PopUpForm(ex.ToString());
                 popup.ShowDialog();
-            }   
+                //La panntalla deberia mostrar el siguiente error "ex.ToString()"
+                Console.WriteLine(ex.Message);
+
+            }
         }
 
-        private void cargarTabla(List<Ejemplar> lista)
+        private Estado ParseEstado(string estado)
         {
-            gridEjemplares.DataSource = lista;
+            switch(estado)
+            {
+                case "Bueno":
+                    return Estado.Bueno;
+                case "Regular":
+                    return Estado.Regular;
+                case "Arruinado":
+                    return Estado.Arruinado;
+                default:
+                    throw new ArgumentException("Estado no válido", nameof(estado));
+            }
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            bool value;
+            //metodo buscar prestamo sin vencer del ejemplar
+            value = true; //acá va a haber que asignar ese resultado
+            if (value)
+            {
+                MessageBox.Show("El código ingresado coincide con un ejemplar existente", "Código válido");
+            }
+            else
+            {
+                MessageBox.Show("El código ingresado no coincide con un ejemplar existente", "Código no válido");
+            }
         }
     }
 }
-
