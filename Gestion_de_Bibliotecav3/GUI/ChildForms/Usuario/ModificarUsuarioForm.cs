@@ -11,15 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.GUI;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class ModificarUsuarioForm : Form
     {
-        public Usuario usuario { get; set; }
+        public BusquedaUsuarioDTO usuario { get; set; }
         ControladorUsuario controladorUsuario = new ControladorUsuario();
 
-        public ModificarUsuarioForm(Usuario usuario)
+        public ModificarUsuarioForm(BusquedaUsuarioDTO usuario)
         {
             InitializeComponent();
             this.Text = String.Empty;
@@ -81,8 +82,13 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 string email = textBoxEmail.Text;
                 //Usuario usuarioOriginal = new Usuario();
                 //usuarioOriginal = controladorUsuario.obtenerUsuario(dni)[0];
-                Usuario usuarioNuevo = new Usuario(int.Parse(dni), nombre, direccion, int.Parse(telefono), email);
-                controladorUsuario.ModificarUsuario(usuario);
+                UsuarioDTO usuarioNuevo = new UsuarioDTO();
+                usuarioNuevo.DNI = int.Parse(dni);
+                usuarioNuevo.Nombre = nombre;
+                usuarioNuevo.Direccion = direccion;
+                usuarioNuevo.Telefono = int.Parse(telefono);
+                usuarioNuevo.Email = email;
+                controladorUsuario.ModificarUsuario(usuarioNuevo);
             }
             catch (SystemException s)
             {

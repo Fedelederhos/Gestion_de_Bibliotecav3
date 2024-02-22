@@ -65,6 +65,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 codigo = codigoLabel.Text;
 
                 controladorPrestamo.RegistrarDevolucionPrestamo(codigo, estado);
+
             }
             catch (SystemException s)
             {
@@ -85,7 +86,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             bool value;
-            //metodo buscar prestamo sin vencer del ejemplar
+            controladorPrestamo.BuscarPrestamosPorCodigoODNI(codigoLabel.Text);
             value = true; //acá va a haber que asignar ese resultado
             if (value)
             {

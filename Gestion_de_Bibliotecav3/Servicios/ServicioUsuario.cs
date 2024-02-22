@@ -24,7 +24,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// </summary>
         /// <param name="id">ID del usuario.</param>
         /// <returns>Usuario encontrado.</returns>
-        public Usuario Get(int id)
+        public BusquedaUsuarioDTO Get(int id)
         {
             return repositorioUsuarios.Get(id); // Retorna el usuario obtenido por su ID.
         }
@@ -34,7 +34,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// </summary>
         /// <param name="dni">DNI del usuario.</param>
         /// <returns>Usuario encontrado.</returns>
-        public Usuario obtenerPorDni(int dni)
+        public BusquedaUsuarioDTO obtenerPorDni(int dni)
         {
             return repositorioUsuarios.obtenerPorDni(dni); // Retorna el usuario obtenido por su DNI.
         }
@@ -45,7 +45,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// <returns>Lista de usuarios DTO.</returns>
         public List<UsuarioDTO> GetAll()
         {
-            return ((List<Usuario>)repositorioUsuarios.GetAll()).Select(usuario => servicioDTO.aDTO(usuario)).ToList();
+            return ((List<BusquedaUsuarioDTO>)repositorioUsuarios.GetAll()).Select(usuario => servicioDTO.aDTO(usuario)).ToList();
             // Retorna todos los usuarios del repositorio convertidos a DTOs.
         }
 
@@ -58,7 +58,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             if (usuariodto.DNI != null && !repositorioUsuarios.ExistePorDni(usuariodto.DNI))
             { 
                 // Si el DNI del usuario no es nulo y no existe en el repositorio, agrega el usuario.
-                Usuario usuario = new Usuario(usuariodto.DNI, usuariodto.Nombre, usuariodto.Direccion, usuariodto.Telefono, usuariodto.Email);
+                BusquedaUsuarioDTO usuario = new BusquedaUsuarioDTO(usuariodto.DNI, usuariodto.Nombre, usuariodto.Direccion, usuariodto.Telefono, usuariodto.Email);
                 repositorioUsuarios.Agregar(usuario);
             }
             throw new SystemException(); // Lanza una excepción si no se cumple la condición anterior.
@@ -73,7 +73,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             if (usuariodto.DNI != null && repositorioUsuarios.ExistePorDni(usuariodto.DNI))
             { 
                 // Si el DNI del usuario no es nulo y existe en el repositorio, actualiza el usuario.
-                Usuario usuario = new Usuario(usuariodto.DNI, usuariodto.Nombre, usuariodto.Direccion, usuariodto.Telefono, usuariodto.Email);
+                BusquedaUsuarioDTO usuario = new BusquedaUsuarioDTO(usuariodto.DNI, usuariodto.Nombre, usuariodto.Direccion, usuariodto.Telefono, usuariodto.Email);
                 repositorioUsuarios.Actualizar(this.obtenerPorDni(usuariodto.DNI).ID, usuario);
             }
             throw new SystemException(); // Lanza una excepción si no se cumple la condición anterior.
@@ -88,7 +88,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
             if (dni != null && repositorioUsuarios.ExistePorDni(dni))
             { 
                 // Si el DNI del usuario no es nulo y existe en el repositorio, elimina el usuario.
-                Usuario usuario = this.obtenerPorDni(dni);
+                BusquedaUsuarioDTO usuario = this.obtenerPorDni(dni);
                 repositorioUsuarios.Eliminar(usuario.ID, usuario);
             }
             throw new SystemException(); // Lanza una excepción si no se cumple la condición anterior.
@@ -109,7 +109,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// </summary>
         /// <param name="nombre">Nombre del usuario.</param>
         /// <returns>Lista de usuarios encontrados.</returns>
-        public List<Usuario> obtenerPorNombre(string nombre)
+        public List<BusquedaUsuarioDTO> obtenerPorNombre(string nombre)
         {
             return repositorioUsuarios.obtenerPorNombre(nombre); // Retorna una lista de usuarios encontrados por su nombre.
         }
@@ -122,7 +122,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// 
         public int ObtenerDiasExtra(int dni)
         {
-            Usuario usuario = repositorioUsuarios.obtenerPorDni(dni);
+            BusquedaUsuarioDTO usuario = repositorioUsuarios.obtenerPorDni(dni);
             return (int)Math.Floor((double)(usuario.Score / VariablesGlobales.puntosParaDiaExtra));
             // Retorna la cantidad de días extra de préstamo para el usuario.
         }

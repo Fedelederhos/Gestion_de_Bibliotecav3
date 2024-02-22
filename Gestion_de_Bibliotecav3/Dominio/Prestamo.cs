@@ -12,14 +12,14 @@ namespace Gestion_de_Bibliotecav3.Dominio
         private DateTime? iFechaDevolucion;
         private bool iNotificacion;
         private Ejemplar iEjemplar;
-        private Usuario iUsuario;
+        private BusquedaUsuarioDTO iUsuario;
 
         public int EjemplarID { get; set; }
         public int UsuarioID { get; set; }
 
         public Prestamo() { }
 
-        public Prestamo(Usuario pUsuario, Ejemplar pEjemplar, DateTime pFechaVencimiento)
+        public Prestamo(BusquedaUsuarioDTO pUsuario, Ejemplar pEjemplar, DateTime pFechaVencimiento)
         {
             iFechaEntrega = DateTime.Now;
             iFechaVencimiento = pFechaVencimiento;
@@ -59,7 +59,7 @@ namespace Gestion_de_Bibliotecav3.Dominio
             set { this.iNotificacion = value; }
         }
 
-        public Usuario Usuario
+        public BusquedaUsuarioDTO Usuario
         {
             get { return this.iUsuario; }
             set { this.iUsuario = value; }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using Gestion_de_Bibliotecav3.GUI;
 
 namespace Gestion_de_Biblioteca.GUI
@@ -64,7 +65,12 @@ namespace Gestion_de_Biblioteca.GUI
                 string direccion = textBoxDireccion.Text;
                 string telefono = textBoxTelefono.Text;
                 string email = textBoxEmail.Text;
-                Usuario usuario = new Usuario(int.Parse(dni), nombreCompleto, direccion, int.Parse(telefono), email);
+                UsuarioDTO usuario = new UsuarioDTO();
+                usuario.DNI = int.Parse(dni);
+                usuario.Nombre = nombreCompleto;
+                usuario.Direccion = direccion;
+                usuario.Telefono = int.Parse(telefono);
+                usuario.Email = email;
                 controladorUsuario.CrearUsuario(usuario);
             }
             catch (SystemException s)

@@ -37,7 +37,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
 
         public void Agregar(BuscarEjemplarDTO ejemplardto, BuscarUsuarioDTO usuariodto, DateTime fechaVencimiento)
         {
-            Usuario usuario = servicioUsuario.obtenerPorDni(usuariodto.DNI);
+            BusquedaUsuarioDTO usuario = servicioUsuario.obtenerPorDni(usuariodto.DNI);
             Ejemplar ejemplar = repositorioEjemplares.BuscarPorCodigo(ejemplardto.codigo);
             Prestamo prestamo = new Prestamo(usuario, ejemplar, fechaVencimiento);
             repositorioPrestamos.Agregar(prestamo);
@@ -125,7 +125,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         // BUSCAR LO QUE COINCIDEN CON UN USUARIO
         // DEVOLVER LOS EJEMPLARES 
 
-        public List<Ejemplar> ejemplaresUsuario(Usuario usuario)
+        public List<Ejemplar> ejemplaresUsuario(BusquedaUsuarioDTO usuario)
         {
             if (usuario != null && repositorioUsuarios.ExistePorDni(usuario.ID))
             {
