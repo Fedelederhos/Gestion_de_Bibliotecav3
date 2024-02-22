@@ -42,7 +42,7 @@ namespace Gestion_de_Bibliotecav3.Controladores
         /// </summary>
         /// <param name="dniONombre">Nombre o DNI del usuario a buscar.</param>
         /// <returns>Lista de usuarios encontrados.</returns>
-        public List<UsuarioDTO> ObtenerUsuarioPorNombreODNI(string dniONombre)
+        public List<BuscarUsuarioDTO> ObtenerUsuarioPorNombreODNI(string dniONombre)
         {
             return servicioUsuario.ObtenerUsuarioPorNombreODNI(dniONombre); // Llama al servicio para obtener usuarios por nombre o DNI.
         }
