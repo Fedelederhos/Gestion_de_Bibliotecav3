@@ -17,6 +17,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
     public class ServicioEjemplar
     {
         private RepositorioEjemplares repositorioEjemplar;
+        private RepositorioLibros repositorioLibro;
         private ServicioCategoria servicioCategoria;
         private ServicioDTO servicioDTO;
 
@@ -47,7 +48,7 @@ namespace Gestion_de_Bibliotecav3.Servicios
         {
             if (ejemplardto.Codigo != null && !ExisteCodigo(ejemplardto.Codigo))
             {
-                Ejemplar ejemplar = new Ejemplar(ejemplardto.Codigo, ejemplardto.Libro);
+                Ejemplar ejemplar = new Ejemplar(ejemplardto.Codigo, repositorioLibro.BuscarPorIsbn(ejemplardto.Libro.ISBN));
                 repositorioEjemplar.Agregar(ejemplar);
             }
 
