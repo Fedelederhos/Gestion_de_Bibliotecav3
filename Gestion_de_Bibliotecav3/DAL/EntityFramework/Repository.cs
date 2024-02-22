@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -35,6 +36,11 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
         public TEntidad Get(int pId)
         {
             return this.iDBContext.Set<TEntidad>().Find(pId);
+        }
+
+        public virtual IEnumerable<TEntidad> ObtenerDonde(IEnumerable<Func<TEntidad, bool>> pCondicion)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<TEntidad> GetAll()

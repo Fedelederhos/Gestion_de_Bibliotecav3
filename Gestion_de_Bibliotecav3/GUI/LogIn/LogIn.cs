@@ -15,7 +15,7 @@ namespace Gestion_de_Bibliotecav3.GUI.LogIn
     public partial class LogIn : Form
     {
         public bool userSuccessfullyAuthenticated;
-        public ControladorLogIn controladorLogIn = new ControladorLogIn();  
+        public ControladorAdministrador controladorLogIn = new ControladorAdministrador();  
         public LogIn()
         {
             InitializeComponent();

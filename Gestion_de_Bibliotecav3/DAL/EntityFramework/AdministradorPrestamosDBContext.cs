@@ -26,7 +26,9 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Libro> Libros { get; set; }
-        
+
+        public DbSet<Administrador> Administrador { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -73,6 +75,9 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             prestamoMap.MapClass();
 
             UsuarioMap usuarioMap = new UsuarioMap(modelBuilder);
+            usuarioMap.MapClass();
+
+            AdministradorMap administradorMap = new AdministradorMap(modelBuilder);
             usuarioMap.MapClass();
         }
 
