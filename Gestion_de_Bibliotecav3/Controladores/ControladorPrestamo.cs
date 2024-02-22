@@ -91,5 +91,9 @@ namespace Gestion_de_Bibliotecav3.Controladores
         {
             return servicioPrestamo.AsignarVencimiento(dni);
         }
+        public PrestamoDTO BuscarPrestamoActivo(string codigo)
+        {
+            return servicioPrestamo.BuscarPrestamoActivo(codigo);
+        }
     }
 }

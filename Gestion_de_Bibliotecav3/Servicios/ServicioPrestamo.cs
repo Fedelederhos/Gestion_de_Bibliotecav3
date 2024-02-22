@@ -217,11 +217,11 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// </summary>
         /// <param name="codigo">Código del ejemplar</param>
         /// <returns>Préstamo activo encontrado</returns>
-        public Prestamo BuscarPrestamoActivo(string codigo)
+        public PrestamoDTO BuscarPrestamoActivo(string codigo)
         {
-            Prestamo prestamo = new Prestamo();
-            List<Prestamo> prestamos = repositorioPrestamos.BuscarPrestamoPorCodigoEjemplar(codigo);
-            foreach (Prestamo buscado in prestamos)
+            PrestamoDTO prestamo = new PrestamoDTO();
+            List<PrestamoDTO> prestamos = repositorioPrestamos.BuscarPrestamoPorCodigoEjemplar(codigo).Select(prestamo => servicioDTO.aDTO(prestamo)).ToList();
+            foreach (PrestamoDTO buscado in prestamos)
             {
                 if (buscado.FechaDevolucion == null)
                 {
@@ -258,7 +258,10 @@ namespace Gestion_de_Bibliotecav3.Servicios
         /// <param name="estadostr">Estado del ejemplar devuelto</param>
         public void RegistrarDevolucionPrestamo(string codigo, string estadostr)
         {
-            Prestamo prestamo = this.BuscarPrestamoActivo(codigo);
+            PrestamoDTO prestamoDTO = this.BuscarPrestamoActivo(codigo);
+
+            Prestamo prestamo = repositorioPrestamos.Get(int.Parse(prestamoDTO.ID));
+
             Estado estado = StringAEstado(estadostr);
 
 
