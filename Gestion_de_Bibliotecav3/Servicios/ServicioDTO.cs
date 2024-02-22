@@ -2,6 +2,7 @@
 using Gestion_de_Bibliotecav3.DTOs.AutorDTOs;
 using Gestion_de_Bibliotecav3.DTOs.CategoriaDTOs;
 using Gestion_de_Bibliotecav3.DTOs.LibroDTOs;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,17 @@ namespace Gestion_de_Bibliotecav3.Servicios
         {
             CategoriaDTO dto = new CategoriaDTO();
             dto.Nombre = categoria.Nombre;
+            return dto;
+        }
+
+        public UsuarioDTO aDTO(Usuario usuario)
+        {
+            UsuarioDTO dto = new UsuarioDTO();
+            dto.DNI = usuario.DNI;
+            dto.Nombre = usuario.Nombre;
+            dto.Telefono = usuario.Telefono;
+            dto.Direccion = usuario.Direccion;
+            dto.Email = usuario.Email;
             return dto;
         }
     }
