@@ -17,32 +17,41 @@ using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
 namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     /// <summary>
-    /// Pantalla de gestionar categoria
+    /// Formulario para consultar y gestionar categorías de ejemplares.
     /// </summary>
     public partial class ConsultaCategoriaForm : Form
     {
-        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+        // Controlador para la gestión de ejemplares.
+        private ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+
+        /// <summary>
+        /// Constructor de la clase ConsultaCategoriaForm.
+        /// </summary>
         public ConsultaCategoriaForm()
         {
             InitializeComponent();
         }
 
         /// <summary>
-        /// Busca por categoria por coincidencia
+        /// Evento que se desencadena al hacer clic en el botón de búsqueda.
+        /// Busca ejemplares por categoría coincidente con el texto de búsqueda.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">El objeto que desencadenó el evento.</param>
+        /// <param name="e">Los argumentos del evento.</param>
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             try
             {
+                // Obtener el texto de búsqueda del TextBox.
                 string busqueda = textBusqueda.Text;
-                List<BuscarEjemplarDTO> lista = new List<BuscarEjemplarDTO>();
-                ///lista = controladorEjemplar.BuscarCategorias(busqueda);
+                // Buscar ejemplares por categoría coincidente con el texto de búsqueda.
+                List<BuscarEjemplarDTO> lista = controladorEjemplar.BuscarEjemplaresPorCategoriasPorCoincidencia(busqueda);
+                // Cargar los resultados en la tabla.
                 cargarTabla(lista);
             }
             catch (Exception ex)
             {
+                // Mostrar un mensaje de error si se produce una excepción.
                 Console.WriteLine(ex.Message);
                 PopUpForm popup = new PopUpForm(ex.ToString());
                 popup.ShowDialog();
@@ -50,12 +59,14 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         }
 
         /// <summary>
-        /// Carga en la tabla los resultados de la búsqueda
+        /// Cargar los resultados de la búsqueda en la tabla de categorías.
         /// </summary>
-        /// <param name="lista"></param>
+        /// <param name="lista">La lista de ejemplares a cargar en la tabla.</param>
         private void cargarTabla(List<BuscarEjemplarDTO> lista)
         {
+            // Establecer la lista como fuente de datos del DataGridView.
             categoriasGrid.DataSource = lista;
         }
     }
 }
+

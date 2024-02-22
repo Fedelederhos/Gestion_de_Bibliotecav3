@@ -45,10 +45,11 @@
             gridEjemplar = new DataGridView();
             boxISBNoNombre = new TextBox();
             labelIngrese = new Label();
-            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
+            autor = new DataGridViewTextBoxColumn();
             fechaVencimiento = new DataGridViewTextBoxColumn();
+            categoria = new DataGridViewTextBoxColumn();
             panelBanner.SuspendLayout();
             panelBotones.SuspendLayout();
             panelCampos.SuspendLayout();
@@ -200,7 +201,7 @@
             gridEjemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplar.ColumnHeadersHeight = 25;
             gridEjemplar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, fechaVencimiento });
+            gridEjemplar.Columns.AddRange(new DataGridViewColumn[] { isbn, nombre, autor, fechaVencimiento, categoria });
             gridEjemplar.EnableHeadersVisualStyles = false;
             gridEjemplar.GridColor = Color.Gainsboro;
             gridEjemplar.Location = new Point(107, 66);
@@ -249,12 +250,6 @@
             labelIngrese.TabIndex = 5;
             labelIngrese.Text = "Ingresar ISBN o nombre";
             // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Width = 48;
-            // 
             // isbn
             // 
             isbn.HeaderText = "ISBN";
@@ -271,6 +266,12 @@
             nombre.ReadOnly = true;
             nombre.Width = 105;
             // 
+            // autor
+            // 
+            autor.HeaderText = "AUTOR";
+            autor.Name = "autor";
+            autor.Width = 89;
+            // 
             // fechaVencimiento
             // 
             fechaVencimiento.HeaderText = "FECHA DE PUBLICACIÓN";
@@ -278,6 +279,12 @@
             fechaVencimiento.Name = "fechaVencimiento";
             fechaVencimiento.ReadOnly = true;
             fechaVencimiento.Width = 230;
+            // 
+            // categoria
+            // 
+            categoria.HeaderText = "CATEGORÍA";
+            categoria.Name = "categoria";
+            categoria.Width = 127;
             // 
             // AltaEjemplarForm
             // 
@@ -314,9 +321,10 @@
         private System.Windows.Forms.TextBox boxCodigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonBuscar;
-        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn isbn;
         private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn autor;
         private DataGridViewTextBoxColumn fechaVencimiento;
+        private DataGridViewTextBoxColumn categoria;
     }
 }

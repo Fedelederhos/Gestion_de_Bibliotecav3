@@ -36,7 +36,6 @@
             buttonBuscar = new Button();
             labelIngrese = new Label();
             gridLibros = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             autor = new DataGridViewTextBoxColumn();
@@ -112,10 +111,10 @@
             gridLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridLibros.ColumnHeadersHeight = 25;
             gridLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridLibros.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, autor, fechaPublicacion, categoria });
+            gridLibros.Columns.AddRange(new DataGridViewColumn[] { isbn, nombre, autor, fechaPublicacion, categoria });
             gridLibros.EnableHeadersVisualStyles = false;
             gridLibros.GridColor = Color.FromArgb(30, 45, 57);
-            gridLibros.Location = new Point(98, 80);
+            gridLibros.Location = new Point(98, 76);
             gridLibros.Margin = new Padding(2);
             gridLibros.Name = "gridLibros";
             gridLibros.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -139,14 +138,6 @@
             gridLibros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             gridLibros.Size = new Size(583, 358);
             gridLibros.TabIndex = 0;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Width = 44;
             // 
             // isbn
             // 
@@ -209,11 +200,10 @@
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Label labelIngrese;
         private System.Windows.Forms.TextBox textBusqueda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn autor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaPublicacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private DataGridViewTextBoxColumn isbn;
+        private DataGridViewTextBoxColumn nombre;
+        private DataGridViewTextBoxColumn autor;
+        private DataGridViewTextBoxColumn fechaPublicacion;
+        private DataGridViewTextBoxColumn categoria;
     }
 }

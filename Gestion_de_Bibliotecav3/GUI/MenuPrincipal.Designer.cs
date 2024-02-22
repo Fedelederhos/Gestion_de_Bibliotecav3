@@ -47,13 +47,13 @@ namespace Gestion_de_Biblioteca
             labelTitulo = new Label();
             panelDesktop = new Panel();
             dataGrid = new DataGridView();
-            usuario = new DataGridViewTextBoxColumn();
-            isbn = new DataGridViewTextBoxColumn();
-            fechaVencimiento = new DataGridViewTextBoxColumn();
             btnGestionEjemplares = new Button();
             btnGestionAutores = new Button();
             btnGestionCategorias = new Button();
             btnGestionLibros = new Button();
+            usuario = new DataGridViewTextBoxColumn();
+            codigo = new DataGridViewTextBoxColumn();
+            fechaVencimiento = new DataGridViewTextBoxColumn();
             panelMenu.SuspendLayout();
             panelBaner.SuspendLayout();
             panelDesktop.SuspendLayout();
@@ -289,7 +289,7 @@ namespace Gestion_de_Biblioteca
             dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGrid.ColumnHeadersHeight = 25;
             dataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGrid.Columns.AddRange(new DataGridViewColumn[] { usuario, isbn, fechaVencimiento });
+            dataGrid.Columns.AddRange(new DataGridViewColumn[] { usuario, codigo, fechaVencimiento });
             dataGrid.EnableHeadersVisualStyles = false;
             dataGrid.GridColor = Color.Gainsboro;
             dataGrid.Location = new Point(178, 24);
@@ -317,30 +317,6 @@ namespace Gestion_de_Biblioteca
             dataGrid.Size = new Size(443, 429);
             dataGrid.TabIndex = 1;
             dataGrid.CellContentClick += dataGrid_CellContentClick;
-            // 
-            // usuario
-            // 
-            usuario.HeaderText = "USUARIO";
-            usuario.MinimumWidth = 6;
-            usuario.Name = "usuario";
-            usuario.ReadOnly = true;
-            usuario.Width = 106;
-            // 
-            // isbn
-            // 
-            isbn.HeaderText = "ISBN";
-            isbn.MinimumWidth = 6;
-            isbn.Name = "isbn";
-            isbn.ReadOnly = true;
-            isbn.Width = 70;
-            // 
-            // fechaVencimiento
-            // 
-            fechaVencimiento.HeaderText = "FECHA DE VENCIMIENTO";
-            fechaVencimiento.MinimumWidth = 6;
-            fechaVencimiento.Name = "fechaVencimiento";
-            fechaVencimiento.ReadOnly = true;
-            fechaVencimiento.Width = 233;
             // 
             // btnGestionEjemplares
             // 
@@ -410,6 +386,30 @@ namespace Gestion_de_Biblioteca
             btnGestionLibros.UseVisualStyleBackColor = true;
             btnGestionLibros.Click += btnGestionLibros_Click;
             // 
+            // usuario
+            // 
+            usuario.HeaderText = "USUARIO";
+            usuario.MinimumWidth = 6;
+            usuario.Name = "usuario";
+            usuario.ReadOnly = true;
+            usuario.Width = 106;
+            // 
+            // codigo
+            // 
+            codigo.HeaderText = "CÓDIGO";
+            codigo.MinimumWidth = 6;
+            codigo.Name = "codigo";
+            codigo.ReadOnly = true;
+            codigo.Width = 99;
+            // 
+            // fechaVencimiento
+            // 
+            fechaVencimiento.HeaderText = "FECHA DE VENCIMIENTO";
+            fechaVencimiento.MinimumWidth = 6;
+            fechaVencimiento.Name = "fechaVencimiento";
+            fechaVencimiento.ReadOnly = true;
+            fechaVencimiento.Width = 233;
+            // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -446,13 +446,13 @@ namespace Gestion_de_Biblioteca
         private System.Windows.Forms.Button buttonMaximize;
         private System.Windows.Forms.Button buttonCloseChildForm;
         private System.Windows.Forms.DataGridView dataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isbn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaVencimiento;
         private Button btnGestionCategorias;
         private Button btnGestionAutores;
         private Button btnGestionEjemplares;
         private Button btnGestionLibros;
+        private DataGridViewTextBoxColumn usuario;
+        private DataGridViewTextBoxColumn codigo;
+        private DataGridViewTextBoxColumn fechaVencimiento;
     }
 }
 
