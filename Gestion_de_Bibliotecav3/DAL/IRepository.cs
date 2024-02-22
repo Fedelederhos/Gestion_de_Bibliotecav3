@@ -16,5 +16,7 @@ namespace Gestion_de_Bibliotecav3.DAL
         IEnumerable<TEntidad> GetAll();
         bool Existe(int pId);
 
+        IEnumerable<TEntidad> ObtenerDonde(IEnumerable<Func<TEntidad, bool>> pCondicion);
+
     }
 }

@@ -15,7 +15,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
         private IRepositorioCategorias iRepositorioCategorias;
         private IRepositorioAutores iRepositorioAutores;
         private IRepositorioLibros iRepositorioLibros;
-
+        private IRepositorioAdministrador iRepositorioAdministrador;
 
         public IRepositorioPrestamos RepositorioPrestamos => iRepositorioPrestamos;
         public IRepositorioUsuarios RepositorioUsuarios => iRepositorioUsuarios;
@@ -24,6 +24,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
         public IRepositorioCategorias RepositorioCategorias => iRepositorioCategorias;
         public IRepositorioAutores RepositorioAutores => iRepositorioAutores;
         public IRepositorioLibros RepositorioLibros => iRepositorioLibros;
+        public IRepositorioAdministrador RepositorioAdministrador => iRepositorioAdministrador;
 
         public UnitOfWork(AdministradorPrestamosDBContext pDBContext)
         {
@@ -39,7 +40,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework
             this.iRepositorioAutores = new RepositorioAutores(pDBContext);
             this.iRepositorioCategorias = new RepositorioCategorias(pDBContext);
             this.iRepositorioLibros = new RepositorioLibros(pDBContext);
-
+            this.iRepositorioAdministrador = new RepositorioAdministrador(pDBContext);
 
         }
 

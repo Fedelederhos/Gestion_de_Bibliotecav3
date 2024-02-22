@@ -16,7 +16,7 @@ namespace Gestion_de_Bibliotecav3.DAL
         IRepositorioCategorias RepositorioCategorias { get; }
         IRepositorioLibros RepositorioLibros { get; }
 
-
+        IRepositorioAdministrador RepositorioAdministrador { get; }
 
         void Completar();
 

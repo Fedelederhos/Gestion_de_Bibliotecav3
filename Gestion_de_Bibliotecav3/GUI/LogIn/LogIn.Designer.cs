@@ -31,12 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             panelLogo = new Panel();
             panelDesktop = new Panel();
-            labelUsuario = new Label();
-            labelContrasenia = new Label();
-            buttonAceptar = new Button();
-            buttonCancelar = new Button();
-            textBoxUsuario = new TextBox();
+            labelError = new Label();
             textBoxContrasenia = new TextBox();
+            textBoxUsuario = new TextBox();
+            buttonCancelar = new Button();
+            buttonAceptar = new Button();
+            labelContrasenia = new Label();
+            labelUsuario = new Label();
             panelDesktop.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,6 +58,7 @@
             // panelDesktop
             // 
             panelDesktop.BackColor = Color.FromArgb(46, 61, 66);
+            panelDesktop.Controls.Add(labelError);
             panelDesktop.Controls.Add(textBoxContrasenia);
             panelDesktop.Controls.Add(textBoxUsuario);
             panelDesktop.Controls.Add(buttonCancelar);
@@ -70,20 +72,62 @@
             panelDesktop.Size = new Size(800, 357);
             panelDesktop.TabIndex = 3;
             // 
-            // labelUsuario
+            // labelError
             // 
-            labelUsuario.Anchor = AnchorStyles.None;
-            labelUsuario.AutoSize = true;
-            labelUsuario.FlatStyle = FlatStyle.Flat;
-            labelUsuario.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            labelUsuario.ForeColor = Color.Gainsboro;
-            labelUsuario.Location = new Point(253, 74);
-            labelUsuario.Margin = new Padding(2, 0, 2, 0);
-            labelUsuario.Name = "labelUsuario";
-            labelUsuario.Size = new Size(87, 26);
-            labelUsuario.TabIndex = 1;
-            labelUsuario.Text = "Usuario";
-            labelUsuario.TextAlign = ContentAlignment.MiddleCenter;
+            labelError.Anchor = AnchorStyles.None;
+            labelError.AutoSize = true;
+            labelError.FlatStyle = FlatStyle.Flat;
+            labelError.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            labelError.ForeColor = Color.Salmon;
+            labelError.Location = new Point(290, 228);
+            labelError.Margin = new Padding(2, 0, 2, 0);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(230, 16);
+            labelError.TabIndex = 10;
+            labelError.Text = "Error al ingresar usuario o contraseña";
+            labelError.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // textBoxContrasenia
+            // 
+            textBoxContrasenia.BackColor = Color.LightGray;
+            textBoxContrasenia.Location = new Point(357, 170);
+            textBoxContrasenia.Name = "textBoxContrasenia";
+            textBoxContrasenia.Size = new Size(217, 23);
+            textBoxContrasenia.TabIndex = 9;
+            textBoxContrasenia.UseSystemPasswordChar = true;
+            textBoxContrasenia.TextChanged += textBoxContrasenia_TextChanged;
+            // 
+            // textBoxUsuario
+            // 
+            textBoxUsuario.BackColor = Color.LightGray;
+            textBoxUsuario.Location = new Point(357, 77);
+            textBoxUsuario.Name = "textBoxUsuario";
+            textBoxUsuario.Size = new Size(217, 23);
+            textBoxUsuario.TabIndex = 8;
+            // 
+            // buttonCancelar
+            // 
+            buttonCancelar.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonCancelar.Location = new Point(449, 273);
+            buttonCancelar.Margin = new Padding(2);
+            buttonCancelar.Name = "buttonCancelar";
+            buttonCancelar.Size = new Size(89, 27);
+            buttonCancelar.TabIndex = 7;
+            buttonCancelar.Text = "Cancelar";
+            buttonCancelar.UseVisualStyleBackColor = true;
+            buttonCancelar.Click += buttonCancelar_Click;
+            // 
+            // buttonAceptar
+            // 
+            buttonAceptar.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonAceptar.Location = new Point(256, 273);
+            buttonAceptar.Margin = new Padding(2);
+            buttonAceptar.Name = "buttonAceptar";
+            buttonAceptar.Size = new Size(89, 27);
+            buttonAceptar.TabIndex = 6;
+            buttonAceptar.Text = "Aceptar";
+            buttonAceptar.UseVisualStyleBackColor = true;
+            buttonAceptar.Click += buttonAceptar_Click;
             // 
             // labelContrasenia
             // 
@@ -100,47 +144,20 @@
             labelContrasenia.Text = "Contraseña";
             labelContrasenia.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // buttonAceptar
+            // labelUsuario
             // 
-            buttonAceptar.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonAceptar.Location = new Point(256, 273);
-            buttonAceptar.Margin = new Padding(2);
-            buttonAceptar.Name = "buttonAceptar";
-            buttonAceptar.Size = new Size(89, 27);
-            buttonAceptar.TabIndex = 6;
-            buttonAceptar.Text = "Aceptar";
-            buttonAceptar.UseVisualStyleBackColor = true;
-            buttonAceptar.Click += buttonAceptar_Click;
-            // 
-            // buttonCancelar
-            // 
-            buttonCancelar.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonCancelar.Location = new Point(449, 273);
-            buttonCancelar.Margin = new Padding(2);
-            buttonCancelar.Name = "buttonCancelar";
-            buttonCancelar.Size = new Size(89, 27);
-            buttonCancelar.TabIndex = 7;
-            buttonCancelar.Text = "Cancelar";
-            buttonCancelar.UseVisualStyleBackColor = true;
-            buttonCancelar.Click += buttonCancelar_Click;
-            // 
-            // textBoxUsuario
-            // 
-            textBoxUsuario.BackColor = Color.LightGray;
-            textBoxUsuario.Location = new Point(357, 77);
-            textBoxUsuario.Name = "textBoxUsuario";
-            textBoxUsuario.Size = new Size(217, 23);
-            textBoxUsuario.TabIndex = 8;
-            // 
-            // textBoxContrasenia
-            // 
-            textBoxContrasenia.BackColor = Color.LightGray;
-            textBoxContrasenia.Location = new Point(357, 170);
-            textBoxContrasenia.Name = "textBoxContrasenia";
-            textBoxContrasenia.Size = new Size(217, 23);
-            textBoxContrasenia.TabIndex = 9;
-            textBoxContrasenia.UseSystemPasswordChar = true;
-            textBoxContrasenia.TextChanged += textBoxContrasenia_TextChanged;
+            labelUsuario.Anchor = AnchorStyles.None;
+            labelUsuario.AutoSize = true;
+            labelUsuario.FlatStyle = FlatStyle.Flat;
+            labelUsuario.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            labelUsuario.ForeColor = Color.Gainsboro;
+            labelUsuario.Location = new Point(253, 74);
+            labelUsuario.Margin = new Padding(2, 0, 2, 0);
+            labelUsuario.Name = "labelUsuario";
+            labelUsuario.Size = new Size(87, 26);
+            labelUsuario.TabIndex = 1;
+            labelUsuario.Text = "Usuario";
+            labelUsuario.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // LogIn
             // 
@@ -167,5 +184,6 @@
         private TextBox textBoxUsuario;
         private Button buttonCancelar;
         private Button buttonAceptar;
+        private Label labelError;
     }
 }
