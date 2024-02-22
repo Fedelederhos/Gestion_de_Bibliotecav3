@@ -46,7 +46,6 @@
             buttonBuscar = new Button();
             textBox1 = new TextBox();
             labelIngrese = new Label();
-            id = new DataGridViewTextBoxColumn();
             isbn = new DataGridViewTextBoxColumn();
             nombre = new DataGridViewTextBoxColumn();
             codigo = new DataGridViewTextBoxColumn();
@@ -193,7 +192,7 @@
             gridEjemplares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridEjemplares.ColumnHeadersHeight = 25;
             gridEjemplares.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            gridEjemplares.Columns.AddRange(new DataGridViewColumn[] { id, isbn, nombre, codigo });
+            gridEjemplares.Columns.AddRange(new DataGridViewColumn[] { isbn, nombre, codigo });
             gridEjemplares.EnableHeadersVisualStyles = false;
             gridEjemplares.GridColor = Color.Gainsboro;
             gridEjemplares.Location = new Point(72, 79);
@@ -250,12 +249,6 @@
             labelIngrese.Size = new Size(210, 17);
             labelIngrese.TabIndex = 5;
             labelIngrese.Text = "Ingresar ISBN o nombre de libro";
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Width = 48;
             // 
             // isbn
             // 
@@ -316,7 +309,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBoxDNI;
         private System.Windows.Forms.Label label1;
-        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn isbn;
         private DataGridViewTextBoxColumn nombre;
         private DataGridViewTextBoxColumn codigo;

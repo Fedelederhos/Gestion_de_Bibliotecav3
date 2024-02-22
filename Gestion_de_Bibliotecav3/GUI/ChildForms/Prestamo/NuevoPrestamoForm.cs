@@ -1,5 +1,7 @@
 ﻿using Gestion_de_Bibliotecav3.Controladores;
 using Gestion_de_Bibliotecav3.Dominio;
+using Gestion_de_Bibliotecav3.DTOs.EjemplarDTOs;
+using Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs;
 using Gestion_de_Bibliotecav3.GUI;
 using System;
 using System.Collections.Generic;
@@ -16,13 +18,13 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
 {
     public partial class NuevoPrestamoForm : Form
     {
-        ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
-        ControladorUsuario controladorUsuario = new ControladorUsuario();
-        ControladorPrestamo controladorPrestamo = new ControladorPrestamo();
-        Ejemplar ejemplar;
-        string codigoEjemplar;
-        Usuario usuario;
-        List<Usuario> listaUsuario;
+       private ControladorEjemplar controladorEjemplar = new ControladorEjemplar();
+       private ControladorUsuario controladorUsuario = new ControladorUsuario();
+       private ControladorPrestamo controladorPrestamo = new ControladorPrestamo();
+       private BuscarEjemplarDTO ejemplar = new BuscarEjemplarDTO();
+       private string codigoEjemplar;
+       private BuscarUsuarioDTO usuarioDTO = new BuscarUsuarioDTO();
+        List<BuscarUsuarioDTO> listaUsuario = new List<BuscarUsuarioDTO>();
         public NuevoPrestamoForm()
         {
             InitializeComponent();
@@ -64,7 +66,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         {
             try
             {
-                List<Ejemplar> list = new List<Ejemplar>();
+                List<BuscarEjemplarDTO> list = new List<BuscarEjemplarDTO>();
                 list = controladorEjemplar.BuscarEjemplaresPorIsbnONombre(textBox1.Text);
                 cargarTabla(list);
             }
@@ -80,8 +82,10 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
         {
             try
             {
-                int dni = usuario.DNI;
-                controladorPrestamo.NuevoPrestamo(ejemplar, usuario, (DateTime)controladorPrestamo.AsignarVencimiento(dni));
+                string dni = usuarioDTO.DNI.ToString();
+                string fechaVencimientStr = controladorPrestamo.AsignarVencimiento(dni);
+                DateTime fechaVencimient = DateTime.Parse(fechaVencimientStr);
+                controladorPrestamo.NuevoPrestamo(ejemplar, usuarioDTO, fechaVencimient);
             }
             catch (SystemException s)
             {
@@ -102,8 +106,8 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             try
             {
                 string dni = textBoxDNI.Text;
-                listaUsuario = controladorUsuario.obtenerUsuario(dni);
-                usuario = listaUsuario[0];
+                listaUsuario = controladorUsuario.ObtenerUsuarioPorNombreODNI(dni);
+                usuarioDTO = listaUsuario[0];
             }
             catch (SystemException s)
             {
@@ -128,8 +132,8 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
                 {
                     // Obtener la fila clickeada
                     DataGridViewRow filaSeleccionada = gridEjemplares.Rows[e.RowIndex];
-                    string id = filaSeleccionada.Cells[0].Value.ToString();
-                    ejemplar = controladorEjemplar.BuscarEjemplarPorID(int.Parse(id));
+                    string codigo = filaSeleccionada.Cells[2].Value.ToString();
+                    ejemplar = controladorEjemplar.BuscarPorCodigo(codigo);
                 }
             }
             catch (Exception ex)
@@ -140,7 +144,7 @@ namespace Gestion_de_Biblioteca.GUI.ChildForms
             }   
         }
 
-        private void cargarTabla(List<Ejemplar> lista)
+        private void cargarTabla(List<BuscarEjemplarDTO> lista)
         {
             gridEjemplares.DataSource = lista;
         }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Gestion_de_Bibliotecav3.Dominio
 {
-    public class Usuario
+    public class BusquedaUsuarioDTO
     {
         private int iID;
         private int iDNI;
@@ -18,9 +18,9 @@ namespace Gestion_de_Bibliotecav3.Dominio
 
         public virtual ICollection<Prestamo> Prestamo { get; set; } = new List<Prestamo>();
 
-        public Usuario() { }
+        public BusquedaUsuarioDTO() { }
 
-        public Usuario(int pDNI, string pNombre, string pDireccion, int pTelefono, string pEmail)
+        public BusquedaUsuarioDTO(int pDNI, string pNombre, string pDireccion, int pTelefono, string pEmail)
         {
             iDNI = pDNI;
             iNombre = pNombre;

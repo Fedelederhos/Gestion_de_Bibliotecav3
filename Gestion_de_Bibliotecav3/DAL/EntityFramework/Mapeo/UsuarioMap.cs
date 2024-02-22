@@ -18,7 +18,7 @@ namespace Gestion_de_Bibliotecav3.DAL.EntityFramework.Mapeo
         public void MapClass()
         {
 
-            modelBuilder.Entity<Usuario>(entity =>
+            modelBuilder.Entity<BusquedaUsuarioDTO>(entity =>
             {
                 entity.HasKey(usuario => usuario.ID);
                 entity.Property(usuario => usuario.ID)

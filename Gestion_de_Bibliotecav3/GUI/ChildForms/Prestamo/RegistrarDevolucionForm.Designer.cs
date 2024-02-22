@@ -154,6 +154,7 @@
             // estadoComboBox
             // 
             estadoComboBox.FormattingEnabled = true;
+            estadoComboBox.Items.AddRange(new object[] { " Bueno", " Regular", " Arruinado" });
             estadoComboBox.Location = new Point(304, 153);
             estadoComboBox.Margin = new Padding(2);
             estadoComboBox.Name = "estadoComboBox";
