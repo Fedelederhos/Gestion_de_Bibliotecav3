@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestion_de_Bibliotecav3.DTOs.UsuarioDTOs
 {
-    internal class UsuarioDTO
+    public class UsuarioDTO
     {
         public int DNI { get; set; }
         public string Nombre { get; set; }
