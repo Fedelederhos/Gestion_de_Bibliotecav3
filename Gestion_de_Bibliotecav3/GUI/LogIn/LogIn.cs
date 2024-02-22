@@ -20,6 +20,7 @@ namespace Gestion_de_Bibliotecav3.GUI.LogIn
         {
             InitializeComponent();
             userSuccessfullyAuthenticated = false;
+            labelError.Visible = false;
 
         }
 
@@ -83,8 +84,8 @@ namespace Gestion_de_Bibliotecav3.GUI.LogIn
 
         private void ErrorMensaje(string txt) 
         {
-         //   labelErrorMessage.Text = "      " + txt;
-          //  labelErrorMessage.Visible = true;
+          labelError.Text = "      " + txt;
+          labelError.Visible = true;
         }
 
         /// <summary>
@@ -92,30 +93,14 @@ namespace Gestion_de_Bibliotecav3.GUI.LogIn
         /// </summary>
         private void LogOut(object sender, FormClosedEventArgs e)
         {
-          //  labelErrorMessage.Visible = false;
-          //  textBoxPassword.Clear();
-          //  textBoxUsername.Clear();
-          // textBoxUsername.Focus();
-          //  this.Show();
+            labelError.Visible = false;
+            textBoxContrasenia.Clear();
+            textBoxUsuario.Clear();
+            textBoxUsuario.Focus();
+            this.Show();
         }
     }
 }
 
-/* public UserDTO SignIn(string pUserName, string pPassword)
-        {
-            Func<User, bool>[] conditions =
-            {
-                u => u.UserName == pUserName,
-                u => u.PasswordHash == pPassword.GetHashCode()
-            };
-            var user = iContext.UnitOfWork.UserRepository.GetWhere(conditions).SingleOrDefault();
 
-            if (user != null)
-            {
-                iContext.User = user;
-                return DTOService.AsDTO(user);
-            }
-            return null;
-        }
- */
 
